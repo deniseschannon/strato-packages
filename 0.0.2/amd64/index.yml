@@ -1,0 +1,39 @@
+acpi: {}
+attr: {}
+bash: {}
+busybox: {}
+dhcpcd: {}
+e2fsprogs: {}
+eudev:
+  dependencies:
+  - zlib
+  - xz
+  - kmod
+iproute2: {}
+iptables: {}
+jq: {}
+json-c: {}
+kmod: {}
+libestr: {}
+mdadm: {}
+ncurses: {}
+ntp:
+  dependencies:
+  - openssl
+openssh:
+  dependencies:
+  - openssl
+  - zlib
+openssl: {}
+parted:
+  dependencies:
+  - libuuid
+  - libblkid
+readline: {}
+rsync: {}
+rsyslog: {}
+sudo: {}
+syslinux: {}
+util-linux: {}
+xz: {}
+zlib: {}
