@@ -1,0 +1,9 @@
+jq | usr/
+jq | usr/bin/
+jq | usr/bin/jq
+jq | usr/lib/
+jq | usr/lib/libjq.la
+jq | usr/lib/libjq.so
+jq | usr/lib/libjq.so.1
+jq | usr/lib/libjq.so.1.0.4
+jq | usr/share/

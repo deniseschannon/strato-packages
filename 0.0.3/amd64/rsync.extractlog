@@ -1,0 +1,4 @@
+rsync | usr/
+rsync | usr/bin/
+rsync | usr/bin/rsync
+rsync | usr/share/

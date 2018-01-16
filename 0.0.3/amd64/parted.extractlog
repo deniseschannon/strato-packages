@@ -1,0 +1,16 @@
+parted | usr/
+parted | usr/lib/
+parted | usr/lib/libparted-fs-resize.la
+parted | usr/lib/libparted-fs-resize.so
+parted | usr/lib/libparted-fs-resize.so.0
+parted | usr/lib/libparted-fs-resize.so.0.0.1
+parted | usr/lib/libparted.la
+parted | usr/lib/libparted.so
+parted | usr/lib/libparted.so.2
+parted | usr/lib/libparted.so.2.0.1
+parted | usr/lib/pkgconfig/
+parted | usr/lib/pkgconfig/libparted.pc
+parted | usr/sbin/
+parted | usr/sbin/parted
+parted | usr/sbin/partprobe
+parted | usr/share/

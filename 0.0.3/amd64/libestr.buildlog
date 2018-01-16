@@ -1,0 +1,202 @@
+Sending build context to Docker daemon 3.072 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV VERSION 0.1.10
+ ---> Running in 72e44bf2395a
+ ---> 765889881880
+Removing intermediate container 72e44bf2395a
+Step 3/7 : ENV LDFLAGS -s
+ ---> Running in 66a1c44aef66
+ ---> 0c88e370249f
+Removing intermediate container 66a1c44aef66
+Step 4/7 : RUN wget -P /usr/src/ http://libestr.adiscon.com/files/download/libestr-${VERSION}.tar.gz
+ ---> Running in b3f437ed5a56
+[91m--2018-01-16 05:37:41--  http://libestr.adiscon.com/files/download/libestr-0.1.10.tar.gz
+Resolving libestr.adiscon.com (libestr.adiscon.com)... [0m[91m138.201.116.127, 2a01:4f8:c17:44a6::2
+Connecting to libestr.adiscon.com (libestr.adiscon.com)|138.201.116.127|:80... [0m[91mconnected.
+HTTP request sent, awaiting response... [0m[91m200 OK
+Length: 336122 (328K) [application/x-gzip]
+[0m[91mSaving to: '/usr/src/libestr-0.1.10.tar.gz'
+[0m[91m
+     0K .......... ...[0m[91m....... .......... .......... ..[0m[91m........ 15%  146K 2s
+    50K .......... .......... .......... .......... ........[0m[91m.. 30%  292K 1s
+   100K ......[0m[91m.... .......... .......... .......... ...[0m[91m....... 45% 51.3M 1s
+   150K .......... .......... .......... .......... .[0m[91m......... 60%  293K 0s
+   200K .......... .......... .......... .......... .......... 76% 97.2M 0s
+   250K .......... .......... .......... .......... .......... 91%  232M 0s
+   300K .......... .......... ........                        100%  186M=0.7s
+
+2018-01-16 05:37:43 (478 KB/s) - '/usr/src/libestr-0.1.10.tar.gz' saved [336122/336122]
+
+[0m ---> 3bec1d5ce3ca
+Removing intermediate container b3f437ed5a56
+Step 5/7 : RUN cd /usr/src/ && tar xf libestr*
+ ---> Running in d1678c440e51
+ ---> e5b9d8d24948
+Removing intermediate container d1678c440e51
+Step 6/7 : RUN cd /usr/src/libestr*     && ./configure     --prefix=/usr     && make
+ ---> Running in 7ecfdd0142f2
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libestr.pc
+config.status: creating include/Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+*****************************************************
+libestr will be compiled with the following settings:
+
+Debug mode enabled:          no
+Testbench enabled:           yes
+make  all-recursive
+make[1]: Entering directory '/usr/src/libestr-0.1.10'
+Making all in include
+make[2]: Entering directory '/usr/src/libestr-0.1.10/include'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/libestr-0.1.10/include'
+Making all in src
+make[2]: Entering directory '/usr/src/libestr-0.1.10/src'
+  CC       libestr.lo
+  CC       string.lo
+  CCLD     libestr.la
+[91mar: `u' modifier ignored since `D' is the default (see `U')[0m[91m
+[0mmake[2]: Leaving directory '/usr/src/libestr-0.1.10/src'
+make[2]: Entering directory '/usr/src/libestr-0.1.10'
+make[2]: Leaving directory '/usr/src/libestr-0.1.10'
+make[1]: Leaving directory '/usr/src/libestr-0.1.10'
+ ---> 5830f63b3393
+Removing intermediate container 7ecfdd0142f2
+Step 7/7 : RUN cd /usr/src/libestr*     && make install
+ ---> Running in a972738d3632
+Making install in include
+make[1]: Entering directory '/usr/src/libestr-0.1.10/include'
+make[2]: Entering directory '/usr/src/libestr-0.1.10/include'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/usr/include'
+ /usr/bin/install -c -m 644 libestr.h '/usr/include'
+make[2]: Leaving directory '/usr/src/libestr-0.1.10/include'
+make[1]: Leaving directory '/usr/src/libestr-0.1.10/include'
+Making install in src
+make[1]: Entering directory '/usr/src/libestr-0.1.10/src'
+make[2]: Entering directory '/usr/src/libestr-0.1.10/src'
+ /bin/mkdir -p '/usr/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libestr.la '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/libestr.so.0.0.0 /usr/lib/libestr.so.0.0.0
+libtool: install: (cd /usr/lib && { ln -s -f libestr.so.0.0.0 libestr.so.0 || { rm -f libestr.so.0 && ln -s libestr.so.0.0.0 libestr.so.0; }; })
+libtool: install: (cd /usr/lib && { ln -s -f libestr.so.0.0.0 libestr.so || { rm -f libestr.so && ln -s libestr.so.0.0.0 libestr.so; }; })
+libtool: install: /usr/bin/install -c .libs/libestr.lai /usr/lib/libestr.la
+libtool: install: /usr/bin/install -c .libs/libestr.a /usr/lib/libestr.a
+libtool: install: chmod 644 /usr/lib/libestr.a
+libtool: install: ranlib /usr/lib/libestr.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Leaving directory '/usr/src/libestr-0.1.10/src'
+make[1]: Leaving directory '/usr/src/libestr-0.1.10/src'
+make[1]: Entering directory '/usr/src/libestr-0.1.10'
+make[2]: Entering directory '/usr/src/libestr-0.1.10'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libestr.pc '/usr/lib/pkgconfig'
+make[2]: Leaving directory '/usr/src/libestr-0.1.10'
+make[1]: Leaving directory '/usr/src/libestr-0.1.10'
+ ---> f63ad2ccfb5f
+Removing intermediate container a972738d3632
+Successfully built f63ad2ccfb5f

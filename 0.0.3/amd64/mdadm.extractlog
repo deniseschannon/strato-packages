@@ -1,0 +1,10 @@
+mdadm | lib/
+mdadm | lib/udev/
+mdadm | lib/udev/rules.d/
+mdadm | lib/udev/rules.d/63-md-raid-arrays.rules
+mdadm | lib/udev/rules.d/64-md-raid-assembly.rules
+mdadm | sbin/
+mdadm | sbin/mdadm
+mdadm | sbin/mdmon
+mdadm | usr/
+mdadm | usr/share/

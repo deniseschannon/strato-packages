@@ -1,0 +1,15 @@
+Sending build context to Docker daemon 10.24 kB
+Step 1/4 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/4 : RUN mkdir /package
+ ---> Running in 85fb6ec1da3a
+ ---> 1d6e32a826c5
+Removing intermediate container 85fb6ec1da3a
+Step 3/4 : COPY group passwd profile shadow shells /usr/src/
+ ---> f345c4129057
+Removing intermediate container c002be40ba4d
+Step 4/4 : RUN install -m 0755 -d     /package/etc     /package/etc/ssl     /package/etc/strato     /package/home     /package/run     /package/usr     /package/usr/bin     /package/usr/sbin     /package/usr/share     /package/var/cache     /package/var/cache/misc     /package/var/lib     /package/var/lib/strato     /package/var/lib/misc     /package/var/local     /package/var/log     /package/var/run     && install -m 0555 -d /package/var/empty     && install -m 0700 -d /package/root     && install -m 1777 -d /package/tmp /package/var/tmp     && cp /usr/src/group     /usr/src/passwd     /usr/src/profile     /usr/src/shadow     /usr/src/shells     /package/etc
+ ---> Running in 9247fbb90ac3
+ ---> f3dee7f37f89
+Removing intermediate container 9247fbb90ac3
+Successfully built f3dee7f37f89

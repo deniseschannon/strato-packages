@@ -1,0 +1,381 @@
+Sending build context to Docker daemon 3.072 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV VERSION 4.7.0
+ ---> Running in 0cfb397b93d7
+ ---> 4380f62cad32
+Removing intermediate container 0cfb397b93d7
+Step 3/7 : ENV LDFLAGS -s
+ ---> Running in 0a021882533e
+ ---> 60c339cc4bd7
+Removing intermediate container 0a021882533e
+Step 4/7 : RUN wget -P /usr/src/ http://kernel.org/pub/linux/utils/net/iproute2/iproute2-${VERSION}.tar.xz
+ ---> Running in ccb85ab290f4
+[91m--2018-01-16 05:30:20--  http://kernel.org/pub/linux/utils/net/iproute2/iproute2-4.7.0.tar.xz
+Resolving kernel.org (kernel.org)... [0m[91m198.145.29.83
+Connecting to kernel.org (kernel.org)|198.145.29.83|:80... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m301 Moved Permanently
+Location: https://kernel.org/pub/linux/utils/net/iproute2/iproute2-4.7.0.tar.xz [following]
+[0m[91m--2018-01-16 05:30:20--  https://kernel.org/pub/linux/utils/net/iproute2/iproute2-4.7.0.tar.xz
+[0m[91mConnecting to kernel.org (kernel.org)|198.145.29.83|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m301 Moved Permanently
+[0m[91mLocation: https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-4.7.0.tar.xz [following]
+[0m[91m--2018-01-16 05:30:20--  https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-4.7.0.tar.xz
+[0m[91mResolving www.kernel.org (www.kernel.org)... [0m[91m147.75.196.57, 2604:1380:1:3600::3
+Connecting to www.kernel.org (www.kernel.org)|147.75.196.57|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 589928 (576K) [application/x-xz]
+[0m[91mSaving to: '/usr/src/iproute2-4.7.0.tar.xz'
+[0m[91m
+     0K ..[0m[91m....[0m[91m..[0m[91m.[0m[91m.[0m[91m ..[0m[91m..[0m[91m.[0m[91m..... .[0m[91m.........[0m[91m ........[0m[91m.. ..........  8%  332K 2s
+    50K .......... .......... ........[0m[91m.. ......[0m[91m.... ....[0m[91m.[0m[91m..... 17%[0m[91m  663K[0m[91m 1s
+   100K .......... .......... .......... ....[0m[91m...... ..[0m[91m........ 26% 39.8M 1s
+   150K ..........[0m[91m ......[0m[91m.... ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. 34%[0m[91m  673K 1s
+   200K ......[0m[91m.... .......... .......... .......... .......... 43% 47.7M 0s
+   250K .......... .......... .......... .......... .......... 52%  275M 0s
+   300K .......... .......... ......[0m[91m.... .......... .......... 60%  289M 0s
+   350K .......... .......... ....[0m[91m...... ..........[0m[91m .......... 69% 1.29M 0s
+   400K ......[0m[91m.... .......... .......... .......... .......... 78% 1.33M 0s
+   450K .......... .......... ........[0m[91m.. .......... .......... 86%  219M 0s
+   500K ..[0m[91m........ .......... .......... ....[0m[91m...... .......... 95% 74.8M 0s[0m[91m
+   550K .......... .......... ......                          100%  173M=0.4s
+
+[0m[91m2018-01-16 05:30:21 (1.49 MB/s) - '/usr/src/iproute2-4.7.0.tar.xz' saved [589928/589928]
+
+[0m ---> 926b6a6cd7cf
+Removing intermediate container ccb85ab290f4
+Step 5/7 : RUN cd /usr/src/ && tar xf iproute2*
+ ---> Running in bed8010b18db
+ ---> 34a9be838b68
+Removing intermediate container bed8010b18db
+Step 6/7 : RUN cd /usr/src/iproute2*     && ./configure     --prefix=/usr     --sysconfdir=/etc     --mandir=/usr/share/man     --localstatedir=/var     && make
+ ---> Running in 64f147df9a70
+TC schedulers
+ ATM	no
+ IPT	using xtables
+ IPSET  yes
+
+iptables modules directory: /lib/xtables
+libc has setns: yes
+SELinux support: no
+ELF support: no
+libmnl support: yes
+Berkeley DB: no
+
+docs: latex: no
+ WARNING: no docs can be built from LaTeX files
+ sgml2html: no
+ WARNING: no HTML docs can be built from SGML
+
+
+lib
+    CC       libgenl.o
+    CC       ll_map.o
+    CC       libnetlink.o
+    AR       libnetlink.a
+    CC       utils.o
+    CC       rt_names.o
+    CC       ll_types.o
+    CC       ll_proto.o
+    CC       ll_addr.o
+    CC       inet_proto.o
+    CC       namespace.o
+    CC       json_writer.o
+    CC       names.o
+    CC       color.o
+    CC       dnet_ntop.o
+    CC       dnet_pton.o
+    CC       ipx_ntop.o
+    CC       ipx_pton.o
+    CC       mpls_ntop.o
+    CC       mpls_pton.o
+    AR       libutil.a
+
+ip
+    CC       ip.o
+    CC       ipaddress.o
+    CC       ipaddrlabel.o
+    CC       iproute.o
+    CC       iprule.o
+    CC       ipnetns.o
+    CC       rtm_map.o
+    CC       iptunnel.o
+    CC       ip6tunnel.o
+    CC       tunnel.o
+    CC       ipneigh.o
+    CC       ipntable.o
+    CC       iplink.o
+    CC       ipmaddr.o
+    CC       ipmonitor.o
+    CC       ipmroute.o
+    CC       ipprefix.o
+    CC       iptuntap.o
+    CC       iptoken.o
+    CC       ipxfrm.o
+    CC       xfrm_state.o
+    CC       xfrm_policy.o
+    CC       xfrm_monitor.o
+    CC       iplink_vlan.o
+    CC       link_veth.o
+    CC       link_gre.o
+    CC       iplink_can.o
+    CC       iplink_macvlan.o
+    CC       ipl2tp.o
+    CC       link_vti.o
+    CC       link_vti6.o
+    CC       iplink_vxlan.o
+    CC       tcp_metrics.o
+    CC       iplink_ipoib.o
+    CC       ipnetconf.o
+    CC       link_ip6tnl.o
+    CC       link_iptnl.o
+    CC       link_gre6.o
+    CC       iplink_bond.o
+    CC       iplink_bond_slave.o
+    CC       iplink_hsr.o
+    CC       iplink_bridge.o
+    CC       iplink_bridge_slave.o
+    CC       ipfou.o
+    CC       iplink_ipvlan.o
+    CC       iplink_geneve.o
+    CC       iplink_vrf.o
+    CC       iproute_lwtunnel.o
+    CC       ipmacsec.o
+    LINK     ip
+    CC       rtmon.o
+    LINK     rtmon
+
+tc
+    CC       tc_core.o
+    CC       tc_red.o
+    CC       tc_cbq.o
+    CC       tc_estimator.o
+    CC       tc_stab.o
+    AR       libtc.a
+    CC       tc.o
+    CC       tc_qdisc.o
+    CC       tc_class.o
+    CC       tc_filter.o
+    CC       tc_util.o
+    CC       tc_monitor.o
+    CC       tc_exec.o
+    CC       tc_bpf.o
+[91mtc_bpf.c: In function 'bpf_trace_pipe':
+[0m[91mtc_bpf.c:402:4: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+    write(2, buff, ret);
+    ^
+[0m    CC       m_police.o
+    CC       m_estimator.o
+    CC       m_action.o
+    CC       m_ematch.o
+    YACC     emp_ematch.yacc.c
+    CC       emp_ematch.yacc.o
+    LEX      emp_ematch.lex.c
+    CC       emp_ematch.lex.o
+    CC       q_fifo.o
+    CC       q_sfq.o
+    CC       q_red.o
+    CC       q_prio.o
+    CC       q_tbf.o
+    CC       q_cbq.o
+    CC       q_rr.o
+    CC       q_multiq.o
+    CC       q_netem.o
+    CC       q_choke.o
+    CC       q_sfb.o
+    CC       f_rsvp.o
+    CC       f_u32.o
+    CC       f_route.o
+    CC       f_fw.o
+    CC       f_basic.o
+    CC       f_bpf.o
+    CC       f_flow.o
+    CC       f_cgroup.o
+    CC       f_flower.o
+    CC       q_dsmark.o
+    CC       q_gred.o
+    CC       f_tcindex.o
+    CC       q_ingress.o
+    CC       q_hfsc.o
+    CC       q_htb.o
+    CC       q_drr.o
+    CC       q_qfq.o
+    CC       m_gact.o
+    CC       m_mirred.o
+    CC       m_nat.o
+    CC       m_pedit.o
+    CC       m_ife.o
+    CC       m_skbedit.o
+    CC       m_csum.o
+    CC       m_simple.o
+    CC       m_vlan.o
+    CC       m_connmark.o
+    CC       m_bpf.o
+    CC       p_ip.o
+    CC       p_icmp.o
+    CC       p_tcp.o
+    CC       p_udp.o
+    CC       em_nbyte.o
+    CC       em_cmp.o
+    CC       em_u32.o
+    CC       em_canid.o
+    CC       em_meta.o
+    CC       q_mqprio.o
+    CC       q_codel.o
+    CC       q_fq_codel.o
+    CC       q_fq.o
+    CC       q_pie.o
+    CC       q_hhf.o
+    CC       q_clsact.o
+    CC       e_bpf.o
+    CC       em_ipset.o
+    LINK     tc
+    CC       m_xt.so
+rm emp_ematch.lex.c
+
+bridge
+    CC       bridge.o
+    CC       fdb.o
+    CC       monitor.o
+    CC       link.o
+    CC       mdb.o
+    CC       vlan.o
+    LINK     bridge
+
+misc
+    CC       ss.o
+    YACC     ssfilter.c
+[91mssfilter.y: warning: 31 shift/reduce conflicts [-Wconflicts-sr]
+[0m    CC       ssfilter.o
+    LINK     ss
+    CC       nstat
+    CC       ifstat
+    CC       rtacct
+    CC       lnstat.o
+    CC       lnstat_util.o
+    LINK     lnstat
+
+netem
+gcc  -I../include -o maketable maketable.c -lm
+gcc  -I../include -o normal normal.c -lm
+gcc  -I../include -o pareto pareto.c -lm
+gcc  -I../include -o paretonormal paretonormal.c -lm
+./normal > normal.dist
+./pareto > pareto.dist
+./paretonormal > paretonormal.dist
+./maketable experimental.dat > experimental.dist
+
+genl
+    CC       genl.o
+    CC       ctrl.o
+    LINK     genl
+
+tipc
+    CC       bearer.o
+    CC       cmdl.o
+    CC       link.o
+    CC       media.o
+    CC       misc.o
+    CC       msg.o
+    CC       nametable.o
+    CC       node.o
+    CC       socket.o
+    CC       tipc.o
+    LINK     tipc
+
+devlink
+    CC       devlink.o
+    CC       mnlg.o
+    LINK     devlink
+
+man
+make[2]: Nothing to be done for 'all'.
+make[2]: Nothing to be done for 'all'.
+sed "s|@SYSCONFDIR@|/etc/iproute2|g" ip-address.8.in > ip-address.8
+sed "s|@SYSCONFDIR@|/etc/iproute2|g" ip-link.8.in > ip-link.8
+sed "s|@SYSCONFDIR@|/etc/iproute2|g" ip-route.8.in > ip-route.8
+ ---> 4722adbb5327
+Removing intermediate container 64f147df9a70
+Step 7/7 : RUN cd /usr/src/iproute2*     && make install
+ ---> Running in a76d2e460898
+
+lib
+make[1]: Nothing to be done for 'all'.
+
+ip
+make[1]: Nothing to be done for 'all'.
+
+tc
+make[1]: Nothing to be done for 'all'.
+
+bridge
+make[1]: Nothing to be done for 'all'.
+
+misc
+make[1]: Nothing to be done for 'all'.
+
+netem
+make[1]: Nothing to be done for 'all'.
+
+genl
+make[1]: Nothing to be done for 'all'.
+
+tipc
+make[1]: Nothing to be done for 'all'.
+
+devlink
+make[1]: Nothing to be done for 'all'.
+
+man
+make[2]: Nothing to be done for 'all'.
+make[2]: Nothing to be done for 'all'.
+make[2]: Nothing to be done for 'all'.
+install -m 0755 -d /sbin
+install -m 0755 -d /etc/iproute2
+install -m 0755 -d /var/lib/arpd
+install -m 0755 -d /usr/share/doc/iproute2/examples
+install -m 0755 -d /usr/share/doc/iproute2/examples/diffserv
+install -m 0644 README.iproute2+tc examples/README.cbq examples/gaiconf examples/dhcp-client-script examples/cbqinit.eth1 examples/SYN-DoS.rate.limit examples/cbq.init-v0.7.3 \
+	/usr/share/doc/iproute2/examples
+install -m 0644 examples/diffserv/Edge2 examples/diffserv/Edge32-ca-u32 examples/diffserv/Edge31-ca-u32 examples/diffserv/efcbq examples/diffserv/regression-testing examples/diffserv/Edge1 examples/diffserv/ef-prio examples/diffserv/Edge32-cb-chains examples/diffserv/README examples/diffserv/afcbq examples/diffserv/Edge32-cb-u32 examples/diffserv/Edge31-cb-chains \
+	/usr/share/doc/iproute2/examples/diffserv
+make[1]: Nothing to be done for 'install'.
+install -m 0755 ip rtmon /sbin
+install -m 0755 ifcfg rtpr routel routef /sbin
+mkdir -p /usr/lib/tc
+install -m 0755 tc /sbin
+for i in  m_xt.so; \
+do install -m 755 $i /usr/lib/tc; \
+done
+if [ ! -f /usr/lib/tc/m_ipt.so ]; then \
+if [ -f /usr/lib/tc/m_xt.so ]; \
+	then ln -s m_xt.so /usr/lib/tc/m_ipt.so ; \
+elif [ -f /usr/lib/tc/m_xt_old.so ]; \
+	then ln -s m_xt_old.so /usr/lib/tc/m_ipt.so ; \
+fi; \
+fi
+install -m 0755 bridge /sbin
+install -m 0755 ss nstat ifstat rtacct lnstat /sbin
+ln -sf lnstat /sbin/rtstat
+ln -sf lnstat /sbin/ctstat
+mkdir -p /usr/lib/tc
+for i in normal.dist pareto.dist paretonormal.dist experimental.dist; \
+do install -m 644 $i /usr/lib/tc; \
+done
+install -m 0755 genl /sbin
+install -m 0755 tipc /sbin
+install -m 0755 devlink /sbin
+install -m 0755 -d /usr/share/man/man3
+install -m 0644 libnetlink.3 /usr/share/man/man3
+install -m 0755 -d /usr/share/man/man7
+install -m 0644 tc-hfsc.7 /usr/share/man/man7
+install -m 0755 -d /usr/share/man/man8
+install -m 0644 ip-address.8 ip-link.8 ip-route.8 ip.8 arpd.8 lnstat.8 routel.8 rtacct.8 rtmon.8 rtpr.8 ss.8 tc.8 tc-bfifo.8 tc-bpf.8 tc-cbq.8 tc-cbq-details.8 tc-choke.8 tc-codel.8 tc-fq.8 tc-drr.8 tc-ematch.8 tc-fq_codel.8 tc-hfsc.8 tc-htb.8 tc-pie.8 tc-mqprio.8 tc-netem.8 tc-pfifo.8 tc-pfifo_fast.8 tc-prio.8 tc-red.8 tc-sfb.8 tc-sfq.8 tc-stab.8 tc-tbf.8 bridge.8 rtstat.8 ctstat.8 nstat.8 routef.8 ip-addrlabel.8 ip-fou.8 ip-gue.8 ip-l2tp.8 ip-macsec.8 ip-maddress.8 ip-monitor.8 ip-mroute.8 ip-neighbour.8 ip-netns.8 ip-ntable.8 ip-rule.8 ip-tunnel.8 ip-xfrm.8 ip-tcp_metrics.8 ip-netconf.8 ip-token.8 tipc.8 tipc-bearer.8 tipc-link.8 tipc-media.8 tipc-nametable.8 tipc-node.8 tipc-socket.8 tc-basic.8 tc-cgroup.8 tc-flow.8 tc-flower.8 tc-fw.8 tc-route.8 tc-tcindex.8 tc-u32.8 tc-connmark.8 tc-csum.8 tc-mirred.8 tc-nat.8 tc-pedit.8 tc-police.8 tc-simple.8 tc-skbedit.8 tc-vlan.8 tc-xt.8 devlink.8 devlink-dev.8 devlink-monitor.8 devlink-port.8 devlink-sb.8 /usr/share/man/man8
+install -m 0644 SNAPSHOT.tex api-ip6-flowlabels.tex ip-cref.tex ip-tunnels.tex preamble.tex tc-filters.tex /usr/share/doc/iproute2
+install -m 0644 arpd.sgml nstat.sgml rtstat.sgml ss.sgml /usr/share/doc/iproute2
+install -m 0644 etc/iproute2/rt_realms etc/iproute2/ematch_map etc/iproute2/nl_protos etc/iproute2/rt_scopes etc/iproute2/group etc/iproute2/bpf_pinning etc/iproute2/rt_tables etc/iproute2/rt_dsfield etc/iproute2/rt_protos /etc/iproute2
+install -m 0755 -d /usr/share/bash-completion/completions
+install -m 0644 bash-completion/tc /usr/share/bash-completion/completions
+ ---> 89720ebaafdc
+Removing intermediate container a76d2e460898
+Successfully built 89720ebaafdc

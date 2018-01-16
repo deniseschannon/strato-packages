@@ -1,0 +1,93 @@
+Sending build context to Docker daemon 3.072 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV VERSION 1.7
+ ---> Running in 1330cbb7614d
+ ---> d6e88b653d69
+Removing intermediate container 1330cbb7614d
+Step 3/7 : ENV LDFLAGS -s
+ ---> Running in a8b98e0ae0a9
+ ---> 965db7da2277
+Removing intermediate container a8b98e0ae0a9
+Step 4/7 : RUN wget -P /usr/src/ http://downloads.sourceforge.net/acpiclient/acpi-${VERSION}.tar.gz
+ ---> Running in a84bbe8c258c
+[91m--2018-01-16 05:26:29--  http://downloads.sourceforge.net/acpiclient/acpi-1.7.tar.gz
+[0m[91mResolving downloads.sourceforge.net (downloads.sourceforge.net)... [0m[91m216.34.181.59
+[0m[91mConnecting to downloads.sourceforge.net (downloads.sourceforge.net)|216.34.181.59|:80... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m301 Moved Permanently
+Location: http://downloads.sourceforge.net/project/acpiclient/acpiclient/1.7/acpi-1.7.tar.gz [following]
+[0m[91m--2018-01-16 05:26:29--  http://downloads.sourceforge.net/project/acpiclient/acpiclient/1.7/acpi-1.7.tar.gz
+Connecting to downloads.sourceforge.net (downloads.sourceforge.net)|216.34.181.59|:80... [0m[91mconnected.
+HTTP request sent, awaiting response... [0m[91m302 Found
+Location: https://cytranet.dl.sourceforge.net/project/acpiclient/acpiclient/1.7/acpi-1.7.tar.gz [following]
+--2018-01-16 05:26:29--  https://cytranet.dl.sourceforge.net/project/acpiclient/acpiclient/1.7/acpi-1.7.tar.gz
+Resolving cytranet.dl.sourceforge.net (cytranet.dl.sourceforge.net)... [0m[91m74.82.59.181
+Connecting to cytranet.dl.sourceforge.net (cytranet.dl.sourceforge.net)|74.82.59.181|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 100501 (98K) [application/x-gzip]
+Saving to: '/usr/src/acpi-1.7.tar.gz'
+
+     0K .......... .......... .......... .[0m[91m......... .......[0m[91m... 50% 10.6M 0s
+    50K .......... ...[0m[91m....... .........[0m[91m. .......... .....[0m[91m...  100% 2.58M=0.02s
+
+2018-01-16 05:26:29 (4.20 MB/s) - '/usr/src/acpi-1.7.tar.gz' saved [100501/100501]
+
+[0m ---> 66bb0de1072a
+Removing intermediate container a84bbe8c258c
+Step 5/7 : RUN cd /usr/src/ && tar xf acpi*
+ ---> Running in fa13230772cc
+ ---> 409287acaabf
+Removing intermediate container fa13230772cc
+Step 6/7 : RUN cd /usr/src/acpi*     && ./configure --prefix=/usr     && make
+ ---> Running in 7aa961173e48
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+make  all-am
+make[1]: Entering directory '/usr/src/acpi-1.7'
+gcc -DHAVE_CONFIG_H -I.    -Wall -g -O2 -MT acpi.o -MD -MP -MF .deps/acpi.Tpo -c -o acpi.o acpi.c
+mv -f .deps/acpi.Tpo .deps/acpi.Po
+gcc -DHAVE_CONFIG_H -I.    -Wall -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+gcc -DHAVE_CONFIG_H -I.    -Wall -g -O2 -MT list.o -MD -MP -MF .deps/list.Tpo -c -o list.o list.c
+mv -f .deps/list.Tpo .deps/list.Po
+gcc -Wall -g -O2  -s -o acpi acpi.o main.o list.o  
+make[1]: Leaving directory '/usr/src/acpi-1.7'
+ ---> 3188543e1fa5
+Removing intermediate container 7aa961173e48
+Step 7/7 : RUN cd /usr/src/acpi*     && make install
+ ---> Running in a6e3f9dafc22
+make[1]: Entering directory '/usr/src/acpi-1.7'
+ /bin/mkdir -p '/usr/bin'
+  /usr/bin/install -c acpi '/usr/bin'
+ /bin/mkdir -p '/usr/share/man/man1'
+ /usr/bin/install -c -m 644 acpi.1 '/usr/share/man/man1'
+make[1]: Leaving directory '/usr/src/acpi-1.7'
+ ---> e053991aaba7
+Removing intermediate container a6e3f9dafc22
+Successfully built e053991aaba7

@@ -1,0 +1,293 @@
+Sending build context to Docker daemon  5.12 kB
+Step 1/9 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/9 : ENV VERSION 1.5
+ ---> Running in df1447c4d13d
+ ---> cdff3ab95fbb
+Removing intermediate container df1447c4d13d
+Step 3/9 : ENV LDFLAGS -s
+ ---> Running in cce1b3a852f8
+ ---> 7ceb14357428
+Removing intermediate container cce1b3a852f8
+Step 4/9 : RUN wget -P /usr/src/ https://github.com/stedolan/jq/releases/download/jq-${VERSION}/jq-${VERSION}.tar.gz
+ ---> Running in 867b73d5f7c8
+[91m--2018-01-16 05:18:43--  https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz
+Resolving github.com (github.com)... [0m[91m192.30.255.112, 192.30.255.113
+Connecting to github.com (github.com)|192.30.255.112|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/5101141/f8d0df1e-439f-11e5-980c-9c1e050ee63f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180116T051843Z&X-Amz-Expires=300&X-Amz-Signature=5af4870883318a4deb361fa01771157fa62bf35d9802f0f2571674dc1dcece9a&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Djq-1.5.tar.gz&response-content-type=application%2Foctet-stream [following]
+[0m[91m--2018-01-16 05:18:43--  https://github-production-release-asset-2e65be.s3.amazonaws.com/5101141/f8d0df1e-439f-11e5-980c-9c1e050ee63f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180116T051843Z&X-Amz-Expires=300&X-Amz-Signature=5af4870883318a4deb361fa01771157fa62bf35d9802f0f2571674dc1dcece9a&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Djq-1.5.tar.gz&response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... [0m[91m52.216.226.168
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.226.168|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 739309[0m[91m (722K) [application/octet-stream]
+[0m[91mSaving to: '/usr/src/jq-1.5.tar.gz'
+[0m[91m
+     0K .......... .....[0m[91m.[0m[91m.... .......... ...[0m[91m....... ..........  6%  175K 4s[0m[91m
+    50K .......... ......[0m[91m.[0m[91m... .......... ....[0m[91m...... .......... 13%  174K 4s[0m[91m
+   100K .[0m[91m.[0m[91m........ .......[0m[91m.[0m[91m.. .......... ...[0m[91m.[0m[91m.[0m[91m..... .......... 20%[0m[91m  349K 3s
+   150K ..[0m[91m........[0m[91m .........[0m[91m. .......... ......[0m[91m.... .......... 27%[0m[91m  696K 2s
+   200K ...[0m[91m....... .[0m[91m.........[0m[91m .......... ......[0m[91m.[0m[91m... .....[0m[91m..... 34%  692K 2s
+   250K ...[0m[91m....... .....[0m[91m..... .[0m[91m......... .......[0m[91m... .......... 41%  701K 1s
+   300K ....[0m[91m.[0m[91m..... .......... .......... ........[0m[91m.[0m[91m. .......... 48%[0m[91m  700K 1s
+   350K ......[0m[91m.... .......... .......... .........[0m[91m.[0m[91m ........[0m[91m.. 55%  699K 1s
+   400K .......[0m[91m... [0m[91m.....[0m[91m..... ...[0m[91m.[0m[91m...... ..[0m[91m........ .......... 62% 44.4M 1s
+   450K ........[0m[91m.. .......... ....[0m[91m.[0m[91m..... .......... .[0m[91m.[0m[91m..[0m[91m...... 69%  697K 1s[0m[91m
+   500K ........[0m[91m.[0m[91m. .......[0m[91m... .......... .......... ...[0m[91m....... 76% 28.5M 0s
+   550K .[0m[91m........[0m[91m.[0m[91m .......... .[0m[91m......[0m[91m... .......... .......... 83%  721K 0s
+   600K ..[0m[91m.....[0m[91m... .......... ........[0m[91m.. .......[0m[91m... .......... 90% 43.3M 0s
+   650K .......... ..[0m[91m........ ........[0m[91m.. .......... ..[0m[91m........[0m[91m 96%  710K 0s
+   700K .......... .......... .                               100%[0m[91m 68.4M=1.3s
+
+[0m[91m2018-01-16 05:18:44 (560 KB/s) - '/usr/src/jq-1.5.tar.gz' saved [739309/739309]
+
+[0m ---> 6daf8f246a28
+Removing intermediate container 867b73d5f7c8
+Step 5/9 : COPY CVE-2015-8863.patch /usr/src/
+ ---> 0c2883097e2c
+Removing intermediate container a6372bc644eb
+Step 6/9 : RUN cd /usr/src/ && tar xf jq*
+ ---> Running in db7bdfc3d495
+ ---> 5fc453201968
+Removing intermediate container db7bdfc3d495
+Step 7/9 : RUN cd /usr/src/jq* && for i in ../*.patch; do patch -p1 < ${i}; done
+ ---> Running in 202413a6d174
+patching file jv_parse.c
+ ---> 428a7ff37a7a
+Removing intermediate container 202413a6d174
+Step 8/9 : RUN cd /usr/src/jq*     && ./configure --prefix=/usr --disable-docs     && make
+ ---> Running in c6380698ae44
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for gcc option to accept ISO Standard C... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking for bison... bison -y
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for bison version... 3.0.4
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking oniguruma.h usability... no
+checking oniguruma.h presence... no
+checking for oniguruma.h... no
+configure: Oniguruma was not found.
+configure:  Try setting the location using '--with-oniguruma=PREFIX' 
+checking for valgrind... no
+[91mconfigure: WARNING: valgrind is required to test jq.
+[0mchecking for memmem... yes
+checking for mkstemp... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for isatty... yes
+checking for _isatty... no
+checking for strptime... yes
+checking for strftime... yes
+checking for timegm... yes
+checking for gmtime_r... yes
+checking for gmtime... yes
+checking for gettimeofday... yes
+checking for struct tm.tm_gmtoff... yes
+checking for struct tm.__tm_gmtoff... no
+checking for acos... yes
+checking for acosh... yes, in -lm
+checking for asin... yes
+checking for asinh... yes
+checking for atan... yes
+checking for atanh... yes
+checking for cbrt... yes
+checking for cos... yes
+checking for cosh... yes
+checking for exp2... yes
+checking for exp... yes
+checking for floor... yes
+checking for j0... yes
+checking for j1... yes
+checking for log10... yes
+checking for log2... yes
+checking for log... yes
+checking for sin... yes
+checking for sinh... yes
+checking for sqrt... yes
+checking for tan... yes
+checking for tanh... yes
+checking for tgamma... yes
+checking for y0... yes
+checking for y1... yes
+checking for pow... yes
+checking for atan2... yes
+checking for hypot... yes
+checking for remainder... yes
+checking for thread-local storage... yes
+checking whether byte ordering is bigendian... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+  GEN      version.h
+make  all-am
+make[1]: Entering directory '/usr/src/jq-1.5'
+  CC       locfile.lo
+  CC       bytecode.lo
+  CC       compile.lo
+  CC       execute.lo
+  CC       builtin.lo
+  CC       jv.lo
+  CC       jv_parse.lo
+  CC       jv_print.lo
+  CC       jv_dtoa.lo
+  CC       jv_unicode.lo
+  CC       jv_aux.lo
+  CC       jv_file.lo
+  CC       jv_alloc.lo
+  CC       jq_test.lo
+  CC       util.lo
+  CC       linker.lo
+  CC       parser.lo
+  CC       lexer.lo
+  CCLD     libjq.la
+[91mar: `u' modifier ignored since `D' is the default (see `U')
+[0m  GEN      version.h
+  CC       main.o
+  CCLD     jq
+make[1]: Leaving directory '/usr/src/jq-1.5'
+ ---> e124b94b5bff
+Removing intermediate container c6380698ae44
+Step 9/9 : RUN cd /usr/src/jq*     && make prefix=/usr install
+ ---> Running in c73b513aae27
+  GEN      version.h
+make  install-am
+make[1]: Entering directory '/usr/src/jq-1.5'
+  GEN      version.h
+  CC       main.o
+  CCLD     jq
+make[2]: Entering directory '/usr/src/jq-1.5'
+  GEN      version.h
+  CC       main.o
+  CCLD     jq
+ /bin/mkdir -p '/usr/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libjq.la '/usr/lib'
+libtool: install: /usr/bin/install -c .libs/libjq.so.1.0.4 /usr/lib/libjq.so.1.0.4
+libtool: install: (cd /usr/lib && { ln -s -f libjq.so.1.0.4 libjq.so.1 || { rm -f libjq.so.1 && ln -s libjq.so.1.0.4 libjq.so.1; }; })
+libtool: install: (cd /usr/lib && { ln -s -f libjq.so.1.0.4 libjq.so || { rm -f libjq.so && ln -s libjq.so.1.0.4 libjq.so; }; })
+libtool: install: /usr/bin/install -c .libs/libjq.lai /usr/lib/libjq.la
+libtool: install: /usr/bin/install -c .libs/libjq.a /usr/lib/libjq.a
+libtool: install: chmod 644 /usr/lib/libjq.a
+libtool: install: ranlib /usr/lib/libjq.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/usr/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c jq '/usr/bin'
+libtool: install: /usr/bin/install -c jq /usr/bin/jq
+ /bin/mkdir -p '/usr/share/doc/jq'
+ /usr/bin/install -c -m 644 README.md COPYING AUTHORS README '/usr/share/doc/jq'
+ /bin/mkdir -p '/usr/include'
+ /usr/bin/install -c -m 644 jv.h jq.h '/usr/include'
+ /bin/mkdir -p '/usr/share/man/man1'
+ /usr/bin/install -c -m 644 jq.1 '/usr/share/man/man1'
+make[2]: Leaving directory '/usr/src/jq-1.5'
+make[1]: Leaving directory '/usr/src/jq-1.5'
+ ---> aae21d887c36
+Removing intermediate container c73b513aae27
+Successfully built aae21d887c36
