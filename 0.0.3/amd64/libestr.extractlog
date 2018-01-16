@@ -1,0 +1,10 @@
+libestr | usr/
+libestr | usr/lib/
+libestr | usr/lib/libestr.la
+libestr | usr/lib/libestr.so
+libestr | usr/lib/libestr.so.0
+libestr | usr/lib/libestr.so.0.0.0
+libestr | usr/lib/pkgconfig/
+libestr | usr/lib/pkgconfig/libestr.pc
+libestr-dev | usr/include/
+libestr-dev | usr/include/libestr.h

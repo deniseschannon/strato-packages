@@ -1,0 +1,1385 @@
+Sending build context to Docker daemon 3.584 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV VERSION 1.43.3
+ ---> Running in e0d104bbe8f9
+ ---> bb50fed3478d
+Removing intermediate container e0d104bbe8f9
+Step 3/7 : RUN wget -P /usr/src/ https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v${VERSION}/e2fsprogs-${VERSION}.tar.xz
+ ---> Running in b1f9ade82b86
+[91m--2018-01-16 05:36:08--  https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.43.3/e2fsprogs-1.43.3.tar.xz
+Resolving www.kernel.org (www.kernel.org)... [0m[91m147.75.196.57, 2604:1380:1:3600::3
+Connecting to www.kernel.org (www.kernel.org)|147.75.196.57|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 5220304 (5.0M) [application/x-xz]
+[0m[91mSaving to: '/usr/src/e2fsprogs-1.43.3.tar.xz'
+[0m[91m
+     0K .....[0m[91m..... ..[0m[91m........ ..[0m[91m........[0m[91m .......... ......[0m[91m.[0m[91m...  0%  307K 16s
+    50K .......... .......... ........[0m[91m.. .......... ....[0m[91m......  1%  653K 12s
+   100K ..[0m[91m........[0m[91m .......... .......... .......... ..........  2% 53.5M 8s
+   150K .......... .......... .......... ..........[0m[91m ........[0m[91m.[0m[91m.[0m[91m  3%  664K 8s
+   200K .......... .......... .......... .......... ..........  4% 42.1M 6s
+   250K ....[0m[91m...... ..[0m[91m........[0m[91m .......... .......... ..........  5% 70.6M 5s
+   300K ..[0m[91m........[0m[91m ........[0m[91m.. .......... ....[0m[91m...... ..........  6%  661K 5s[0m[91m
+   350K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m ..........  7%  106M 5s
+   400K ..[0m[91m........ .......... ..[0m[91m........[0m[91m .......... ......[0m[91m....  8%  122M 4s
+   450K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m......  9%  102M 4s
+   500K ..........[0m[91m ........[0m[91m.. .......... .......... ..[0m[91m........ 10%  118M 3s[0m[91m
+   550K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 11%  120M 3s
+   600K ......[0m[91m.... .......... ..........[0m[91m ........[0m[91m.. .......... 12%  684K[0m[91m 3s
+   650K ....[0m[91m...... ..........[0m[91m .......... .......... .......... 13% 39.8M 3s
+   700K .......... .......... .......... ....[0m[91m...... .......... 14%  119M 3s[0m[91m
+   750K .......... .......... .......... .......... ........[0m[91m.. 15% 90.0M 3s
+   800K .......... .......... .......... .......... .......... 16%  132M 2s
+   850K .......... ..[0m[91m........ .......... .......... .......... 17%  124M 2s
+   900K .......... .......... ......[0m[91m.... .......... .......... 18%  133M 2s
+   950K .......... .......... ....[0m[91m...... ..........[0m[91m [0m[91m........[0m[91m.. 19%  679K 2s[0m[91m
+  1000K ......[0m[91m.... .......... .......... .......... ......[0m[91m.... 20% 57.7M 2s
+  1050K ....[0m[91m...... .......... ........[0m[91m.. ......[0m[91m.... .......... 21% 70.7M 2s
+  1100K ..[0m[91m...[0m[91m..... ........[0m[91m.. .......... ....[0m[91m...... .......... 22% 98.8M 2s[0m[91m
+  1150K .......... ......[0m[91m.... ....[0m[91m...... ..........[0m[91m .......... 23%  106M 2s
+  1200K ......[0m[91m.... .......... ..[0m[91m........[0m[91m ........[0m[91m.. .......... 24%  113M 2s
+  1250K ....[0m[91m...... ..........[0m[91m .......... .......... ....[0m[91m...... 25%  130M 2s
+  1300K .......... [0m[91m.......... ......[0m[91m.... .......... .......... 26%  133M[0m[91m 2s
+  1350K ........[0m[91m.. .......... ..........[0m[91m ..........[0m[91m .......... 27%  124M 1s
+  1400K ......[0m[91m.... .......... ..[0m[91m........ .......... .......... 28%[0m[91m  153M 1s
+  1450K .......... ..........[0m[91m .......... ......[0m[91m.... .......... 29%  150M 1s
+  1500K ..[0m[91m........[0m[91m .......... .......... .....[0m[91m..... .......... 30%  155M 1s
+  1550K ........[0m[91m.. .......... ....[0m[91m...... .......... ........[0m[91m.. 31%  149M 1s
+  1600K .......... ....[0m[91m...... .......... ........[0m[91m.. .......... 32%  178M 1s
+  1650K .......... ..[0m[91m........ ........[0m[91m.. .......... .......... 33%  176M 1s
+  1700K ..[0m[91m........ .......... ......[0m[91m.... .......... .......... 34%  198M 1s[0m[91m
+  1750K .......... .......... ....[0m[91m...... ..........[0m[91m .......... 35%  162M 1s
+  1800K .......... ....[0m[91m...... ..........[0m[91m .......... .......... 36%  196M 1s
+  1850K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 37%  183M 1s
+  1900K ..[0m[91m........ ........[0m[91m.. .......... .......... ..[0m[91m........ 38%  207M 1s
+  1950K ........[0m[91m.. ......[0m[91m.... .......... ..[0m[91m........[0m[91m ........[0m[91m.. 39%  721K 1s
+  2000K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 40% 62.8M 1s
+  2050K .......... .......... .......... .......[0m[91m... .......... 41%  149M 1s
+  2100K ..........[0m[91m .......... ......[0m[91m.... .......... .......... 42% 92.4M 1s
+  2150K ........[0m[91m.. .......... .......... ..[0m[91m........[0m[91m .......... 43% 99.1M 1s
+  2200K ......[0m[91m.... ....[0m[91m...... .......... ........[0m[91m.. .......... 44%  122M 1s
+  2250K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 45%  137M 1s
+  2300K ..[0m[91m........ ........[0m[91m.. ......[0m[91m.... .......... .......... 46% 95.0M 1s
+  2350K .......... .......... .......... .......... .......... 47%  177M 1s
+  2400K .......... ....[0m[91m...... .......... .......... ......[0m[91m.... 48%  148M 1s
+  2450K .......... ..[0m[91m........ ........[0m[91m.. .......... .......... 49%[0m[91m  160M 1s
+  2500K .......... .......... ......[0m[91m.... .......... .......... 50%  181M 1s[0m[91m
+  2550K ........[0m[91m.. .......... .......... ..[0m[91m........[0m[91m .......... 51%  102M 1s
+  2600K ......[0m[91m.... .......... ..[0m[91m........ ...[0m[91m....... .......... 51%  144M 1s
+  2650K ....[0m[91m...... .......... ........[0m[91m.. .......... ..........[0m[91m 52%  191M 1s
+  2700K .......... ........[0m[91m.. .......... .......... ....[0m[91m...... 53%  185M 1s
+  2750K .......... ......[0m[91m.... .......... .......... ........[0m[91m.. 54%  170M 1s
+  2800K .......... ....[0m[91m...... .......... ........[0m[91m.. .......... 55%  184M 0s
+  2850K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 56%  173M 0s
+  2900K .......... ........[0m[91m.. .......... .......... ..[0m[91m........ 57%  185M 0s
+  2950K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 58%  157M 0s
+  3000K .......... .......... ..[0m[91m........ .......... ......[0m[91m.... 59%  205M 0s
+  3050K .......... ..[0m[91m........ .......... .......... ....[0m[91m...... 60%  191M 0s
+  3100K ..[0m[91m........[0m[91m ........[0m[91m.[0m[91m. .......... ....[0m[91m...... ..[0m[91m........ 61%  720K 0s[0m[91m
+  3150K .......... ......[0m[91m.... ....[0m[91m...... .......... [0m[91m........[0m[91m.. 62% 41.9M 0s
+  3200K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 63% 47.4M 0s[0m[91m
+  3250K .......... ..........[0m[91m ........[0m[91m.. .......... .....[0m[91m..... 64% 54.5M 0s
+  3300K ..........[0m[91m .......... .......... .......... ..[0m[91m........ 65% 55.5M 0s
+  3350K .......... ......[0m[91m.... .......... .......... .......... 66%  150M 0s
+  3400K .......... .......... ..[0m[91m........ .......... .......... 67%  180M 0s
+  3450K .......... .......... .......... .......... .......... 68%  207M 0s
+  3500K .......... .......... .......... .......... .......... 69%  217M 0s
+  3550K .......... .......... .......... ..[0m[91m........ .......... 70%  213M 0s
+  3600K .......... .......... .......... .......... .......... 71%  191M 0s
+  3650K .......... .......... .......... .......... .......... 72%  204M 0s
+  3700K .......... .......... ......[0m[91m.... .......... .......... 73%  171M 0s
+  3750K .......... .......... .......... ..........[0m[91m .......... 74% 95.8M 0s
+  3800K .......... .......... ..[0m[91m........[0m[91m .......... .......... 75%  101M 0s
+  3850K .......... ..........[0m[91m ........[0m[91m.. .......... .......... 76% 94.8M 0s
+  3900K ..........[0m[91m .......... .......... .......... ..[0m[91m.[0m[91m....... 77%  121M 0s
+  3950K .......... .......... .......... ..[0m[91m........ .......... 78% 90.7M 0s
+  4000K .......... ....[0m[91m...... ..........[0m[91m .......[0m[91m... ......[0m[91m.... 79% 69.9M 0s
+  4050K .......... .......... ........[0m[91m.. .......... .......... 80% 87.0M 0s
+  4100K ..........[0m[91m .......... .......... ....[0m[91m.[0m[91m..... .......... 81% 95.0M 0s
+  4150K .......... ......[0m[91m.... .......... .......... .......... 82% 97.4M 0s
+  4200K .......... ....[0m[91m.[0m[91m..... .......... .......... .......... 83%  129M 0s
+  4250K .......... ..........[0m[91m .......... .......... .......... 84%  126M 0s
+  4300K ..[0m[91m........ ........[0m[91m.. .......... .......... .......... 85%  120M 0s
+  4350K .......... ......[0m[91m.... .......... .......... ........[0m[91m.. 86% 91.6M 0s
+  4400K .......... .......... ..[0m[91m........ .......... .......... 87% 94.6M 0s
+  4450K ....[0m[91m...... .......... .......... .......... ....[0m[91m...... 88%  129M 0s
+  4500K .......... ........[0m[91m.. ......[0m[91m.... .......... .......... 89% 94.3M 0s
+  4550K ........[0m[91m.. .......... .......... ..........[0m[91m .......... 90%  101M 0s
+  4600K .......... .......... ..[0m[91m........ .......... .......... 91%  111M 0s
+  4650K ....[0m[91m...... .......... ........[0m[91m.. .......... .......... 92% 89.3M 0s
+  4700K ..[0m[91m........ .......... ......[0m[91m.... ....[0m[91m...... .......... 93% 85.8M 0s
+  4750K .......... .......... .......... .......... .......... 94%  162M 0s
+  4800K .......... .......... .......... .......... .......... 95%  253M 0s
+  4850K .......... .......... .......... .......... .......... 96%  275M 0s
+  4900K .......... .......... .......... .......... .......... 97%  246M 0s
+  4950K .......... .......... .......... .......... .......... 98%  198M 0s
+  5000K .......... .......... .......... .......... .......... 99%  245M 0s
+  5050K .......... .......... .......... .......... .......   100%  233M=0.7s
+
+2018-01-16 05:36:09 (6.94 MB/s) - '/usr/src/e2fsprogs-1.43.3.tar.xz' saved [5220304/5220304]
+
+[0m ---> bdd42f9fadd5
+Removing intermediate container b1f9ade82b86
+Step 4/7 : RUN cd /usr/src/ && tar xf e2fsprogs*
+ ---> Running in ae9ba336b724
+ ---> b243a5d28293
+Removing intermediate container ae9ba336b724
+Step 5/7 : ENV LDFLAGS -s
+ ---> Running in 7f7de6110ea2
+ ---> 1becaaa20435
+Removing intermediate container 7f7de6110ea2
+Step 6/7 : RUN cd /usr/src/e2fsprogs*     && ./configure     --mandir=/usr/share/man     --enable-elf-shlibs     --enable-symlink-install     --disable-fsck     --disable-uuidd     --disable-libuuid     --disable-libblkid     --disable-tls     --disable-nls     && make
+ ---> Running in 71f69c36fd74
+Generating configuration file for e2fsprogs version 1.43.3
+Release date is September, 2016
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for dlopen in -ldl... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking how to run the C preprocessor... gcc -E
+checking for additional special compiler flags... (none)
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+Disabling maintainer mode by default
+Enabling symlinks for install
+Disabling relative symlinks for install by default
+Disabling symlinks for build by default
+Disabling verbose make commands
+Enabling ELF shared libraries
+Disabling BSD shared libraries by default
+Disabling profiling libraries by default
+Disabling journal debugging by default
+Disabling blkid debugging by default
+Enabling testio debugging by default
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for uuid_generate in -luuid... yes
+Disabling private uuid library
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for blkid_get_cache in -lblkid... yes
+Disabling private blkid library
+Enabling use of backtrace by default
+Enabling debugfs support by default
+Enabling e2image support by default
+Enabling e2resize support by default
+Enabling e4defrag support by default
+Not building fsck wrapper
+Building e2initrd helper by default
+Disabling thread local support
+Not building uuidd
+Enabling mmp support by default
+Enabling mmp support by default
+Enabling bitmap statistics support by default
+Disabling additional bitmap statistics by default
+checking whether make sets $(MAKE)... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for a sed that does not truncate output... /bin/sed
+checking whether NLS is requested... no
+checking for msgfmt... no
+checking for gmsgfmt... :
+checking for xgettext... no
+checking for msgmerge... no
+checking whether we are using the GNU C Library 2 or newer... yes
+checking for ranlib... ranlib
+checking whether the -Werror option is usable... yes
+checking for simple visibility declarations... yes
+checking for inline... inline
+checking for size_t... yes
+checking for stdint.h... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether integer division by zero raises SIGFPE... yes
+checking for inttypes.h... yes
+checking for unsigned long long int... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for multithread API to use... posix
+checking for pthread_rwlock_t... yes
+checking for iconv... yes
+checking for working iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for uselocale... yes
+checking for argz_count... yes
+checking for argz_stringify... yes
+checking for argz_next... yes
+checking for __fsetlocking... yes
+checking whether feof_unlocked is declared... yes
+checking whether fgets_unlocked is declared... yes
+checking for bison... bison
+checking version of bison... 3.0.4, ok
+checking for long long int... yes
+checking for wchar_t... yes
+checking for wint_t... yes
+checking for intmax_t... yes
+checking whether printf() supports POSIX/XSI format strings... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking for stdint.h... (cached) yes
+checking for symlink... yes
+checking for working fcntl.h... yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for ptrdiff_t... yes
+checking features.h usability... yes
+checking features.h presence... yes
+checking for features.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for asprintf... yes
+checking for fwprintf... yes
+checking for newlocale... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for snprintf... yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... yes
+checking for wcrtomb... yes
+checking whether _snprintf is declared... no
+checking whether _snwprintf is declared... no
+checking whether getc_unlocked is declared... yes
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... (cached) no
+checking for CFLocaleCopyCurrent... (cached) no
+checking whether to use NLS... no
+checking whether make sets $(MAKE)... (cached) yes
+checking for GNU make... make
+checking for ln... /bin/ln
+checking whether ln -s works... yes
+checking for mv... /bin/mv
+checking for cp... /bin/cp
+checking for rm... /bin/rm
+checking for chmod... /bin/chmod
+checking for gawk... no
+checking for mawk... mawk
+checking for egrep... (cached) /bin/grep -E
+checking for sed... (cached) /bin/sed
+checking for perl... /usr/bin/perl
+checking for ldconfig... /sbin/ldconfig
+checking for ar... ar
+checking for ranlib... (cached) ranlib
+checking for strip... strip
+checking for makeinfo... no
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking mntent.h usability... yes
+checking mntent.h presence... yes
+checking for mntent.h... yes
+checking paths.h usability... yes
+checking paths.h presence... yes
+checking for paths.h... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking setjmp.h usability... yes
+checking setjmp.h presence... yes
+checking for setjmp.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking for unistd.h... (cached) yes
+checking utime.h usability... yes
+checking utime.h presence... yes
+checking for utime.h... yes
+checking attr/xattr.h usability... yes
+checking attr/xattr.h presence... yes
+checking for attr/xattr.h... yes
+checking linux/falloc.h usability... yes
+checking linux/falloc.h presence... yes
+checking for linux/falloc.h... yes
+checking linux/fd.h usability... yes
+checking linux/fd.h presence... yes
+checking for linux/fd.h... yes
+checking linux/major.h usability... yes
+checking linux/major.h presence... yes
+checking for linux/major.h... yes
+checking linux/loop.h usability... yes
+checking linux/loop.h presence... yes
+checking for linux/loop.h... yes
+checking net/if_dl.h usability... no
+checking net/if_dl.h presence... no
+checking for net/if_dl.h... no
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking sys/acl.h usability... no
+checking sys/acl.h presence... no
+checking for sys/acl.h... no
+checking sys/disklabel.h usability... no
+checking sys/disklabel.h presence... no
+checking for sys/disklabel.h... no
+checking sys/disk.h usability... no
+checking sys/disk.h presence... no
+checking for sys/disk.h... no
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/key.h usability... no
+checking sys/key.h presence... no
+checking for sys/key.h... no
+checking sys/mkdev.h usability... no
+checking sys/mkdev.h presence... no
+checking for sys/mkdev.h... no
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/sockio.h usability... no
+checking sys/sockio.h presence... no
+checking for sys/sockio.h... no
+checking for sys/stat.h... (cached) yes
+checking sys/syscall.h usability... yes
+checking sys/syscall.h presence... yes
+checking for sys/syscall.h... yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking sys/sysmacros.h usability... yes
+checking sys/sysmacros.h presence... yes
+checking for sys/sysmacros.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking for net/if.h... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for struct dirent.d_reclen... yes
+checking for struct stat.st_atim... yes
+checking for ssize_t... yes
+checking whether llseek is declared... no
+checking whether lseek64 is declared... yes
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking size of off_t... 8
+checking size of time_t... 8
+checking whether byte ordering is bigendian... no
+checking for __uNN types... using <asm/types.h>
+checking for inttypes.h... (cached) yes
+checking for intptr_t... yes
+checking whether struct stat has a st_flags field... no
+checking for struct sockaddr.sa_len... no
+checking for library containing blkid_probe_all... -lblkid
+checking for __secure_getenv... no
+checking for add_key... no
+checking for backtrace... yes
+checking for blkid_probe_get_topology... yes
+checking for blkid_probe_enable_partitions... yes
+checking for chflags... no
+checking for dlopen... (cached) yes
+checking for fadvise64... no
+checking for fallocate... yes
+checking for fallocate64... yes
+checking for fchown... yes
+checking for fdatasync... yes
+checking for fstat64... yes
+checking for ftruncate64... yes
+checking for futimes... yes
+checking for getcwd... (cached) yes
+checking for getdtablesize... yes
+checking for getmntinfo... no
+checking for getpwuid_r... yes
+checking for getrlimit... yes
+checking for getrusage... yes
+checking for jrand48... yes
+checking for keyctl... no
+checking for llistxattr... yes
+checking for llseek... yes
+checking for lseek64... yes
+checking for mallinfo... yes
+checking for mbstowcs... yes
+checking for memalign... yes
+checking for mempcpy... (cached) yes
+checking for mmap... yes
+checking for msync... yes
+checking for nanosleep... yes
+checking for open64... yes
+checking for pathconf... yes
+checking for posix_fadvise... yes
+checking for posix_fadvise64... yes
+checking for posix_memalign... yes
+checking for prctl... yes
+checking for pread... yes
+checking for pwrite... yes
+checking for pread64... yes
+checking for pwrite64... yes
+checking for secure_getenv... yes
+checking for setmntent... yes
+checking for setresgid... yes
+checking for setresuid... yes
+checking for snprintf... (cached) yes
+checking for srandom... yes
+checking for stpcpy... (cached) yes
+checking for strcasecmp... (cached) yes
+checking for strdup... (cached) yes
+checking for strnlen... (cached) yes
+checking for strptime... yes
+checking for strtoull... yes
+checking for sync_file_range... yes
+checking for sysconf... yes
+checking for usleep... yes
+checking for utime... yes
+checking for utimes... yes
+checking for valloc... yes
+checking for socket in -lsocket... no
+checking for magic_file in -lmagic... no
+checking for clock_gettime in -lrt... yes
+checking for pthread.h... (cached) yes
+checking for fuse.h... no
+checking for optreset... no
+checking for sem_init... no
+checking for sem_init in -lpthread... yes
+checking for unified diff option... -u
+On linux-gnu systems, root_prefix defaults to ''
+On linux-gnu systems, prefix defaults to /usr
+checking whether we can link with -static... yes
+configure: creating ./config.status
+config.status: creating MCONFIG
+config.status: creating Makefile
+config.status: creating e2fsprogs.spec
+config.status: creating util/Makefile
+config.status: creating util/subst.conf
+config.status: creating util/gen-tarball
+config.status: creating util/install-symlink
+config.status: creating lib/et/Makefile
+config.status: creating lib/ss/Makefile
+config.status: creating lib/e2p/Makefile
+config.status: creating lib/ext2fs/Makefile
+config.status: creating lib/ext2fs/ext2_types.h
+config.status: creating lib/support/Makefile
+config.status: creating lib/ss/ss.pc
+config.status: creating lib/et/com_err.pc
+config.status: creating lib/e2p/e2p.pc
+config.status: creating lib/ext2fs/ext2fs.pc
+config.status: creating misc/Makefile
+config.status: creating ext2ed/Makefile
+config.status: creating e2fsck/Makefile
+config.status: creating debugfs/Makefile
+config.status: creating tests/Makefile
+config.status: creating tests/progs/Makefile
+config.status: creating resize/Makefile
+config.status: creating doc/Makefile
+config.status: creating intl/Makefile
+config.status: creating intl/libgnuintl.h
+config.status: creating po/Makefile.in
+config.status: creating lib/config.h
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+cd ./util ; make subst
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/util'
+	CREATE dirpaths.h
+	CC subst.c
+	LD subst
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/util'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'util/subst.conf' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/config.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+	SUBST lib/dirpaths.h
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+cd .; CONFIG_FILES=./lib/ext2fs/ext2_types.h ./config.status
+config.status: creating ./lib/ext2fs/ext2_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+cd .; CONFIG_FILES=./lib/blkid/blkid_types.h ./config.status
+config.status: creating ./lib/blkid/blkid_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+cd .; CONFIG_FILES=./lib/uuid/uuid_types.h ./config.status
+config.status: creating ./lib/uuid/uuid_types.h
+config.status: creating lib/config.h
+config.status: lib/config.h is unchanged
+config.status: executing po-directories commands
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+	SUBST compile_et
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+	SUBST ext2_err.et
+	COMPILE_ET ext2_err.et
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+	COMPILE_ET prof_err.et
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make libs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'util/subst.conf' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/config.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/dirpaths.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/blkid/blkid_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/uuid/uuid_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[2]: 'compile_et' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[2]: 'ext2_err.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[2]: 'prof_err.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/et
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[3]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+	MKDIR elfshared
+make[3]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+	CC error_message.c
+	CC et_name.c
+	CC init_et.c
+	CC com_err.c
+	CC com_right.c
+	GEN_LIB libcom_err.a
+	GEN_ELF_SOLIB libcom_err.so.2.1
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+making all in lib/ss
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+	SUBST mk_cmds
+make[3]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+	MKDIR elfshared
+make[3]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+	COMPILE_ET ss_err.et
+	CC ss_err.c
+	MK_CMDS std_rqs.c
+	CC std_rqs.c
+	CC invocation.c
+	CC help.c
+	CC execute_cmd.c
+	CC listen.c
+	CC parse.c
+	CC error.c
+	CC prompt.c
+	CC request_tbl.c
+	CC list_rqs.c
+	CC pager.c
+	CC requests.c
+	CC data.c
+	CC get_readline.c
+	GEN_LIB libss.a
+	GEN_ELF_SOLIB libss.so.2.0
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+making all in lib/e2p
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+make[3]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+	MKDIR elfshared
+make[3]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+	CC feature.c
+	CC fgetflags.c
+	CC fsetflags.c
+	CC fgetversion.c
+	CC fsetversion.c
+	CC getflags.c
+	CC getversion.c
+	CC hashstr.c
+	CC iod.c
+	CC ls.c
+	CC mntopts.c
+	CC parse_num.c
+	CC pe.c
+	CC pf.c
+	CC ps.c
+	CC setflags.c
+	CC setversion.c
+	CC uuid.c
+	CC ostype.c
+	CC percent.c
+	CC crypto_mode.c
+	CC fgetproject.c
+	CC fsetproject.c
+	GEN_LIB libe2p.a
+	GEN_ELF_SOLIB libe2p.so.2.3
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+making all in lib/support
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+	CC mkquota.c
+	CC plausible.c
+	CC profile.c
+	CC parse_qtype.c
+	CC profile_helpers.c
+	CC prof_err.c
+	CC quotaio.c
+	CC quotaio_v2.c
+	CC quotaio_tree.c
+	CC dict.c
+	GEN_LIB libsupport.a
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/ext2fs
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[3]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+	MKDIR elfshared
+make[3]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+	CC bb_compat.c
+	CC inode_io.c
+	CC write_bb_file.c
+	CC dupfs.c
+	CC imager.c
+	CC test_io.c
+	CC ext2_err.c
+	CC alloc.c
+	CC alloc_sb.c
+	CC alloc_stats.c
+	CC alloc_tables.c
+	CC atexit.c
+	CC badblocks.c
+	CC bb_inode.c
+	CC bitmaps.c
+	CC bitops.c
+	CC blkmap64_ba.c
+	CC blkmap64_rb.c
+	CC blknum.c
+	CC block.c
+	CC bmap.c
+	CC check_desc.c
+	CC closefs.c
+	CC crc16.c
+	CC gen_crc32ctable
+	GEN32CTABLE crc32c_table.h
+	CC crc32c.c
+	CC csum.c
+	CC dblist.c
+	CC dblist_dir.c
+	CC dirblock.c
+	CC dirhash.c
+	CC dir_iterate.c
+	CC expanddir.c
+	CC ext_attr.c
+	CC extent.c
+	CC fallocate.c
+	CC fileio.c
+	CC finddev.c
+	CC flushb.c
+	CC freefs.c
+	CC gen_bitmap.c
+	CC gen_bitmap64.c
+	CC get_num_dirs.c
+	CC get_pathname.c
+	CC getsize.c
+	CC getsectsize.c
+	CC i_block.c
+	CC icount.c
+	CC ind_block.c
+	CC initialize.c
+	CC inline.c
+	CC inline_data.c
+	CC inode.c
+	CC io_manager.c
+	CC ismounted.c
+	CC link.c
+	CC llseek.c
+	CC lookup.c
+	CC mkdir.c
+	CC mkjournal.c
+	CC mmp.c
+	CC namei.c
+	CC native.c
+	CC newdir.c
+	CC openfs.c
+	CC progress.c
+	CC punch.c
+	CC qcow2.c
+	CC read_bb.c
+	CC read_bb_file.c
+	CC res_gdt.c
+	CC rw_bitmaps.c
+	CC sha512.c
+	CC swapfs.c
+	CC symlink.c
+	CC tdb.c
+	CC undo_io.c
+	CC unix_io.c
+	CC unlink.c
+	CC valid_blk.c
+	CC version.c
+	CC rbtree.c
+	GEN_LIB libext2fs.a
+	GEN_ELF_SOLIB libext2fs.so.2.4
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+making all in intl
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make progs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'util/subst.conf' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/config.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/dirpaths.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/blkid/blkid_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: 'lib/uuid/uuid_types.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[2]: 'compile_et' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[2]: 'ext2_err.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[2]: 'prof_err.h' is up to date.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/et
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+making all in lib/ss
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+making all in lib/e2p
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+making all in lib/support
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/ext2fs
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+making all in intl
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/intl'
+making all in e2fsck
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/e2fsck'
+	CC unix.c
+	CC e2fsck.c
+	CC super.c
+	CC pass1.c
+	CC pass1b.c
+	CC pass2.c
+	CC pass3.c
+	CC pass4.c
+	CC pass5.c
+	CC journal.c
+	CC badblocks.c
+	CC util.c
+	CC dirinfo.c
+	CC dx_dirinfo.c
+	CC ehandler.c
+	CC problem.c
+	CC message.c
+	CC quota.c
+	CC recovery.c
+	CC region.c
+	CC revoke.c
+	CC ea_refcount.c
+	CC rehash.c
+	CC logfile.c
+	CC sigcatcher.c
+	CC readahead.c
+	CC extents.c
+	LD e2fsck
+	SUBST e2fsck.8
+	SUBST e2fsck.conf.5
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/e2fsck'
+making all in debugfs
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/debugfs'
+	MK_CMDS debug_cmds.c
+	CC debug_cmds.c
+	CC debugfs.c
+	CC util.c
+	CC ncheck.c
+	CC icheck.c
+	CC ls.c
+	CC lsdel.c
+	CC dump.c
+	CC set_fields.c
+	CC logdump.c
+	CC htree.c
+	CC unused.c
+	CC e2freefrag.o
+	CC filefrag.c
+	MK_CMDS extent_cmds.c
+	CC extent_cmds.c
+	CC extent_inode.c
+	CC zap.c
+	CC create_inode.o
+	CC quota.c
+	CC xattrs.c
+	CC journal.c
+	CC revoke.o
+	CC recovery.o
+	CC do_journal.c
+	LD debugfs
+	SUBST debugfs.8
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/debugfs'
+making all in misc
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/misc'
+	CC mke2fs.c
+	CC util.c
+if test -f ./mke2fs.conf.custom.in ; then \
+	cp ./mke2fs.conf.custom.in mke2fs.conf; \
+else \
+	cp ./mke2fs.conf.in mke2fs.conf; \
+fi
+	PROFILE_TO_C mke2fs.conf
+	CC default_profile.c
+	CC mk_hugefiles.c
+	CC create_inode.c
+	LD mke2fs
+	CC badblocks.c
+	LD badblocks
+	CC tune2fs.c
+	CC journal.o
+	CC recovery.o
+	CC revoke.o
+	LD tune2fs
+	CC dumpe2fs.c
+	LD dumpe2fs
+	CC logsave.c
+	LD logsave
+	CC e2image.c
+	LD e2image
+	CC e2undo.c
+	LD e2undo
+	CC chattr.c
+	LD chattr
+	CC lsattr.c
+	LD lsattr
+	CC mklost+found.c
+	LD mklost+found
+	CC filefrag.c
+	LD filefrag
+	CC e2freefrag.c
+	LD e2freefrag
+	CC e4defrag.c
+	LD e4defrag
+	CC e4crypt.c
+	LD e4crypt
+	SUBST tune2fs.8
+	SUBST mklost+found.8
+	SUBST mke2fs.8
+	SUBST dumpe2fs.8
+	SUBST badblocks.8
+	SUBST e2label.8
+	SUBST e2image.8
+	SUBST logsave.8
+	SUBST filefrag.8
+	SUBST e2freefrag.8
+	SUBST e2undo.8
+	SUBST e4defrag.8
+	SUBST e4crypt.8
+	SUBST chattr.1
+	SUBST lsattr.1
+	SUBST mke2fs.conf.5
+	SUBST ext4.5
+	CC e2initrd_helper.c
+	LD e2initrd_helper
+	CC e2fuzz.c
+	LD e2fuzz
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/misc'
+making all in resize
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/resize'
+	CC extent.c
+	CC resize2fs.c
+	CC main.c
+	CC online.c
+	CC resource_track.c
+	CC sim_progress.c
+	LD resize2fs
+	CC test_extent.c
+	LD test_extent
+	SUBST resize2fs.8
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/resize'
+making all in tests/progs
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/tests/progs'
+	CC test_icount.c
+	MK_CMDS test_icount_cmds.c
+	CC test_icount_cmds.c
+	LD test_icount
+	CC crcsum.c
+	LD crcsum
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/tests/progs'
+making all in po
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/po'
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make docs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/doc'
+	MAKEINFO libext2fs.info
+Makeinfo is missing. Info documentation will not be built.
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/doc'
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+ ---> 46396a007ed7
+Removing intermediate container 71f69c36fd74
+Step 7/7 : RUN cd /usr/src/e2fsprogs*     && make install install-libs
+ ---> Running in 91f8245e53d0
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'util/subst.conf' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/config.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/dirpaths.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/ext2fs/ext2_types.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/blkid/blkid_types.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: 'lib/uuid/uuid_types.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[1]: 'compile_et' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[1]: 'ext2_err.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[1]: 'prof_err.h' is up to date.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/et
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+making all in lib/ss
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+making all in lib/e2p
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+making all in lib/support
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making all in lib/ext2fs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+making all in intl
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/intl'
+making install in e2fsck
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/e2fsck'
+	MKINSTALLDIRS /sbin /usr/share/man/man8
+	INSTALL /sbin/e2fsck
+	LINK /sbin/fsck.ext2
+	LINK /sbin/fsck.ext3
+	LINK /sbin/fsck.ext4
+	LINK /sbin/fsck.ext4dev
+	INSTALL_DATA /usr/share/man/man8/e2fsck.8
+	INSTALL_DATA /usr/share/man/man5/e2fsck.conf.5
+	LINK /usr/share/man/man8/fsck.ext2.8
+	LINK /usr/share/man/man8/fsck.ext3.8
+	LINK /usr/share/man/man8/fsck.ext4.8
+	LINK /usr/share/man/man8/fsck.ext4dev.8
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/e2fsck'
+making install in debugfs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/debugfs'
+	MKINSTALLDIRS /sbin /usr/share/man/man8
+	INSTALL /sbin/debugfs
+	INSTALL_DATA /usr/share/man/man8/debugfs.8
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/debugfs'
+making install in misc
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/misc'
+	MKINSTALLDIRS /usr/sbin /sbin /usr/bin /usr/share/man/man1 /usr/share/man/man8 /usr/lib /etc
+	INSTALL /sbin/mke2fs
+	INSTALL /sbin/badblocks
+	INSTALL /sbin/tune2fs
+	INSTALL /sbin/dumpe2fs
+	INSTALL /sbin/logsave
+	INSTALL /sbin/e2image
+	INSTALL /sbin/e2undo
+	INSTALL /usr/sbin/mklost+found
+	INSTALL /usr/sbin/filefrag
+	INSTALL /usr/sbin/e2freefrag
+	INSTALL /usr/sbin/e4defrag
+	INSTALL /usr/sbin/e4crypt
+	LINK /sbin/mkfs.ext2
+	LINK /sbin/mkfs.ext3
+	LINK /sbin/mkfs.ext4
+	LINK /sbin/mkfs.ext4dev
+	INSTALL /usr/bin/chattr
+	INSTALL /usr/bin/lsattr
+	INSTALL /usr/lib/e2initrd_helper
+	INSTALL_DATA /usr/share/man/man8/tune2fs.8
+	INSTALL_DATA /usr/share/man/man8/mklost+found.8
+	INSTALL_DATA /usr/share/man/man8/mke2fs.8
+	INSTALL_DATA /usr/share/man/man8/dumpe2fs.8
+	INSTALL_DATA /usr/share/man/man8/badblocks.8
+	INSTALL_DATA /usr/share/man/man8/e2label.8
+	INSTALL_DATA /usr/share/man/man8/e2image.8
+	INSTALL_DATA /usr/share/man/man8/logsave.8
+	INSTALL_DATA /usr/share/man/man8/filefrag.8
+	INSTALL_DATA /usr/share/man/man8/e2freefrag.8
+	INSTALL_DATA /usr/share/man/man8/e2undo.8
+	INSTALL_DATA /usr/share/man/man8/e4defrag.8
+	INSTALL_DATA /usr/share/man/man8/e4crypt.8
+	LINK mkfs.ext2.8
+	LINK mkfs.ext3.8
+	LINK mkfs.ext4.8
+	LINK mkfs.ext4dev.8
+	INSTALL_DATA /usr/share/man/man1/chattr.1
+	INSTALL_DATA /usr/share/man/man1/lsattr.1
+	INSTALL_DATA /usr/share/man/man5/mke2fs.conf.5
+	INSTALL_DATA /usr/share/man/man5/ext4.5
+	LINK ext2.5
+	LINK ext3.5
+	INSTALL_DATA /etc/mke2fs.conf.e2fsprogs-new
+Warning: installing mke2fs.conf in /etc/mke2fs.conf.e2fsprogs-new
+Check to see if you need to update your /etc/mke2fs.conf
+ 
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/misc'
+making install in resize
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/resize'
+	MKINSTALLDIRS /sbin /usr/share/man/man8
+	INSTALL /sbin/resize2fs
+	INSTALL_DATA /usr/share/man/man8/resize2fs.8
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/resize'
+making install in tests/progs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/tests/progs'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/tests/progs'
+making install in po
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/po'
+if test "e2fsprogs" = "gettext-tools"; then \
+  /bin/sh ../config/mkinstalldirs /usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/po'
+making install-shlibs in lib/et
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+	MKINSTALLDIRS /lib /usr/lib
+cd ../../util ; make symlinks
+make[2]: Entering directory '/usr/src/e2fsprogs-1.43.3/util'
+	CC symlinks.c
+	LD symlinks
+make[2]: Leaving directory '/usr/src/e2fsprogs-1.43.3/util'
+	INSTALL-ELF-LIB /lib/libcom_err.so.2.1
+	SYMLINK /lib/libcom_err.so.2
+	SYMLINK /usr/lib/libcom_err.so
+	LDCONFIG
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+making install-shlibs in lib/ss
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libss.so.2.0
+	SYMLINK /lib/libss.so.2
+	SYMLINK /usr/lib/libss.so
+	LDCONFIG
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+making install-shlibs in lib/e2p
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libe2p.so.2.3
+	SYMLINK /lib/libe2p.so.2
+	SYMLINK /usr/lib/libe2p.so
+	LDCONFIG
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+making install-shlibs in lib/support
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[1]: Nothing to be done for 'install-shlibs'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making install-shlibs in lib/ext2fs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libext2fs.so.2.4
+	SYMLINK /lib/libext2fs.so.2
+	SYMLINK /usr/lib/libext2fs.so
+	LDCONFIG
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+making install-shlibs in intl
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[1]: Nothing to be done for 'install-shlibs'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/intl'
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/doc'
+	MAKEINFO libext2fs.info
+Makeinfo is missing. Info documentation will not be built.
+	TEXI2DVI libext2fs.dvi
+[91mmake[1]: texi2dvi: Command not found
+[0m[91mmake[1]: [libext2fs.dvi] Error 127 (ignored)
+[0mMakefile:352: recipe for target 'libext2fs.dvi' failed
+	MKINSTALLDIRS /usr/share/info
+	INSTALL_DATA /usr/share/info/libext2fs.info*
+[91m/usr/bin/install: cannot stat 'libext2fs.info*': No such file or directory[0m[91m
+[0m[91mmake[1]: [install-doc-libs] Error 1 (ignored)
+[0mMakefile:334: recipe for target 'install-doc-libs' failed
+	GZIP /usr/share/info/libext2fs.info*
+[91mgzip: [0m[91m/usr/share/info/libext2fs.info*: No such file or directory
+[0m[91mmake[1]: [install-doc-libs] Error 1 (ignored)
+[0mMakefile:334: recipe for target 'install-doc-libs' failed
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/doc'
+if test ! -d e2fsck && test ! -d debugfs && test ! -d misc && test ! -d ext2ed ; then make install-libs ; fi
+making install in lib/et
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libcom_err.so.2.1
+	SYMLINK /lib/libcom_err.so.2
+	SYMLINK /usr/lib/libcom_err.so
+	LDCONFIG
+	MKINSTALLDIRS /usr/lib /usr/include/et /usr/share/et /usr/bin /usr/share/man/man1 /usr/share/man/man3
+mkdir /usr/include/et
+mkdir /usr/share/et
+	INSTALL_DATA /usr/lib/libcom_err.a
+	INSTALL_DATA /usr/include/et/com_err.h
+	INSTALL_DATA /usr/share/et/et_c.awk
+	INSTALL_DATA /usr/share/et/et_h.awk
+	INSTALL_SCRIPT /usr/bin/compile_et
+	INSTALL_DATA /usr/share/man/man3/com_err.3
+	INSTALL_DATA /usr/share/man/man1/compile_et.1
+	INSTALL_DATA /usr/lib/pkgconfig/com_err.pc
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/et'
+making install in lib/ss
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libss.so.2.0
+	SYMLINK /lib/libss.so.2
+	SYMLINK /usr/lib/libss.so
+	LDCONFIG
+	MKINSTALLDIRS /usr/lib /usr/include/ss /usr/share/ss /usr/bin
+mkdir /usr/include/ss
+mkdir /usr/share/ss
+	INSTALL_DATA /usr/lib/libss.a
+	INSTALL_DATA /usr/include/ss/ss.h
+	INSTALL_DATA /usr/include/ss/ss_err.h
+	INSTALL_DATA /usr/share/ss/ct_c.awk
+	INSTALL_DATA /usr/share/ss/ct_c.sed
+	INSTALL /usr/bin/mk_cmds
+	INSTALL_DATA /usr/share/man/man1/mk_cmds.1
+	INSTALL_DATA /usr/lib/pkgconfig/ss.pc
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ss'
+making install in lib/e2p
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libe2p.so.2.3
+	SYMLINK /lib/libe2p.so.2
+	SYMLINK /usr/lib/libe2p.so
+	LDCONFIG
+	MKINSTALLDIRS /usr/lib /usr/include/e2p
+mkdir /usr/include/e2p
+	INSTALL_DATA /usr/lib/libe2p.a
+	INSTALL_DATA /usr/include/e2p/e2p.h
+	INSTALL_DATA /usr/lib/pkgconfig/e2p.pc
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/e2p'
+making install in lib/support
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/support'
+making install in lib/ext2fs
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+	MKINSTALLDIRS /lib /usr/lib
+	INSTALL-ELF-LIB /lib/libext2fs.so.2.4
+	SYMLINK /lib/libext2fs.so.2
+	SYMLINK /usr/lib/libext2fs.so
+	LDCONFIG
+	MKINSTALLDIRS /usr/lib /usr/include/ext2fs
+mkdir /usr/include/ext2fs
+	INSTALL_DATA /usr/lib/libext2fs.a
+	INSTALL_DATA /usr/include/ext2fs/bitops.h
+	INSTALL_DATA /usr/include/ext2fs/ext2fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_io.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_fs.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_ext_attr.h
+	INSTALL_DATA /usr/include/ext2fs/ext3_extents.h
+	INSTALL_DATA /usr/include/ext2fs/tdb.h
+	INSTALL_DATA /usr/include/ext2fs/qcow2.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_err.h
+	INSTALL_DATA /usr/include/ext2fs/ext2_types.h
+	INSTALL_DATA /usr/lib/pkgconfig/ext2fs.pc
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/lib/ext2fs'
+making install in intl
+make[1]: Entering directory '/usr/src/e2fsprogs-1.43.3/intl'
+if test 'no' = yes; then \
+  test yes != no || /bin/sh ../config/mkinstalldirs /usr/lib; \
+  temp=/usr/lib/t-charset.alias; \
+  dest=/usr/lib/charset.alias; \
+  if test -f /usr/lib/charset.alias; then \
+    orig=/usr/lib/charset.alias; \
+    sed -f ref-add.sed $orig > $temp; \
+    /usr/bin/install -c -m 644 $temp $dest; \
+    rm -f $temp; \
+  else \
+    if test yes = no; then \
+      orig=charset.alias; \
+      sed -f ref-add.sed $orig > $temp; \
+      /usr/bin/install -c -m 644 $temp $dest; \
+      rm -f $temp; \
+    fi; \
+  fi; \
+  /bin/sh ../config/mkinstalldirs /usr/share/locale; \
+  test -f /usr/share/locale/locale.alias \
+    && orig=/usr/share/locale/locale.alias \
+    || orig=./locale.alias; \
+  temp=/usr/share/locale/t-locale.alias; \
+  dest=/usr/share/locale/locale.alias; \
+  sed -f ref-add.sed $orig > $temp; \
+  /usr/bin/install -c -m 644 $temp $dest; \
+  rm -f $temp; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/usr/src/e2fsprogs-1.43.3/intl'
+ ---> 6830478eb892
+Removing intermediate container 91f8245e53d0
+Successfully built 6830478eb892

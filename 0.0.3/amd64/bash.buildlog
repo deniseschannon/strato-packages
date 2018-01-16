@@ -1,0 +1,2523 @@
+Sending build context to Docker daemon 4.608 kB
+Step 1/10 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/10 : RUN strato add xz-dev
+ ---> Running in 66c908c3df0b
+Installing package http://172.17.0.2:2015//amd64/xz-libs.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/xz-dev.tar.gz:0.0.3
+/usr/include
+/usr/lib
+/usr/include/lzma
+/usr/lib/liblzma.la
+/usr/include/lzma/base.h
+/usr/lib/liblzma.so
+/usr/lib/liblzma.so.5
+/usr/include/lzma/bcj.h
+/usr/lib/liblzma.so.5.2.2
+/usr/include/lzma/block.h
+/usr/include/lzma/check.h
+/usr/include/lzma/container.h
+/usr/include/lzma/delta.h
+/usr/include/lzma/filter.h
+/usr/include/lzma/hardware.h
+/usr/include/lzma/index.h
+/usr/include/lzma/index_hash.h
+/usr/include/lzma/lzma12.h
+/usr/include/lzma/stream_flags.h
+/usr/include/lzma/version.h
+/usr/include/lzma/vli.h
+/usr/include/lzma.h
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/liblzma.pc
+0.945614 mb
+ ---> 92a40327e88c
+Removing intermediate container 66c908c3df0b
+Step 3/10 : ENV VERSION 4.3
+ ---> Running in aaa6e68abade
+ ---> b912c83b13f4
+Removing intermediate container aaa6e68abade
+Step 4/10 : ENV LDFLAGS -s
+ ---> Running in 11b1ffa109ab
+ ---> 76fe5a0d8b7f
+Removing intermediate container 11b1ffa109ab
+Step 5/10 : COPY fetch-patches /usr/bin/
+ ---> 39e2b936cfa0
+Removing intermediate container 8f965ed82a69
+Step 6/10 : RUN wget -P /usr/src/ https://ftp.gnu.org/gnu/bash/bash-${VERSION}.tar.gz
+ ---> Running in e648179a3919
+[91m--2018-01-16 05:39:20--  https://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20[0m[91m, [0m[91m2001:4830:134:3::b[0m[91m
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 7955839 (7.6M) [application/x-gzip]
+[0m[91mSaving to: '/usr/src/bash-4.3.tar.gz'
+[0m[91m
+     0K .......... ......[0m[91m.... .......... ..[0m[91m........ ..........  0%  337K 23s
+    50K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m....  1%  668K[0m[91m 17s
+   100K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m......[0m[91m  1%[0m[91m 35.3M 11s
+   150K ..........[0m[91m .......... ......[0m[91m.... .......... ..[0m[91m........  2%  684K 11s
+   200K .......... .......... ....[0m[91m...... ......[0m[91m.... ..........  3% 66.1M 9s
+   250K .......... .......... ..[0m[91m........ .......... ..........  3% 77.3M 7s
+   300K ....[0m[91m...... ..........[0m[91m ....[0m[91m...... ......[0m[91m.... ..........  4% 1.43M 7s
+   350K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... ..........  5% 1.24M 7s
+   400K .......... .......... ....[0m[91m...... ..[0m[91m........ ..........  5% 56.0M 6s
+   450K .......... ....[0m[91m...... .......... .......... ......[0m[91m....  6% 82.0M 5s
+   500K .......... .......... .[0m[91m......... .......... ....[0m[91m......  7% 45.8M 5s
+   550K ..........[0m[91m .......... .......... ....[0m[91m...... ..[0m[91m........  7% 42.0M 4s[0m[91m
+   600K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m ..........  8% 46.7M 4s
+   650K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. ..........  9% 1.60M 4s[0m[91m
+   700K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... ..........  9% 1.25M 4s
+   750K ..[0m[91m........[0m[91m .......... .......... ....[0m[91m...... .......... 10% 63.2M 4s
+   800K .......... .......... ....[0m[91m...... .......... .......... 10% 91.0M 4s
+   850K .......... .......... .......... [0m[91m.......... ......[0m[91m.... 11% 78.6M 3s
+   900K .......... .......... .......... .......... .......... 12% 77.2M 3s
+   950K .......... .......... ......[0m[91m.... .......... .......... 12% 95.3M 3s
+  1000K .......... .......... ..........[0m[91m .......... .......... 13% 84.3M 3s
+  1050K .......... ...[0m[91m....... .......... .........[0m[91m. .......... 14% 95.1M 3s
+  1100K .......... ..........[0m[91m .......... ......[0m[91m.... .......... 14% 88.0M 3s
+  1150K .......... .......... .......... .......... .......... 15%  118M 2s
+  1200K ........[0m[91m.. .......... .......... .......... ........[0m[91m.. 16% 76.3M 2s
+  1250K .......... .......... .......... .......... ......[0m[91m.... 16% 1.65M 2s
+  1300K .......... ..[0m[91m........[0m[91m .......... .......... .....[0m[91m..... 17% 51.3M 2s
+  1350K ..........[0m[91m .......... ......[0m[91m.... .......... .......... 18% 1.30M 2s
+  1400K ........[0m[91m.. .......... .......... .......... .......... 18% 92.9M 2s
+  1450K ......[0m[91m.... .......... .......... .......... .......... 19% 72.7M 2s
+  1500K ....[0m[91m...... .......... .......... .......... .......... 19%  111M 2s
+  1550K .......... ........[0m[91m.. .......... .......... .......... 20% 85.7M 2s
+  1600K .......... .......... .......... ..[0m[91m........ .......... 21% 81.0M 2s
+  1650K .......... .......... ..........[0m[91m .......... .......... 21% 90.4M 2s
+  1700K .......... ..........[0m[91m .......... .......... ....[0m[91m...... 22% 95.3M 2s
+  1750K .......... .......... .......... .......... .......... 23%  104M 2s
+  1800K ........[0m[91m.. .......... .......... ..[0m[91m........ .......... 23% 75.7M 2s
+  1850K .......... ....[0m[91m...... ..[0m[91m........ .......... .......... 24% 97.6M 2s
+  1900K .......... ..[0m[91m........[0m[91m .......... .......... .......... 25% 83.1M 2s
+  1950K ..[0m[91m........ .......... .......... .......... .......... 25%  102M 2s[0m[91m
+  2000K ........[0m[91m.. ......[0m[91m.... .......... ..[0m[91m........ .......... 26% 68.4M 1s
+  2050K .......[0m[91m... .......... .......... .......... ......[0m[91m.... 27% 65.5M 1s
+  2100K .......... .......... ........[0m[91m.. .....[0m[91m..... .......... 27% 92.7M 1s
+  2150K .......... .......... .......... ....[0m[91m...... ..[0m[91m........ 28% 38.3M 1s[0m[91m
+  2200K ........[0m[91m.. ......[0m[91m.... ....[0m[91m...... .[0m[91m.........[0m[91m ........[0m[91m.[0m[91m. 28% 11.9M 1s
+  2250K ......[0m[91m.... ....[0m[91m...... ..[0m[91m........[0m[91m ........[0m[91m.. ......[0m[91m.... 29% 8.99M 1s
+  2300K ....[0m[91m...... ..........[0m[91m .......... .......... .......... 30% 2.85M 1s
+  2350K .......... ........[0m[91m.. .......... .......... .......... 30% 73.1M 1s[0m[91m
+  2400K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 31% 1.31M 1s
+  2450K .......... ....[0m[91m...... .......... .......... .......... 32%  101M 1s
+  2500K .......... .......... .......... ......[0m[91m.... .......... 32%  113M 1s
+  2550K [0m[91m.......... .......... .......... .......... .......... 33% 64.4M 1s
+  2600K ........[0m[91m.. .......... .......... ..........[0m[91m .......... 34% 60.5M 1s
+  2650K .......... ....[0m[91m...... .......... ........[0m[91m.. .......... 34% 73.6M 1s
+  2700K .......... .......... .......... .......... ....[0m[91m...... 35% 83.3M 1s
+  2750K .......... ........[0m[91m.. .......... .......... .......... 36% 61.5M 1s
+  2800K .......... .......... .......... ..........[0m[91m .......... 36% 67.8M 1s
+  2850K .......... .......... ..........[0m[91m .......... .......... 37%  130M 1s
+  2900K .......... .......... .......... .......... ....[0m[91m...... 37%  110M 1s
+  2950K .......... .......... .......... ....[0m[91m...... .......... 38%  123M 1s
+  3000K .......... .......... .......... .......... ........[0m[91m.. 39%  117M 1s
+  3050K .......... ....[0m[91m...... .......... .......... .......... 39% 98.4M 1s
+  3100K ....[0m[91m...... ..........[0m[91m ........[0m[91m.. ......[0m[91m.... .......... 40% 16.3M 1s
+  3150K ..[0m[91m........[0m[91m ........[0m[91m.. ......[0m[91m.[0m[91m... ....[0m[91m...... ..[0m[91m........ 41% 13.0M 1s[0m[91m
+  3200K ........[0m[91m.[0m[91m. ......[0m[91m.... ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. 41% 9.90M 1s
+  3250K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 42% 13.4M 1s
+  3300K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. ......[0m[91m.... ....[0m[91m...... 43% 13.0M 1s
+  3350K ..[0m[91m........[0m[91m ........[0m[91m.. ......[0m[91m.... ....[0m[91m...... ..[0m[91m........ 43% 12.6M 1s[0m[91m
+  3400K ........[0m[91m.. ......[0m[91m.... ....[0m[91m...... ..[0m[91m........[0m[91m ........[0m[91m.. 44% 17.9M 1s
+  3450K .[0m[91m......... .......... .......... .......... .......... 45% 31.8M 1s
+  3500K .......... .......... .......... .......... .......... 45% 31.0M 1s
+  3550K .......... .......... .......... .......... .......... 46% 24.1M 1s
+  3600K .......... .......... .......... .......... .......... 46% 33.3M 1s
+  3650K .......... .......... .......... .......... .......... 47% 35.0M 1s
+  3700K .......... .......... .......... .......... ....[0m[91m...... 48% 5.98M 1s
+  3750K ..[0m[91m........[0m[91m .......... ......[0m[91m.... .......... ..[0m[91m........ 48% 1.88M 1s
+  3800K ........[0m[91m.. .......... .......... .......... .......... 49% 52.1M 1s
+  3850K .......... .......... .......... .......... .......... 50%  147M 1s
+  3900K .......... .......... .......... .......... .......... 50%  220M 1s
+  3950K ..[0m[91m........ .......... .......... .......... .......... 51%  113M 1s[0m[91m
+  4000K .......... .......... .......... .......... .......... 52% 58.1M 1s
+  4050K .......... .......... .......... .......... .......... 52%  129M 1s
+  4100K .......... ..[0m[91m........ .......... .......... .......... 53% 92.5M 1s
+  4150K .......... .......... ......[0m[91m.... .......... .......... 54% 77.7M 1s
+  4200K .......... .......... .......... ..........[0m[91m .......... 54% 95.8M 1s
+  4250K .......... .......... .......... ........[0m[91m.. .......... 55% 81.7M 1s
+  4300K .......... .......... .......... ......[0m[91m.... ..........[0m[91m 55%  667K 1s
+  4350K ..[0m[91m........[0m[91m .......... .......... ....[0m[91m...... ..........[0m[91m 56% 52.8M 1s
+  4400K .......... .......... .......... ..[0m[91m........ ........[0m[91m.. 57% 66.4M 1s
+  4450K .......... ....[0m[91m...... ..........[0m[91m .......... .......... 57% 52.3M 1s
+  4500K .......... .......... .......... .......... ....[0m[91m...... 58%  157M 1s[0m[91m
+  4550K ..........[0m[91m ........[0m[91m.. ......[0m[91m.... .......... ..[0m[91m........ 59% 33.9M 1s
+  4600K .......... .......... ....[0m[91m...... .......... .......... 59% 82.7M 1s
+  4650K .......... .......... .......... .......... .......... 60%  181M 0s
+  4700K ....[0m[91m...... ..........[0m[91m .......... .......... .......... 61% 93.6M 0s
+  4750K .......... ........[0m[91m.. .......... .......... .......... 61%  186M 0s
+  4800K .......... ......[0m[91m.... .......... .......... ........[0m[91m.. 62%  102M 0s
+  4850K .......... .......... .......... .......... .......... 63%  258M 0s
+  4900K .......... .......... .......... .......... .......... 63%  172M 0s
+  4950K ..........[0m[91m .......... .......... .......... .......... 64%  165M 0s
+  5000K .......... .......... .......... ..........[0m[91m .......... 64%  218M 0s
+  5050K .......... .......... .......... .......... .......... 65%  137M 0s
+  5100K .......... ..........[0m[91m .......... .......... .......... 66%  215M 0s
+  5150K .......... .......... .......... .......... .......... 66%  186M 0s
+  5200K .......... ......[0m[91m.... .......... .......... .......... 67%  168M 0s
+  5250K .......... .......... .......... .......... .......... 68%  221M 0s
+  5300K .......... .......... .......... .......... .......... 68%  317M 0s
+  5350K ..........[0m[91m .......... .......... .......... ..[0m[91m........ 69%  169M 0s
+  5400K .......... .......... .......... .......... .......... 70%  158M 0s
+  5450K .......... .......... .......... .......... .......... 70%  309M 0s
+  5500K .......... .......... .......... ......[0m[91m.... .......... 71%  266M 0s
+  5550K .......... .......... .......... .......... .......... 72%  183M 0s
+  5600K .......... .......... .......... .......... .......... 72%  190M 0s
+  5650K .......... ....[0m[91m...... .......... .......... ......[0m[91m.... 73%  130M 0s
+  5700K .......... .......... .......... .......... .......... 74%  169M 0s
+  5750K .......... .......... .......... .......... .......... 74%  279M 0s
+  5800K .......... .......... ....[0m[91m...... .......... .......... 75%  139M 0s
+  5850K .......... .......... .......... .......... .......... 75%  259M 0s
+  5900K ....[0m[91m...... .......... .......... .......... .......... 76%  206M 0s
+  5950K .......... .......... .......... .......... .......... 77%  196M 0s
+  6000K .......... .......... .......... .......... .......... 77%  261M 0s
+  6050K .......... .......... ..........[0m[91m .......... .......... 78%  196M 0s
+  6100K .......... .......... .......... .......... .......... 79%  256M 0s
+  6150K ..........[0m[91m .......... .......... .......... .......... 79%  164M 0s
+  6200K .......... .......... .......... .......... .......... 80%  191M 0s
+  6250K .......... .......... ..[0m[91m........ ........[0m[91m.. .......... 81% 8.59M 0s
+  6300K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 81% 15.1M 0s
+  6350K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 82% 17.4M 0s[0m[91m
+  6400K .......... ......[0m[91m.... .......... ..[0m[91m........ .......... 83% 4.96M 0s
+  6450K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 83% 44.3M 0s
+  6500K .......... ..[0m[91m........ ........[0m[91m.. .......... .......... 84% 3.12M 0s
+  6550K ..........[0m[91m .......... ......[0m[91m.... ....[0m[91m...... ..[0m[91m........ 84% 13.5M 0s
+  6600K ........[0m[91m.. .......... ....[0m[91m...... ..........[0m[91m .......... 85% 13.3M 0s
+  6650K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. .......... 86% 12.6M 0s
+  6700K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 86% 13.3M 0s
+  6750K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 87% 12.6M 0s[0m[91m
+  6800K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 88% 10.2M 0s
+  6850K ......[0m[91m.... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 88% 20.1M 0s
+  6900K ....[0m[91m...... ..[0m[91m........ ........[0m[91m.. .......... .......... 89% 5.10M 0s
+  6950K .......... .......... .......... .......... .......... 90%  110M 0s
+  7000K .......... .......... .......... .......... .......... 90% 90.6M 0s
+  7050K .......... .......... ..[0m[91m........ ........[0m[91m.. .......... 91% 40.6M 0s
+  7100K .......... .......... .......... .......... .......... 92%  183M 0s
+  7150K .......... .......... .......... .......... .......... 92%  165M 0s[0m[91m
+  7200K .......... .......... .......... ..........[0m[91m .......... 93% 47.5M 0s
+  7250K .......... ....[0m[91m...... .......... .......... ......[0m[91m.... 93% 61.7M 0s
+  7300K .......... .......... .......... .......... .......... 94%  112M 0s
+  7350K .......... .......... ......[0m[91m.... .......... ..[0m[91m........ 95% 45.0M 0s[0m[91m
+  7400K .......... .......... ....[0m[91m...... ..........[0m[91m .......... 95% 29.4M 0s
+  7450K ......[0m[91m.... .......... ..[0m[91m........ .......... .......... 96% 40.1M 0s
+  7500K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... .......... 97% 27.3M 0s
+  7550K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... .......... 97% 34.5M 0s[0m[91m
+  7600K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 98% 23.7M 0s
+  7650K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 99% 39.1M 0s
+  7700K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 99% 33.2M 0s
+  7750K ..........[0m[91m .........                                  100% 57.0M=0.9s
+
+[0m[91m2018-01-16 05:39:21 (8.87 MB/s) - '/usr/src/bash-4.3.tar.gz' saved [7955839/7955839]
+
+[0m ---> c051b271d69b
+Removing intermediate container e648179a3919
+Step 7/10 : RUN cd /usr/src && tar xf bash*.tar.gz && fetch-patches
+ ---> Running in 5d6690cdeded
+[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:22--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-001
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1617 (1.6K)
+[0m[91mSaving to: 'bash43-001.patch'
+
+     0K .                              [0m[91m                       100% 31.1M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:22 (31.1 MB/s) - 'bash43-001.patch' saved [1617/1617]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:22--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-002
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1594 (1.6K)
+[0m[91mSaving to: 'bash43-002.patch'
+[0m[91m
+     0K .               [0m[91m   [0m[91m       [0m[91m        [0m[91m       [0m[91m     [0m[91m        100% 7.85M=0s
+
+[0m[91m2018-01-16 05:39:23 (7.85 MB/s) - 'bash43-002.patch' saved [1594/1594]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:23--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-003
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: [0m[91m1465 (1.4K)[0m[91m
+[0m[91mSaving to: 'bash43-003.patch'
+[0m[91m
+     0K[0m[91m [0m[91m.[0m[91m [0m[91m   [0m[91m [0m[91m [0m[91m  [0m[91m  [0m[91m    [0m[91m    [0m[91m  [0m[91m        [0m[91m [0m[91m     [0m[91m         [0m[91m   [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m  100%[0m[91m 4.56M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:23 (4.56 MB/s) - 'bash43-003.patch' saved [1465/1465]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:23--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-004
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b[0m[91m
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: [0m[91m1534 (1.5K)
+Saving to: 'bash43-004.patch'
+[0m[91m
+     0K .      [0m[91m       [0m[91m             [0m[91m       [0m[91m        [0m[91m           [0m[91m 100% 16.3M=0s
+
+[0m[91m2018-01-16 05:39:24 (16.3 MB/s) - 'bash43-004.patch' saved [1534/1534]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:24--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-005
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2636 (2.6K)
+Saving to: 'bash43-005.patch'
+[0m[91m
+     0K ..       [0m[91m  [0m[91m     [0m[91m      [0m[91m    [0m[91m      [0m[91m      [0m[91m    [0m[91m       [0m[91m     100% 99.7M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:24 (99.7 MB/s) - 'bash43-005.patch' saved [2636/2636]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:24--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-006
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b[0m[91m
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: [0m[91m1445 (1.4K)
+Saving to: 'bash43-006.patch'
+[0m[91m
+     0K .        [0m[91m          [0m[91m                 [0m[91m            [0m[91m      100% 53.4M=0s
+
+2018-01-16 05:39:24 (53.4 MB/s) - 'bash43-006.patch' saved [1445/1445]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:24--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-007
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1331 (1.3K)
+Saving to: 'bash43-007.patch'
+
+     0K [0m[91m.                            [0m[91m                         100% 25.9M=0s
+
+2018-01-16 05:39:25 (25.9 MB/s) - 'bash43-007.patch' saved [1331/1331]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:25--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-008
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b[0m[91m
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 4575 (4.5K)
+Saving to: 'bash43-008.patch'
+
+     0K ....                                                  100%  119M=0s
+
+2018-01-16 05:39:25 (119 MB/s) - 'bash43-008.patch' saved [4575/4575]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:25--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-009
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2413 (2.4K)
+Saving to: 'bash43-009.patch'
+[0m[91m
+     0K ..               [0m[91m  [0m[91m                             [0m[91m      100%[0m[91m  119M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:25 (119 MB/s) - 'bash43-009.patch' saved [2413/2413]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:25--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-010
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 5357 (5.2K)
+Saving to: 'bash43-010.patch'
+
+     0K .....                       [0m[91m              [0m[91m     [0m[91m       100% 65.8M=0s
+
+2018-01-16 05:39:26 (65.8 MB/s) - 'bash43-010.patch' saved [5357/5357]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:26--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-011
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1533 (1.5K)
+[0m[91mSaving to: 'bash43-011.patch'
+
+     0K .              [0m[91m [0m[91m             [0m[91m                         100% 9.34M=0s
+
+[0m[91m2018-01-16 05:39:26 (9.34 MB/s) - 'bash43-011.patch' saved [1533/1533]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:26--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-012
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1365 (1.3K)
+Saving to: 'bash43-012.patch'
+
+     0K .                                                     100% 89.4M=0s
+
+2018-01-16 05:39:26 (89.4 MB/s) - 'bash43-012.patch' saved [1365/1365]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:26--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-013
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2151 (2.1K)
+Saving to: 'bash43-013.patch'
+[0m[91m
+     0K ..  [0m[91m  [0m[91m     [0m[91m  [0m[91m [0m[91m [0m[91m [0m[91m        [0m[91m       [0m[91m          [0m[91m      [0m[91m       100%  115M=0s
+
+2018-01-16 05:39:27 (115 MB/s) - 'bash43-013.patch' saved [2151/2151]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:27--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-014
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 3533[0m[91m (3.5K)
+[0m[91mSaving to: 'bash43-014.patch'
+[0m[91m
+     0K ...                                               [0m[91m [0m[91m   100% 41.2M=0s
+
+[0m[91m2018-01-16 05:39:27 (41.2 MB/s) - 'bash43-014.patch' saved [3533/3533]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:27--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-015
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1894 (1.8K)
+[0m[91mSaving to: 'bash43-015.patch'
+[0m[91m
+     0K [0m[91m.  [0m[91m        [0m[91m       [0m[91m [0m[91m [0m[91m [0m[91m  [0m[91m [0m[91m [0m[91m [0m[91m       [0m[91m  [0m[91m    [0m[91m [0m[91m  [0m[91m [0m[91m [0m[91m        [0m[91m  100%[0m[91m 5.44M=0s
+
+2018-01-16 05:39:27 (5.44 MB/s) - 'bash43-015.patch' saved [1894/1894]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:27--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-016
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20[0m[91m, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 3674[0m[91m (3.6K)
+Saving to: 'bash43-016.patch'
+[0m[91m
+     0K[0m[91m ..[0m[91m.  [0m[91m    [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m [0m[91m  [0m[91m [0m[91m   [0m[91m        [0m[91m       [0m[91m [0m[91m [0m[91m    [0m[91m   [0m[91m      [0m[91m100%[0m[91m  151M=0s
+
+[0m[91m2018-01-16 05:39:28 (151 MB/s) - 'bash43-016.patch' saved [3674/3674]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:28--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-017
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b[0m[91m
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1565[0m[91m (1.5K)
+[0m[91mSaving to: 'bash43-017.patch'
+[0m[91m
+     0K[0m[91m .    [0m[91m              [0m[91m         [0m[91m  [0m[91m [0m[91m [0m[91m       [0m[91m     [0m[91m          100% 3.25M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:28 (3.25 MB/s) - 'bash43-017.patch' saved [1565/1565]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:28--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-018
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1315 (1.3K)
+[0m[91mSaving to: 'bash43-018.patch'
+[0m[91m
+     0K .  [0m[91m     [0m[91m   [0m[91m   [0m[91m  [0m[91m  [0m[91m  [0m[91m                  [0m[91m              [0m[91m  100% 4.37M[0m[91m=0s
+
+[0m[91m2018-01-16 05:39:28 (4.37 MB/s) - 'bash43-018.patch' saved [1315/1315]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:28--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-019
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20[0m[91m, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: [0m[91m2610[0m[91m (2.5K)
+[0m[91mSaving to: 'bash43-019.patch'
+[0m[91m
+     0K [0m[91m..       [0m[91m    [0m[91m               [0m[91m    [0m[91m   [0m[91m   [0m[91m    [0m[91m   [0m[91m [0m[91m        100%  131M=0s
+
+[0m[91m2018-01-16 05:39:29 (131 MB/s) - 'bash43-019.patch' saved [2610/2610]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:29--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-020
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b[0m[91m
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2777 (2.7K)[0m[91m
+Saving to: 'bash43-020.patch'
+[0m[91m
+     0K ..[0m[91m  [0m[91m     [0m[91m   [0m[91m             [0m[91m          [0m[91m                [0m[91m   100% 10.4M=0s
+
+2018-01-16 05:39:29 (10.4 MB/s) - 'bash43-020.patch' saved [2777/2777]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:29--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-021
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20[0m[91m, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1623 (1.6K)
+[0m[91mSaving to: 'bash43-021.patch'
+
+     0K [0m[91m.                             [0m[91m [0m[91m      [0m[91m                 100% 74.2M=0s
+
+[0m[91m2018-01-16 05:39:29 (74.2 MB/s) - 'bash43-021.patch' saved [1623/1623]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:29--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-022
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, [0m[91m2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1782 (1.7K)
+Saving to: 'bash43-022.patch'
+
+     0K .                                                     100%  114M=0s
+
+2018-01-16 05:39:30 (114 MB/s) - 'bash43-022.patch' saved [1782/1782]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:30--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-023
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 3414 (3.3K)
+[0m[91mSaving to: 'bash43-023.patch'
+[0m[91m
+     0K ...                                    [0m[91m         [0m[91m      100%  183M=0s
+
+[0m[91m2018-01-16 05:39:30 (183 MB/s) - 'bash43-023.patch' saved [3414/3414]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:30--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-024
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1909 (1.9K)[0m[91m
+Saving to: 'bash43-024.patch'
+
+     0K .                                                     100%  107M=0s
+
+2018-01-16 05:39:30 (107 MB/s) - 'bash43-024.patch' saved [1909/1909]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:30--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-025
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 3940 (3.8K)
+[0m[91mSaving to: 'bash43-025.patch'
+
+     0K ...                                                   100%  131M=0s
+
+[0m[91m2018-01-16 05:39:31 (131 MB/s) - 'bash43-025.patch' saved [3940/3940]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:31--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-026
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1575 (1.5K)[0m[91m
+Saving to: 'bash43-026.patch'
+[0m[91m
+     0K .                                                     100% 9.80M=0s
+
+[0m[91m2018-01-16 05:39:31 (9.80 MB/s) - 'bash43-026.patch' saved [1575/1575]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:31--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-027
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 6889 (6.7K)
+Saving to: 'bash43-027.patch'
+
+     0K ......                                                100%  213M=0s
+
+2018-01-16 05:39:31 (213 MB/s) - 'bash43-027.patch' saved [6889/6889]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:31--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-028
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 69606 (68K)
+Saving to: 'bash43-028.patch'
+[0m[91m
+     0K .......... .......... .......... ..[0m[91m........ ........[0m[91m.. 73%  317K 0s
+    50K .......... .......                                    100%  178M=0.2s
+
+2018-01-16 05:39:32 (430 KB/s) - 'bash43-028.patch' saved [69606/69606]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:32--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-029
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1824 (1.8K)
+Saving to: 'bash43-029.patch'
+
+     0K .                                                     100%  121M=0s
+
+2018-01-16 05:39:32 (121 MB/s) - 'bash43-029.patch' saved [1824/1824]
+
+URL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:32--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-030
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 63206 (62K)
+Saving to: 'bash43-030.patch'
+[0m[91m
+     0K .......... .......... .......... ..[0m[91m........ .......... 81%  336K 0s
+    50K .......... .                                          100%  314M=0.1s
+
+2018-01-16 05:39:33 (414 KB/s) - 'bash43-030.patch' saved [63206/63206]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:33--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-031
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 3689 (3.6K)
+Saving to: 'bash43-031.patch'
+[0m[91m
+     0K ...                                                   100%  166M=0s
+
+2018-01-16 05:39:33 (166 MB/s) - 'bash43-031.patch' saved [3689/3689]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:33--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-032
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1734 (1.7K)
+Saving to: 'bash43-032.patch'
+[0m[91m
+     0K .                                                     100% 85.7M=0s
+
+2018-01-16 05:39:33 (85.7 MB/s) - 'bash43-032.patch' saved [1734/1734]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:33--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-033
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 7038 (6.9K)
+[0m[91mSaving to: 'bash43-033.patch'
+[0m[91m
+     0K ......                                                100% 13.7M=0s
+
+[0m[91m2018-01-16 05:39:34 (13.7 MB/s) - 'bash43-033.patch' saved [7038/7038]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:34--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-034
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20[0m[91m, 2001:4830:134:3::b[0m[91m
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 2392 (2.3K)
+[0m[91mSaving to: 'bash43-034.patch'
+
+     0K ..                                 [0m[91m                   100% 24.6M=0s
+
+2018-01-16 05:39:34 (24.6 MB/s) - 'bash43-034.patch' saved [2392/2392]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:34--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-035
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1800 (1.8K)
+Saving to: 'bash43-035.patch'
+[0m[91m
+     0K .                                                     100%  114M=0s
+
+2018-01-16 05:39:35 (114 MB/s) - 'bash43-035.patch' saved [1800/1800]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:35--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-036
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1539 (1.5K)
+[0m[91mSaving to: 'bash43-036.patch'
+[0m[91m
+     0K .                              [0m[91m                       100% 7.33M=0s
+
+[0m[91m2018-01-16 05:39:35 (7.33 MB/s) - 'bash43-036.patch' saved [1539/1539]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:35--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-037
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1284 (1.3K)
+Saving to: 'bash43-037.patch'
+[0m[91m
+     0K .                                                     100% 9.03M=0s
+
+2018-01-16 05:39:35 (9.03 MB/s) - 'bash43-037.patch' saved [1284/1284]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:35--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-038
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 2354 (2.3K)
+Saving to: 'bash43-038.patch'
+
+     0K ..                                                    100%  145M=0s
+
+2018-01-16 05:39:36 (145 MB/s) - 'bash43-038.patch' saved [2354/2354]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:36--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-039
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1531 (1.5K)[0m[91m
+Saving to: 'bash43-039.patch'
+[0m[91m
+     0K .                                         [0m[91m        [0m[91m    100% 30.8M[0m[91m=0s
+
+[0m[91m2018-01-16 05:39:36 (30.8 MB/s) - 'bash43-039.patch' saved [1531/1531]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:36--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-040
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1532 (1.5K)
+Saving to: 'bash43-040.patch'
+
+     0K .                               [0m[91m     [0m[91m             [0m[91m    100% 82.5M=0s
+
+[0m[91m2018-01-16 05:39:36 (82.5 MB/s) - 'bash43-040.patch' saved [1532/1532]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:36--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-041
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2362 (2.3K)
+Saving to: 'bash43-041.patch'
+[0m[91m
+     0K ..                           [0m[91m                         100% 7.68M=0s
+
+[0m[91m2018-01-16 05:39:37 (7.68 MB/s) - 'bash43-041.patch' saved [2362/2362]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:37--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-042
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1535[0m[91m (1.5K)
+Saving to: 'bash43-042.patch'
+
+     0K .                                                     100% 92.1M=0s
+
+[0m[91m2018-01-16 05:39:37 (92.1 MB/s) - 'bash43-042.patch' saved [1535/1535]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:37--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-043
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1942 (1.9K)
+Saving to: 'bash43-043.patch'
+
+     0K .                                                     100%  123M=0s
+
+2018-01-16 05:39:37 (123 MB/s) - 'bash43-043.patch' saved [1942/1942]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:37--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-044
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1658 (1.6K)
+[0m[91mSaving to: 'bash43-044.patch'
+[0m[91m
+     0K .                                                     100% 4.19M=0s
+
+2018-01-16 05:39:38 (4.19 MB/s) - 'bash43-044.patch' saved [1658/1658]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:38--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-045
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 1312 (1.3K)
+[0m[91mSaving to: 'bash43-045.patch'
+[0m[91m
+     0K .                                                     100% 24.9M=0s
+
+2018-01-16 05:39:38 (24.9 MB/s) - 'bash43-045.patch' saved [1312/1312]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:38--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-046
+Resolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: [0m[91m1494 (1.5K)
+[0m[91mSaving to: 'bash43-046.patch'
+[0m[91m
+     0K [0m[91m.                   [0m[91m          [0m[91m             [0m[91m           100% 18.5M=0s[0m[91m
+
+[0m[91m2018-01-16 05:39:38 (18.5 MB/s) - 'bash43-046.patch' saved [1494/1494]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+[0m[91m--2018-01-16 05:39:38--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-047
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 4437 (4.3K)
+[0m[91mSaving to: 'bash43-047.patch'
+
+     0K ....                                                  100% 54.8M=0s
+
+[0m[91m2018-01-16 05:39:39 (54.8 MB/s) - 'bash43-047.patch' saved [4437/4437]
+
+[0m[91mURL transformed to HTTPS due to an HSTS policy
+--2018-01-16 05:39:39--  https://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-048
+[0m[91mResolving ftp.gnu.org (ftp.gnu.org)... [0m[91m208.118.235.20, 2001:4830:134:3::b
+[0m[91mConnecting to ftp.gnu.org (ftp.gnu.org)|208.118.235.20|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+Length: 1612 (1.6K)
+[0m[91mSaving to: 'bash43-048.patch'
+[0m[91m
+     0K .                                                     100% 92.2M=0s
+
+2018-01-16 05:39:39 (92.2 MB/s) - 'bash43-048.patch' saved [1612/1612]
+
+[0m ---> 0937566699e9
+Removing intermediate container 5d6690cdeded
+Step 8/10 : RUN cd /usr/src/bash* && for i in ../*.patch; do patch -p0 < ${i}; done
+ ---> Running in cc07473e4828
+patching file test.c
+patching file patchlevel.h
+patching file trap.c
+patching file patchlevel.h
+patching file lib/readline/readline.c
+patching file patchlevel.h
+patching file lib/readline/readline.c
+Hunk #1 succeeded at 966 (offset 1 line).
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file jobs.c
+patching file patchlevel.h
+patching file arrayfunc.c
+patching file patchlevel.h
+patching file lib/glob/gmisc.c
+patching file lib/glob/glob.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file externs.h
+patching file lib/sh/shquote.c
+patching file pcomplete.c
+patching file patchlevel.h
+patching file lib/readline/display.c
+patching file patchlevel.h
+patching file jobs.c
+patching file patchlevel.h
+patching file lib/readline/display.c
+patching file patchlevel.h
+patching file subst.c
+patching file patchlevel.h
+patching file bashline.c
+patching file patchlevel.h
+patching file lib/glob/glob.c
+patching file lib/glob/gmisc.c
+patching file patchlevel.h
+patching file variables.c
+patching file patchlevel.h
+patching file arrayfunc.c
+patching file patchlevel.h
+patching file lib/readline/input.c
+patching file builtins/read.def
+patching file patchlevel.h
+patching file shell.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file lib/readline/misc.c
+patching file patchlevel.h
+patching file execute_cmd.c
+patching file patchlevel.h
+patching file subst.h
+patching file subst.c
+patching file patchlevel.h
+patching file subst.c
+patching file patchlevel.h
+patching file builtins/common.h
+patching file builtins/evalstring.c
+patching file variables.c
+patching file subst.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file variables.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file make_cmd.c
+patching file copy_cmd.c
+patching file patchlevel.h
+patching file builtins/evalstring.c
+patching file parse.y
+patching file shell.h
+patching file y.tab.c
+patching file patchlevel.h
+patching file subst.h
+patching file variables.c
+Hunk #1 succeeded at 2517 (offset 13 lines).
+Hunk #2 succeeded at 2568 (offset 13 lines).
+Hunk #3 succeeded at 2698 (offset 13 lines).
+patching file patchlevel.h
+patching file jobs.c
+patching file patchlevel.h
+patching file shell.c
+patching file builtins/read.def
+patching file builtins/common.h
+patching file bashline.c
+patching file sig.c
+patching file patchlevel.h
+patching file builtins/set.def
+patching file patchlevel.h
+patching file lib/sh/unicode.c
+patching file patchlevel.h
+patching file variables.c
+patching file patchlevel.h
+patching file assoc.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file arrayfunc.c
+patching file patchlevel.h
+patching file subst.c
+patching file patchlevel.h
+patching file bashline.c
+patching file lib/readline/complete.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file execute_cmd.c
+patching file patchlevel.h
+patching file builtins/shopt.def
+patching file patchlevel.h
+patching file redir.c
+patching file patchlevel.h
+patching file subst.c
+patching file patchlevel.h
+patching file parse.y
+patching file y.tab.c
+patching file patchlevel.h
+patching file variables.c
+patching file patchlevel.h
+ ---> d98a5d3a8343
+Removing intermediate container cc07473e4828
+Step 9/10 : RUN cd /usr/src/bash*     && ./configure     --prefix=/usr     --bindir=/bin     --mandir=/usr/share/man     --infodir=/usr/share/info     --disable-nls     --enable-readline     --without-bash-malloc     && make
+ ---> Running in f728eb01f7bd
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+
+Beginning configuration for bash-4.3-release for x86_64-unknown-linux-gnu
+
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for strerror in -lcposix... no
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking whether gcc needs -traditional... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ar... ar
+checking for ranlib... ranlib
+checking for bison... bison -y
+checking whether make sets $(MAKE)... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking whether byte ordering is bigendian... no
+checking for preprocessor stringizing operator... yes
+checking for long double with more range or precision than double... yes
+checking for function prototypes... yes
+checking whether char is unsigned... no
+checking for working volatile... yes
+checking for C/C++ restrict keyword... __restrict
+checking whether NLS is requested... no
+checking for msgfmt... no
+checking for gmsgfmt... :
+checking for xgettext... no
+checking for msgmerge... no
+checking for off_t... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for sys/time.h... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking whether integer division by zero raises SIGFPE... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unsigned long long... yes
+checking for inttypes.h... yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking for ld used by GCC... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking argz.h usability... yes
+checking argz.h presence... yes
+checking for argz.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking nl_types.h usability... yes
+checking nl_types.h presence... yes
+checking for nl_types.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for feof_unlocked... yes
+checking for fgets_unlocked... yes
+checking for getc_unlocked... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for localeconv... yes
+checking for stpcpy... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for __fsetlocking... yes
+checking for iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking for bison... bison
+checking version of bison... 3.0.4, ok
+checking whether NLS is requested... no
+checking whether to use NLS... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking whether time.h and sys/time.h may both be included... yes
+checking for inttypes.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking for limits.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for locale.h... (cached) yes
+checking termcap.h usability... no
+checking termcap.h presence... no
+checking for termcap.h... no
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking for stddef.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking for grp.h... yes
+checking for strings.h... (cached) yes
+checking regex.h usability... yes
+checking regex.h presence... yes
+checking for regex.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking ulimit.h usability... yes
+checking ulimit.h presence... yes
+checking for ulimit.h... yes
+checking sys/pte.h usability... no
+checking sys/pte.h presence... no
+checking for sys/pte.h... no
+checking sys/stream.h usability... no
+checking sys/stream.h presence... no
+checking for sys/stream.h... no
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking for sys/param.h... (cached) yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/time.h... (cached) yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking for sys/ptem.h... no
+checking for working alloca.h... (cached) yes
+checking for alloca... (cached) yes
+checking whether getpgrp requires zero arguments... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for working strcoll... yes
+checking return type of signal handlers... void
+checking for __setostype... no
+checking for wait3... yes
+checking for mkfifo... yes
+checking for dup2... yes
+checking for eaccess... yes
+checking for fcntl... yes
+checking for getdtablesize... yes
+checking for getgroups... yes
+checking for gethostname... yes
+checking for getpagesize... (cached) yes
+checking for getpeername... yes
+checking for getrlimit... yes
+checking for getrusage... yes
+checking for gettimeofday... yes
+checking for kill... yes
+checking for killpg... yes
+checking for lstat... yes
+checking for readlink... yes
+checking for sbrk... yes
+checking for select... yes
+checking for setdtablesize... no
+checking for setitimer... yes
+checking for tcgetpgrp... yes
+checking for uname... yes
+checking for ulimit... yes
+checking for waitpid... yes
+checking for rename... yes
+checking for bcopy... yes
+checking for bzero... yes
+checking for confstr... yes
+checking for faccessat... yes
+checking for fnmatch... yes
+checking for getaddrinfo... yes
+checking for gethostbyname... yes
+checking for getservbyname... yes
+checking for getservent... yes
+checking for inet_aton... yes
+checking for imaxdiv... yes
+checking for memmove... yes
+checking for pathconf... yes
+checking for putenv... (cached) yes
+checking for raise... yes
+checking for regcomp... yes
+checking for regexec... yes
+checking for setenv... (cached) yes
+checking for setlinebuf... yes
+checking for setlocale... (cached) yes
+checking for setvbuf... yes
+checking for siginterrupt... yes
+checking for strchr... yes
+checking for sysconf... yes
+checking for syslog... yes
+checking for tcgetattr... yes
+checking for times... yes
+checking for ttyname... yes
+checking for tzset... yes
+checking for unsetenv... yes
+checking for vasprintf... yes
+checking for asprintf... yes
+checking for isascii... yes
+checking for isblank... yes
+checking for isgraph... yes
+checking for isprint... yes
+checking for isspace... yes
+checking for isxdigit... yes
+checking for getpwent... yes
+checking for getpwnam... yes
+checking for getpwuid... yes
+checking for getcwd... (cached) yes
+checking for memset... yes
+checking for strcasecmp... (cached) yes
+checking for strcasestr... yes
+checking for strerror... yes
+checking for strftime... yes
+checking for strnlen... yes
+checking for strpbrk... yes
+checking for strstr... yes
+checking for strtod... yes
+checking for strtol... yes
+checking for strtoul... (cached) yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for strtoimax... yes
+checking for strtoumax... yes
+checking for dprintf... yes
+checking for strchrnul... yes
+checking for strdup... (cached) yes
+checking whether AUDIT_USER_TTY is declared... yes
+checking whether confstr is declared... yes
+checking whether printf is declared... yes
+checking whether sbrk is declared... yes
+checking whether setregid is declared... yes
+checking whether strcpy is declared... yes
+checking whether strsignal is declared... yes
+checking whether strtold is declared... yes
+checking for broken strtold... no
+checking for declaration of strtoimax... yes
+checking for declaration of strtol... yes
+checking for declaration of strtoll... yes
+checking for declaration of strtoul... yes
+checking for declaration of strtoull... yes
+checking for declaration of strtoumax... yes
+checking for alarm... yes
+checking for fpurge... no
+checking for __fpurge... yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking for working mktime... yes
+checking for argz.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for malloc.h... (cached) yes
+checking stdio_ext.h usability... yes
+checking stdio_ext.h presence... yes
+checking for stdio_ext.h... yes
+checking for getpagesize... (cached) yes
+checking for working mmap... (cached) yes
+checking for __argz_count... (cached) yes
+checking for __argz_next... (cached) yes
+checking for __argz_stringify... (cached) yes
+checking for dcgettext... yes
+checking for mempcpy... (cached) yes
+checking for munmap... (cached) yes
+checking for stpcpy... (cached) yes
+checking for strcspn... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking for mbrlen... yes
+checking for mbscasecmp... no
+checking for mbscmp... no
+checking for mbsnrtowcs... yes
+checking for mbsrtowcs... yes
+checking for mbschr... no
+checking for wcrtomb... yes
+checking for wcscoll... yes
+checking for wcsdup... yes
+checking for wcwidth... yes
+checking for wctype... yes
+checking for wcswidth... yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for iswlower... yes
+checking for iswupper... yes
+checking for towlower... yes
+checking for towupper... yes
+checking for iswctype... yes
+checking for nl_langinfo and CODESET... yes
+checking for wchar_t in wchar.h... yes
+checking for wctype_t in wctype.h... yes
+checking for wint_t in wctype.h... yes
+checking for wcwidth broken with unicode combining characters... yes
+checking for locale_charset... no
+checking for dlopen in -ldl... yes
+checking for dlopen... yes
+checking for dlclose... yes
+checking for dlsym... yes
+checking whether sys_siglist is declared... yes
+checking for uid_t in sys/types.h... yes
+checking type of array argument to getgroups... gid_t
+checking for off_t... (cached) yes
+checking for mode_t... yes
+checking for uid_t in sys/types.h... (cached) yes
+checking for pid_t... yes
+checking for size_t... (cached) yes
+checking for ssize_t... yes
+checking for time_t... yes
+checking for long long... long long
+checking for unsigned long long... unsigned long long
+checking return type of signal handlers... (cached) void
+checking for sig_atomic_t in signal.h... yes
+checking size of char... 1
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of char *... 8
+checking size of double... 8
+checking size of long long... 8
+checking for u_int... yes
+checking for u_long... yes
+checking for bits16_t... no
+checking for u_bits16_t... no
+checking for bits32_t... no
+checking for u_bits32_t... no
+checking for bits64_t... no
+checking for ptrdiff_t... yes
+checking whether stat file-mode macros are broken... no
+checking whether #! works in shell scripts... yes
+checking whether the ctype macros accept non-ascii characters... no
+checking if dup2 fails to clear the close-on-exec flag... no
+checking whether pgrps need synchronization... no
+checking for type of signal functions... posix
+checking for sys_errlist and sys_nerr... yes
+checking for sys_siglist in system C library... yes
+checking for _sys_siglist in signal.h or unistd.h... yes
+checking for _sys_siglist in system C library... yes
+checking whether signal handlers are of type void... yes
+checking for clock_t... yes
+checking for sigset_t... yes
+checking for sig_atomic_t... yes
+checking for quad_t... yes
+checking for intmax_t... yes
+checking for uintmax_t... yes
+checking for socklen_t... yes
+checking for size and type of struct rlimit fields... rlim_t
+checking size of intmax_t... 8
+checking for struct termios.c_line... yes
+checking for struct termio.c_line... yes
+checking for struct dirent.d_ino... yes
+checking for struct dirent.d_fileno... yes
+checking for struct dirent.d_namlen... no
+checking for struct winsize in sys/ioctl.h and termios.h... sys/ioctl.h
+checking for struct timeval in sys/time.h and time.h... yes
+checking for struct stat.st_blocks... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_zone... yes
+checking for struct timezone in sys/time.h and time.h... yes
+checking for offset of exit status in return status from wait... 8
+checking for struct timespec in <time.h>... yes
+checking for struct stat.st_atim.tv_nsec... yes
+checking whether struct stat.st_atim is of type struct timespec... yes
+checking for the existence of strsignal... yes
+checking if opendir() opens non-directories... no
+checking whether ulimit can substitute for getdtablesize... yes
+checking whether fpurge is declared... no
+checking to see if getenv can be redefined... yes
+checking if getcwd() will dynamically allocate memory with 0 size... yes
+checking for presence of POSIX-style sigsetjmp/siglongjmp... present
+checking whether or not strcoll and strcmp differ... no
+checking for standard-conformant snprintf... yes
+checking for standard-conformant vsnprintf... yes
+checking for standard-conformant putenv declaration... yes
+checking for standard-conformant unsetenv declaration... yes
+checking for printf floating point output in hex notation... yes
+checking if signal handlers must be reinstalled when invoked... no
+checking for presence of necessary job control definitions... present
+checking for presence of named pipes... present
+checking whether termios.h defines TIOCGWINSZ... no
+checking whether sys/ioctl.h defines TIOCGWINSZ... yes
+checking for TIOCSTAT in sys/ioctl.h... no
+checking for FIONREAD in sys/ioctl.h... yes
+checking whether WCONTINUED flag to waitpid is unavailable or available but broken... no
+checking for speed_t in sys/types.h... no
+checking whether getpw functions are declared in pwd.h... yes
+checking for unusable real-time signals due to large values... no
+checking for tgetent... no
+checking for tgetent in -ltermcap... no
+checking for tgetent in -ltinfo... no
+checking for tgetent in -lcurses... no
+checking for tgetent in -lncurses... no
+checking which library has the termcap functions... using gnutermcap
+checking whether /dev/fd is available... standard
+checking whether /dev/stdin stdout stderr are available... present
+checking for default mail directory... /var/mail
+checking shared object configuration for loadable builtins... supported
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating builtins/Makefile
+config.status: creating lib/readline/Makefile
+config.status: creating lib/glob/Makefile
+config.status: creating lib/intl/Makefile
+config.status: creating lib/malloc/Makefile
+config.status: creating lib/sh/Makefile
+config.status: creating lib/termcap/Makefile
+config.status: creating lib/tilde/Makefile
+config.status: creating doc/Makefile
+config.status: creating support/Makefile
+config.status: creating po/Makefile.in
+config.status: creating examples/loadables/Makefile
+config.status: creating examples/loadables/perl/Makefile
+config.status: creating config.h
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+config.status: executing default commands
+rm -f mksyntax
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -s -L./lib/termcap  -rdynamic  -g -O2 -rdynamic -g -O2  -o mksyntax ./mksyntax.c 
+rm -f syntax.c
+./mksyntax -o syntax.c
+/bin/sh ./support/mkversion.sh -b -S . -s release -d 4.3 -o newversion.h \
+	&& mv newversion.h version.h
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -DBUILDTOOL -c -o buildversion.o ./version.c
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -s -L./lib/termcap  -rdynamic  -g -O2 -rdynamic -g -O2  -o bashversion ./support/bashversion.c buildversion.o 
+
+	  ***********************************************************
+	  *                                                         *
+	  * GNU bash, version 4.3.48(1)-release (x86_64-unknown-linux-gnu)
+	  *                                                         *
+	  ***********************************************************
+
+rm -f shell.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c shell.c
+[91mshell.c: In function 'get_current_user_info':
+[0m[91mshell.c:1691:27: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    current_user.user_name = _("I have no name!");
+                           ^
+[0m[91mshell.c: In function 'disable_priv_mode':
+shell.c:1238:3: warning: ignoring return value of 'setuid', declared with attribute warn_unused_result [-Wunused-result]
+   setuid (current_user.uid);
+   ^
+shell.c:1239:3: warning: ignoring return value of 'setgid', declared with attribute warn_unused_result [-Wunused-result]
+   setgid (current_user.gid);
+   ^
+[0mrm -f eval.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c eval.c
+make[1]: Entering directory '/usr/src/bash-4.3/builtins'
+rm -f mkbuiltins.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2  mkbuiltins.c
+gcc -s -L./lib/termcap -rdynamic -g -O2 -rdynamic -g -O2  -o mkbuiltins mkbuiltins.o -ldl 
+./mkbuiltins -externfile builtext.h -structfile builtins.c \
+    -noproduction -D .   ./alias.def ./bind.def ./break.def ./builtin.def ./caller.def ./cd.def ./colon.def ./command.def ./declare.def ./echo.def ./enable.def ./eval.def ./getopts.def ./exec.def ./exit.def ./fc.def ./fg_bg.def ./hash.def ./help.def ./history.def ./jobs.def ./kill.def ./let.def ./read.def ./return.def ./set.def ./setattr.def ./shift.def ./source.def ./suspend.def ./test.def ./times.def ./trap.def ./type.def ./ulimit.def ./umask.def ./wait.def ./reserved.def ./pushd.def ./shopt.def ./printf.def ./complete.def ./mapfile.def
+make[1]: Leaving directory '/usr/src/bash-4.3/builtins'
+rm -f y.tab.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c y.tab.c
+[91m/usr/src/local/bash/bash-4.3-patched/parse.y: In function 'shell_getc':
+[0m[91m/usr/src/local/bash/bash-4.3-patched/parse.y:2308:24: warning: format '%llu' expects argument of type 'long long unsigned int', but argument 3 has type 'long unsigned int' [-Wformat=]
+[0m[91mIn file included from bashintl.h:30:0,
+                 from /usr/src/local/bash/bash-4.3-patched/parse.y:43:
+/usr/src/local/bash/bash-4.3-patched/parse.y: In function 'push_heredoc':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'report_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+/usr/src/local/bash/bash-4.3-patched/parse.y:2662:28: note: in expansion of macro '_'
+[0m[91m/usr/src/local/bash/bash-4.3-patched/parse.y:206:13: note: expected 'char *' but argument is of type 'const char *'
+[0m[91m/usr/src/local/bash/bash-4.3-patched/parse.y: In function 'report_syntax_error':
+[0m[91m/usr/src/local/bash/bash-4.3-patched/parse.y:5816:11: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+[0mrm -f general.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c general.c
+rm -f make_cmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c make_cmd.c
+rm -f print_cmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c print_cmd.c
+[91mprint_cmd.c: In function 'make_command_string_internal':
+print_cmd.c:171:14: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+     cprintf ("");
+              ^
+[0mrm -f dispose_cmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c dispose_cmd.c
+rm -f execute_cmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c execute_cmd.c
+[91mexecute_cmd.c: In function 'coproc_pidchk':
+[0m[91mexecute_cmd.c:2062:1: warning: type of 'status' defaults to 'int' [-Wimplicit-int]
+ coproc_pidchk (pid, status)
+ ^
+[0mrm -f variables.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c variables.c
+[91mvariables.c: In function 'bind_variable_internal':
+[0m[91mvariables.c:2533:87: warning: passing argument 1 of 'valid_array_reference' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   if ((aflags & ASS_FROMREF) && (hflags & HASH_NOSRCH) == 0 && valid_array_reference (name))
+                                                                                       ^
+[0m[91mIn file included from shell.h:32:0,
+                 from variables.c:49:
+arrayfunc.h:60:12: note: expected 'char *' but argument is of type 'const char *'
+ extern int valid_array_reference __P((char *));
+            ^
+[0m[91mvariables.c:2535:38: warning: passing argument 1 of 'array_variable_name' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+       newname = array_variable_name (name, &subp, &sublen);
+                                      ^
+In file included from shell.h:32:0,
+                 from variables.c:49:
+arrayfunc.h:66:14: note: expected 'char *' but argument is of type 'const char *'
+ extern char *array_variable_name __P((char *, char **, int *));
+              ^
+[0m[91mvariables.c:2580:33: warning: passing argument 1 of 'array_expand_index' from incompatible pointer type [-Wincompatible-pointer-types]
+       ind = array_expand_index (name, subp, sublen);
+                                 ^
+[0m[91mIn file included from shell.h:32:0,
+                 from variables.c:49:
+arrayfunc.h:59:19: note: expected 'SHELL_VAR * {aka struct variable *}' but argument is of type 'const char *'
+ extern arrayind_t array_expand_index __P((SHELL_VAR *, char *, int));
+                   ^
+[0mrm -f copy_cmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c copy_cmd.c
+rm -f error.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c error.c
+[91merror.c: In function 'command_errstr':
+[0m[91merror.c:465:10: warning: return discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   return (_(cmd_error_table[code]));
+          ^
+[0mrm -f expr.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c expr.c
+[91mexpr.c:210:17: warning: conflicting types for built-in function 'exp2'
+ static intmax_t exp2 __P((void));
+                 ^
+[0mrm -f flags.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c flags.c
+rm -f jobs.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c jobs.c
+[91mjobs.c: In function 'printable_job_status':
+[0m[91mjobs.c:1464:8: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   temp = _("Done");
+        ^
+[0m[91mjobs.c:1469:7: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  temp = _("Stopped");
+       ^
+[0m[91mjobs.c:1477:10: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     temp = _("Running");
+          ^
+[0m[91mjobs.c:1496:7: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  temp = _("Unknown status");
+       ^
+[0mrm -f subst.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c subst.c
+rm -f hashcmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c hashcmd.c
+rm -f hashlib.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c hashlib.c
+rm -f mailcheck.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c mailcheck.c
+[91mmailcheck.c: In function 'check_mail':
+[0m[91mmailcheck.c:439:12: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    message = mailfiles[i]->msg ? mailfiles[i]->msg : _("You have mail in $_");
+            ^
+[0m[91mmailcheck.c:464:14: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+      message = _("You have new mail in $_");
+              ^
+[0mrm -f mksignames.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -DBUILDTOOL -c ./support/mksignames.c
+rm -f buildsignames.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -DBUILDTOOL -o buildsignames.o -c ./support/signames.c
+rm -f mksignames
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2  -s -L./lib/termcap  -rdynamic  -g -O2 -rdynamic -g -O2  -o mksignames mksignames.o buildsignames.o 
+rm -f lsignames.h
+./mksignames lsignames.h
+if cmp -s lsignames.h signames.h ; then :; else rm -f signames.h ; cp lsignames.h signames.h ; fi
+rm -f trap.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c trap.c
+[91mtrap.c: In function 'signal_name':
+[0m[91mtrap.c:216:7: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   ret = (sig >= BASH_NSIG || sig < 0 || signal_names[sig] == NULL)
+       ^
+[0mrm -f input.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c input.c
+rm -f unwind_prot.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c unwind_prot.c
+rm -f pathexp.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c pathexp.c
+rm -f sig.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c sig.c
+rm -f test.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c test.c
+[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'beyond':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:147:22: note: in expansion of macro '_'
+   test_syntax_error (_("argument expected"), (char *)NULL);
+                      ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'integer_expected_error':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:156:22: note: in expansion of macro '_'
+   test_syntax_error (_("%s: integer expression expected"), pch);
+                      ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'term':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:264:21: note: in expansion of macro '_'
+  test_syntax_error (_("`)' expected"), (char *)NULL);
+                     ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:266:21: note: in expansion of macro '_'
+  test_syntax_error (_("`)' expected, found %s"), argv[pos]);
+                     ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:281:21: note: in expansion of macro '_'
+  test_syntax_error (_("%s: unary operator expected"), argv[pos]);
+                     ^
+[0m[91mtest.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'binary_operator':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:468:26: note: in expansion of macro '_'
+       test_syntax_error (_("%s: binary operator expected"), w);
+                          ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'two_arguments':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:743:21: note: in expansion of macro '_'
+  test_syntax_error (_("%s: unary operator expected"), argv[pos]);
+                     ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+In file included from bashintl.h:30:0,
+                 from test.c:55:
+./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:746:24: note: in expansion of macro '_'
+     test_syntax_error (_("%s: unary operator expected"), argv[pos]);
+                        ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0m[91mIn file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'three_arguments':
+[0m[91m./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:786:24: note: in expansion of macro '_'
+     test_syntax_error (_("%s: binary operator expected"), argv[pos+1]);
+                        ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+In file included from bashintl.h:30:0,
+                 from test.c:55:
+test.c: In function 'test_command':
+./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:861:21: note: in expansion of macro '_'
+  test_syntax_error (_("missing `]'"), (char *)NULL);
+                     ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+In file included from bashintl.h:30:0,
+                 from test.c:55:
+./include/gettext.h:46:25: warning: passing argument 1 of 'test_syntax_error' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+test.c:877:24: note: in expansion of macro '_'
+     test_syntax_error (_("too many arguments"), (char *)NULL);
+                        ^
+test.c:133:1: note: expected 'char *' but argument is of type 'const char *'
+ test_syntax_error (format, arg)
+ ^
+[0mrm -f version.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c version.c
+rm -f alias.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c alias.c
+rm -f array.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c array.c
+rm -f arrayfunc.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c arrayfunc.c
+rm -f assoc.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c assoc.c
+rm -f braces.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c braces.c
+rm -f bracecomp.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c bracecomp.c
+rm -f bashhist.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c bashhist.c
+rm -f bashline.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c bashline.c
+rm -f list.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c list.c
+rm -f stringlib.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c stringlib.c
+rm -f locale.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c locale.c
+[91mlocale.c: In function 'localetrans':
+[0m[91mlocale.c:399:16: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     translated = dgettext (default_domain, string);
+                ^
+[0mrm -f findcmd.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c findcmd.c
+rm -f redir.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c redir.c
+[91mredir.c: In function 'redirection_error':
+[0m[91mredir.c:123:14: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     filename = _("file descriptor out of range");
+              ^
+[0m[91mredir.c:170:14: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     filename = _("file descriptor out of range");
+              ^
+[0m[91mredir.c: In function 'redir_open':
+[0m[91mredir.c:676:8: warning: implicit declaration of function 'run_pending_traps' [-Wimplicit-function-declaration]
+        run_pending_traps ();
+        ^
+[0mrm -f pcomplete.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c pcomplete.c
+[91mpcomplete.c: In function 'pcomp_filename_completion_function':
+[0m[91mpcomplete.c:781:29: warning: passing argument 1 of 'sh_contains_quotes' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+         sh_contains_quotes (text)) /* guess */
+                             ^
+[0m[91mIn file included from shell.h:42:0,
+                 from pcomplete.c:46:
+externs.h:327:12: note: expected 'char *' but argument is of type 'const char *'
+ extern int sh_contains_quotes __P((char *));
+            ^
+[0mrm -f pcomplib.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c pcomplib.c
+rm -f syntax.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c syntax.c
+rm -f xmalloc.o
+gcc  -DPROGRAM='"bash"' -DCONF_HOSTTYPE='"x86_64"' -DCONF_OSTYPE='"linux-gnu"' -DCONF_MACHTYPE='"x86_64-unknown-linux-gnu"' -DCONF_VENDOR='"unknown"' -DLOCALEDIR='"/usr/share/locale"' -DPACKAGE='"bash"' -DSHELL -DHAVE_CONFIG_H   -I.  -I. -I./include -I./lib   -g -O2 -c xmalloc.c
+make[1]: Entering directory '/usr/src/bash-4.3/builtins'
+rm -f builtins.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 builtins.c
+rm -f alias.o
+./mkbuiltins -D . alias.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 alias.c || ( rm -f alias.c ; exit 1 )
+rm -f alias.c
+rm -f bind.o
+./mkbuiltins -D . bind.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 bind.c || ( rm -f bind.c ; exit 1 )
+rm -f bind.c
+rm -f break.o
+./mkbuiltins -D . break.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 break.c || ( rm -f break.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./break.def:43:
+./break.def: In function 'break_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./break.def:77:36: note: in expansion of macro '_'
+       sh_erange (list->word->word, _("loop count"));
+                                    ^
+In file included from ./break.def:46:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0m[91mIn file included from ../bashintl.h:30:0,
+                 from ./break.def:43:
+./break.def: In function 'continue_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./break.def:117:36: note: in expansion of macro '_'
+       sh_erange (list->word->word, _("loop count"));
+                                    ^
+In file included from ./break.def:46:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f break.c
+rm -f builtin.o
+./mkbuiltins -D . builtin.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 builtin.c || ( rm -f builtin.c ; exit 1 )
+rm -f builtin.c
+rm -f caller.o
+./mkbuiltins -D . caller.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 caller.c || ( rm -f caller.c ; exit 1 )
+rm -f caller.c
+rm -f cd.o
+./mkbuiltins -D . cd.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 cd.c || ( rm -f cd.c ; exit 1 )
+rm -f cd.c
+rm -f colon.o
+./mkbuiltins -D . colon.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 colon.c || ( rm -f colon.c ; exit 1 )
+rm -f colon.c
+rm -f command.o
+./mkbuiltins -D . command.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 command.c || ( rm -f command.c ; exit 1 )
+rm -f command.c
+rm -f common.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 common.c
+[91mcommon.c: In function 'sh_invalidnum':
+[0m[91mcommon.c:238:9: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     msg = _("invalid octal number");
+         ^
+common.c:240:9: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     msg = _("invalid hex number");
+         ^
+[0m[91mcommon.c:242:9: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     msg = _("invalid number");
+         ^
+[0mrm -f declare.o
+./mkbuiltins -D . declare.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 declare.c || ( rm -f declare.c ; exit 1 )
+rm -f declare.c
+rm -f echo.o
+./mkbuiltins -D . echo.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 echo.c || ( rm -f echo.c ; exit 1 )
+rm -f echo.c
+rm -f enable.o
+./mkbuiltins -D . enable.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 enable.c || ( rm -f enable.c ; exit 1 )
+rm -f enable.c
+rm -f eval.o
+./mkbuiltins -D . eval.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 eval.c || ( rm -f eval.c ; exit 1 )
+rm -f eval.c
+rm -f evalfile.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 evalfile.c
+rm -f evalstring.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 evalstring.c
+[91mevalstring.c: In function 'parse_and_execute':
+[0m[91mevalstring.c:208:16: warning: passing argument 1 of 'sigemptyset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   sigemptyset (&pe_sigmask);
+                ^
+[0m[91mIn file included from evalstring.c:31:0:
+/usr/include/signal.h:213:12: note: expected 'sigset_t * {aka struct <anonymous> *}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigemptyset (sigset_t *__set) __THROW __nonnull ((1));
+            ^
+evalstring.c:209:45: warning: passing argument 3 of 'sigprocmask' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &pe_sigmask);
+                                             ^
+In file included from evalstring.c:31:0:
+/usr/include/signal.h:246:12: note: expected 'sigset_t * restrict {aka struct <anonymous> * restrict}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigprocmask (int __how, const sigset_t *__restrict __set,
+            ^
+[0m[91mevalstring.c:288:31: warning: passing argument 2 of 'sigprocmask' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     sigprocmask (SIG_SETMASK, &pe_sigmask, (sigset_t *)NULL);
+                               ^
+In file included from evalstring.c:31:0:
+/usr/include/signal.h:246:12: note: expected 'const sigset_t * restrict {aka const struct <anonymous> * restrict}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigprocmask (int __how, const sigset_t *__restrict __set,
+            ^
+[0m[91mevalstring.c: In function 'parse_string':
+evalstring.c:460:16: warning: passing argument 1 of 'sigemptyset' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   sigemptyset (&ps_sigmask);
+                ^
+In file included from evalstring.c:31:0:
+/usr/include/signal.h:213:12: note: expected 'sigset_t * {aka struct <anonymous> *}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigemptyset (sigset_t *__set) __THROW __nonnull ((1));
+            ^
+evalstring.c:461:45: warning: passing argument 3 of 'sigprocmask' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &ps_sigmask);
+                                             ^
+In file included from evalstring.c:31:0:
+/usr/include/signal.h:246:12: note: expected 'sigset_t * restrict {aka struct <anonymous> * restrict}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigprocmask (int __how, const sigset_t *__restrict __set,
+            ^
+[0m[91mevalstring.c:513:34: warning: passing argument 2 of 'sigprocmask' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+        sigprocmask (SIG_SETMASK, &ps_sigmask, (sigset_t *)NULL);
+                                  ^
+In file included from evalstring.c:31:0:
+/usr/include/signal.h:246:12: note: expected 'const sigset_t * restrict {aka const struct <anonymous> * restrict}' but argument is of type 'volatile sigset_t * {aka volatile struct <anonymous> *}'
+ extern int sigprocmask (int __how, const sigset_t *__restrict __set,
+            ^
+[0mrm -f exec.o
+./mkbuiltins -D . exec.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 exec.c || ( rm -f exec.c ; exit 1 )
+rm -f exec.c
+rm -f exit.o
+./mkbuiltins -D . exit.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 exit.c || ( rm -f exit.c ; exit 1 )
+rm -f exit.c
+rm -f fc.o
+./mkbuiltins -D . fc.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 fc.c || ( rm -f fc.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./fc.def:72:
+./fc.def: In function 'fc_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./fc.def:320:32: note: in expansion of macro '_'
+       sh_erange ((char *)NULL, _("history specification"));
+                                ^
+[0m[91mIn file included from ./fc.def:82:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0m[91mIn file included from ../bashintl.h:30:0,
+                 from ./fc.def:72:
+../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./fc.def:369:32: note: in expansion of macro '_'
+       sh_erange ((char *)NULL, _("history specification"));
+                                ^
+[0m[91mIn file included from ./fc.def:82:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f fc.c
+rm -f fg_bg.o
+./mkbuiltins -D . fg_bg.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 fg_bg.c || ( rm -f fg_bg.c ; exit 1 )
+[91m./fg_bg.def: In function 'fg_bg':
+[0m[91m./fg_bg.def:149:13: warning: passing argument 1 of 'sh_badjob' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  sh_badjob (list ? list->word->word : _("current"));
+             ^
+[0m[91mIn file included from ./fg_bg.def:50:0:
+common.h:80:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_badjob __P((char *));
+             ^
+[0mrm -f fg_bg.c
+rm -f hash.o
+./mkbuiltins -D . hash.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 hash.c || ( rm -f hash.c ; exit 1 )
+rm -f hash.c
+rm -f help.o
+./mkbuiltins -D . help.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 help.c || ( rm -f help.c ; exit 1 )
+[91m./help.def: In function 'show_manpage':
+[0m[91m./help.def:290:10: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     line = doc ? _(doc[0]) : (char *)NULL;
+          ^
+[0m[91m./help.def: In function 'dispcolumn':
+[0m[91m./help.def:355:11: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   helpdoc = _(shell_builtins[i].short_doc);
+           ^
+[0m[91m./help.def:374:11: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   helpdoc = _(shell_builtins[i+height].short_doc);
+           ^
+[0m[91m./help.def: In function 'wdispcolumn':
+[0m[91m./help.def:400:11: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   helpdoc = _(shell_builtins[i].short_doc);
+           ^
+[0m[91m./help.def:443:11: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   helpdoc = _(shell_builtins[i+height].short_doc);
+           ^
+[0mrm -f help.c
+rm -f history.o
+./mkbuiltins -D . history.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 history.c || ( rm -f history.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./history.def:74:
+./history.def: In function 'history_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./history.def:186:27: note: in expansion of macro '_'
+    sh_erange (delete_arg, _("history position"));
+                           ^
+[0m[91mIn file included from ./history.def:80:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f history.c
+rm -f jobs.o
+./mkbuiltins -D . jobs.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 jobs.c || ( rm -f jobs.c ; exit 1 )
+[91m./jobs.def: In function 'disown_builtin':
+./jobs.def:282:15: warning: passing argument 1 of 'sh_badjob' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    sh_badjob (list ? list->word->word : _("current"));
+               ^
+In file included from ./jobs.def:65:0:
+common.h:80:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_badjob __P((char *));
+             ^
+[0mrm -f jobs.c
+rm -f kill.o
+./mkbuiltins -D . kill.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 kill.c || ( rm -f kill.c ; exit 1 )
+[91m./kill.def: In function 'kill_error':
+[0m[91m./kill.def:263:7: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     x = _("Unknown error");
+       ^
+[0mrm -f kill.c
+rm -f let.o
+./mkbuiltins -D . let.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 let.c || ( rm -f let.c ; exit 1 )
+rm -f let.c
+rm -f mapfile.o
+./mkbuiltins -D . mapfile.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 mapfile.c || ( rm -f mapfile.c ; exit 1 )
+rm -f mapfile.c
+rm -f pushd.o
+./mkbuiltins -D . pushd.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 pushd.c || ( rm -f pushd.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./pushd.def:130:
+./pushd.def: In function 'pushd_error':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./pushd.def:514:21: note: in expansion of macro '_'
+     sh_erange (arg, _("directory stack index"));
+                     ^
+[0m[91mIn file included from ./pushd.def:138:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f pushd.c
+rm -f read.o
+./mkbuiltins -D . read.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 read.c || ( rm -f read.c ; exit 1 )
+rm -f read.c
+rm -f return.o
+./mkbuiltins -D . return.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 return.c || ( rm -f return.c ; exit 1 )
+rm -f return.c
+rm -f set.o
+./mkbuiltins -D . set.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 set.c || ( rm -f set.c ; exit 1 )
+rm -f set.c
+rm -f setattr.o
+./mkbuiltins -D . setattr.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 setattr.c || ( rm -f setattr.c ; exit 1 )
+rm -f setattr.c
+rm -f shift.o
+./mkbuiltins -D . shift.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 shift.c || ( rm -f shift.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./shift.def:33:
+./shift.def: In function 'shift_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./shift.def:71:50: note: in expansion of macro '_'
+       sh_erange (list ? list->word->word : NULL, _("shift count"));
+                                                  ^
+[0m[91mIn file included from ./shift.def:36:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0m[91mIn file included from ../bashintl.h:30:0,
+                 from ./shift.def:33:
+../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./shift.def:77:45: note: in expansion of macro '_'
+  sh_erange (list ? list->word->word : NULL, _("shift count"));
+                                             ^
+[0m[91mIn file included from ./shift.def:36:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f shift.c
+rm -f source.o
+./mkbuiltins -D . source.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 source.c || ( rm -f source.c ; exit 1 )
+rm -f source.c
+rm -f suspend.o
+./mkbuiltins -D . suspend.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 suspend.c || ( rm -f suspend.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./suspend.def:51:
+./suspend.def: In function 'suspend_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 1 of 'sh_nojobs' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./suspend.def:101:18: note: in expansion of macro '_'
+       sh_nojobs (_("cannot suspend"));
+                  ^
+In file included from ./suspend.def:54:0:
+common.h:82:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_nojobs __P((char *));
+             ^
+[0mrm -f suspend.c
+rm -f test.o
+./mkbuiltins -D . test.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 test.c || ( rm -f test.c ; exit 1 )
+rm -f test.c
+rm -f times.o
+./mkbuiltins -D . times.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 times.c || ( rm -f times.c ; exit 1 )
+rm -f times.c
+rm -f trap.o
+./mkbuiltins -D . trap.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 trap.c || ( rm -f trap.c ; exit 1 )
+rm -f trap.c
+rm -f type.o
+./mkbuiltins -D . type.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 type.c || ( rm -f type.c ; exit 1 )
+rm -f type.c
+gcc  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2  -s -L./lib/termcap -rdynamic -g -O2 -rdynamic -g -O2  -o psize.aux ./psize.c
+/bin/sh ./psize.sh > pipesize.h
+rm -f ulimit.o
+./mkbuiltins -D . ulimit.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 ulimit.c || ( rm -f ulimit.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./ulimit.def:87:
+./ulimit.def: In function 'ulimit_internal':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./ulimit.def:464:23: note: in expansion of macro '_'
+    sh_erange (cmdarg, _("limit"));
+                       ^
+[0m[91mIn file included from ./ulimit.def:90:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f ulimit.c
+rm -f umask.o
+./mkbuiltins -D . umask.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 umask.c || ( rm -f umask.c ; exit 1 )
+[91mIn file included from ../bashintl.h:30:0,
+                 from ./umask.def:57:
+./umask.def: In function 'umask_builtin':
+[0m[91m../include/gettext.h:46:25: warning: passing argument 2 of 'sh_erange' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+ # define gettext(Msgid) ((const char *) (Msgid))
+                         ^
+../bashintl.h:36:18: note: in expansion of macro 'gettext'
+ #define _(msgid) gettext(msgid)
+                  ^
+./umask.def:114:37: note: in expansion of macro '_'
+        sh_erange (list->word->word, _("octal number"));
+                                     ^
+[0m[91mIn file included from ./umask.def:61:0:
+common.h:78:13: note: expected 'char *' but argument is of type 'const char *'
+ extern void sh_erange __P((char *, char *));
+             ^
+[0mrm -f umask.c
+rm -f wait.o
+./mkbuiltins -D . wait.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 wait.c || ( rm -f wait.c ; exit 1 )
+rm -f wait.c
+rm -f getopts.o
+./mkbuiltins -D . getopts.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 getopts.c || ( rm -f getopts.c ; exit 1 )
+rm -f getopts.c
+rm -f shopt.o
+./mkbuiltins -D . shopt.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 shopt.c || ( rm -f shopt.c ; exit 1 )
+rm -f shopt.c
+rm -f printf.o
+./mkbuiltins -D . printf.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 printf.c || ( rm -f printf.c ; exit 1 )
+rm -f printf.c
+rm -f getopt.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 getopt.c
+rm -f bashgetopt.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 bashgetopt.c
+rm -f complete.o
+./mkbuiltins -D . complete.def
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I..  -I.. -I../include -I../lib -I.    -g -O2 complete.c || ( rm -f complete.c ; exit 1 )
+rm -f complete.c
+rm -f libbuiltins.a
+ar cr libbuiltins.a builtins.o alias.o bind.o break.o builtin.o caller.o cd.o colon.o command.o common.o declare.o echo.o enable.o eval.o evalfile.o evalstring.o exec.o exit.o fc.o fg_bg.o hash.o help.o history.o jobs.o kill.o let.o mapfile.o pushd.o read.o return.o set.o setattr.o shift.o source.o suspend.o test.o times.o trap.o type.o ulimit.o umask.o wait.o getopts.o shopt.o printf.o getopt.o bashgetopt.o complete.o
+ranlib libbuiltins.a
+make[1]: Leaving directory '/usr/src/bash-4.3/builtins'
+making lib/glob/libglob.a in ./lib/glob
+make[1]: Entering directory '/usr/src/bash-4.3/lib/glob'
+rm -f glob.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 glob.c
+rm -f strmatch.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 strmatch.c
+rm -f smatch.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 smatch.c
+rm -f xmbsrtowcs.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 xmbsrtowcs.c
+rm -f gmisc.o
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 gmisc.c
+rm -f -f libglob.a
+ar cr libglob.a glob.o strmatch.o smatch.o xmbsrtowcs.o gmisc.o
+test -n "ranlib" && ranlib libglob.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/glob'
+making lib/sh/libsh.a in ./lib/sh
+make[1]: Entering directory '/usr/src/bash-4.3/lib/sh'
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   clktck.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   clock.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   getenv.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   oslib.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   setlinebuf.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   strnlen.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   itos.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   zread.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   zwrite.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   shtty.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   shmatch.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   eaccess.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   netconn.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   netopen.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   timeval.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   makepath.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   pathcanon.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   pathphys.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   tmpfile.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   stringlist.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   stringvec.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   spell.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   shquote.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   strtrans.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   snprintf.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   mailstat.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   fmtulong.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   fmtullong.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   fmtumax.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   zcatfd.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   zmapfd.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   winsize.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   wcsdup.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   fpurge.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   zgetline.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   mbscmp.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   uconvert.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   ufuncs.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   casemod.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   input_avail.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   mbscasecmp.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   fnxform.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   unicode.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   shmbchar.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   wcsnwidth.c
+gcc -c  -I. -I../.. -I../.. -I../../lib -I../../include -I.  -DHAVE_CONFIG_H -DSHELL  -g -O2   mbschr.c
+rm -f libsh.a
+ar cr libsh.a clktck.o clock.o getenv.o oslib.o setlinebuf.o strnlen.o itos.o zread.o zwrite.o shtty.o shmatch.o eaccess.o netconn.o netopen.o timeval.o makepath.o pathcanon.o pathphys.o tmpfile.o stringlist.o stringvec.o spell.o shquote.o strtrans.o snprintf.o mailstat.o fmtulong.o fmtullong.o fmtumax.o zcatfd.o zmapfd.o winsize.o wcsdup.o fpurge.o zgetline.o mbscmp.o uconvert.o ufuncs.o casemod.o input_avail.o mbscasecmp.o fnxform.o unicode.o shmbchar.o wcsnwidth.o mbschr.o
+test -n "ranlib" && ranlib libsh.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/sh'
+making lib/readline/libreadline.a in ./lib/readline
+make[1]: Entering directory '/usr/src/bash-4.3/lib/readline'
+rm -f readline.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 readline.c
+rm -f vi_mode.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 vi_mode.c
+rm -f funmap.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 funmap.c
+rm -f keymaps.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 keymaps.c
+rm -f parens.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 parens.c
+rm -f search.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 search.c
+rm -f rltty.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 rltty.c
+rm -f complete.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 complete.c
+rm -f bind.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 bind.c
+rm -f isearch.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 isearch.c
+rm -f display.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 display.c
+rm -f signals.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 signals.c
+rm -f util.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 util.c
+rm -f kill.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 kill.c
+rm -f undo.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 undo.c
+rm -f macro.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 macro.c
+rm -f input.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 input.c
+rm -f callback.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 callback.c
+rm -f terminal.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 terminal.c
+rm -f text.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 text.c
+rm -f nls.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 nls.c
+rm -f misc.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 misc.c
+rm -f history.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 history.c
+rm -f histexpand.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 histexpand.c
+rm -f histfile.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 histfile.c
+rm -f histsearch.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 histsearch.c
+rm -f shell.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 shell.c
+rm -f savestring.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 savestring.c
+rm -f mbutil.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 mbutil.c
+rm -f tilde.o
+gcc -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 -DREADLINE_LIBRARY -c ./tilde.c
+rm -f colors.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 colors.c
+rm -f parse-colors.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 parse-colors.c
+rm -f xmalloc.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 xmalloc.c
+rm -f xfree.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 xfree.c
+rm -f compat.o
+gcc -c -DHAVE_CONFIG_H -DSHELL   -I. -I/usr/src/bash-4.3 -I../.. -I../../lib  -g -O2 compat.c
+rm -f libreadline.a
+ar cr libreadline.a readline.o vi_mode.o funmap.o keymaps.o parens.o search.o rltty.o complete.o bind.o isearch.o display.o signals.o util.o kill.o undo.o macro.o input.o callback.o terminal.o text.o nls.o misc.o history.o histexpand.o histfile.o histsearch.o shell.o savestring.o mbutil.o tilde.o colors.o parse-colors.o xmalloc.o xfree.o compat.o 
+test -n "ranlib" && ranlib libreadline.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/readline'
+making lib/readline/libhistory.a in ./lib/readline
+make[1]: Entering directory '/usr/src/bash-4.3/lib/readline'
+rm -f libhistory.a
+ar cr libhistory.a history.o histexpand.o histfile.o histsearch.o shell.o savestring.o mbutil.o xmalloc.o xfree.o
+test -n "ranlib" && ranlib libhistory.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/readline'
+making lib/termcap/libtermcap.a in ./lib/termcap
+make[1]: Entering directory '/usr/src/bash-4.3/lib/termcap'
+gcc -c -g -O2 -DHAVE_CONFIG_H  -I. -I../.. -I../.. -I../../lib -I. termcap.c
+[91mtermcap.c: In function 'memory_out':
+[0m[91mtermcap.c:113:3: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+   write (2, "virtual memory exhausted\n", 25);
+   ^
+[0mgcc -c -g -O2 -DHAVE_CONFIG_H  -I. -I../.. -I../.. -I../../lib -I. tparam.c
+[91mtparam.c: In function 'memory_out':
+[0m[91mtparam.c:67:3: warning: implicit declaration of function 'write' [-Wimplicit-function-declaration]
+   write (2, "virtual memory exhausted\n", 25);
+   ^
+[0mrm -f -f libtermcap.a
+ar cr libtermcap.a termcap.o tparam.o
+test -n "ranlib" && ranlib libtermcap.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/termcap'
+making lib/tilde/libtilde.a in ./lib/tilde
+make[1]: Entering directory '/usr/src/bash-4.3/lib/tilde'
+gcc -c  -DHAVE_CONFIG_H -DSHELL  -I. -I../.. -I../.. -I../../include -I../../lib  -g -O2 tilde.c
+rm -f libtilde.a
+ar cr libtilde.a tilde.o
+test -n "ranlib" && ranlib libtilde.a
+make[1]: Leaving directory '/usr/src/bash-4.3/lib/tilde'
+rm -f bash
+gcc -L./builtins -L./lib/readline -L./lib/readline -L./lib/glob -L./lib/tilde  -L./lib/sh -s -L./lib/termcap  -rdynamic  -g -O2 -o bash shell.o eval.o y.tab.o general.o make_cmd.o print_cmd.o  dispose_cmd.o execute_cmd.o variables.o copy_cmd.o error.o expr.o flags.o jobs.o subst.o hashcmd.o hashlib.o mailcheck.o trap.o input.o unwind_prot.o pathexp.o sig.o test.o version.o alias.o array.o arrayfunc.o assoc.o braces.o bracecomp.o bashhist.o bashline.o  list.o stringlib.o locale.o findcmd.o redir.o pcomplete.o pcomplib.o syntax.o xmalloc.o  -lbuiltins -lglob -lsh -lreadline -lhistory ./lib/termcap/libtermcap.a -ltilde     -ldl 
+ls -l bash
+-rwxr-xr-x 1 root root 1008824 Jan 16 05:40 bash
+size bash
+   text	   data	    bss	    dec	    hex	filename
+ 966072	  36408	  23184	1025664	  fa680	bash
+ ---> 11d771c9a689
+Removing intermediate container f728eb01f7bd
+Step 10/10 : RUN cd /usr/src/bash*     && make install
+ ---> Running in 2712cfe86560
+( cd ./po/ ; make  DESTDIR= installdirs )
+make[1]: Entering directory '/usr/src/bash-4.3/po'
+if test "bash" = "gettext-tools"; then \
+  /bin/sh /usr/src/bash-4.3/./support/mkinstalldirs /usr/share/gettext/po; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/usr/src/bash-4.3/po'
+/usr/bin/install -c -m 0755 bash /bin/bash
+/usr/bin/install -c -m 0555 bashbug /bin/bashbug
+/usr/bin/install -c -m 644 ./CHANGES ./COMPAT ./NEWS ./POSIX ./RBASH ./README /usr/share/doc/bash
+( cd ./doc ; make  \
+	man1dir=/usr/share/man/man1 man1ext=.1 \
+	man3dir=/usr/share/man/man3 man3ext=.3 \
+	infodir=/usr/share/info htmldir=/usr/share/doc/bash DESTDIR= install )
+make[1]: Entering directory '/usr/src/bash-4.3/doc'
+/bin/sh ../support/mkinstalldirs /usr/share/man/man1
+/bin/sh ../support/mkinstalldirs /usr/share/info
+/bin/sh ../support/mkinstalldirs /usr/share/doc/bash
+if test -n "/usr/share/doc/bash" ; then \
+	/bin/sh ../support/mkinstalldirs /usr/share/doc/bash ; \
+fi
+/bin/sh ./infopost.sh < ./bashref.info > bash.info ; \
+
+/usr/bin/install -c -m 644 ./bash.1 /usr/share/man/man1/bash.1
+/usr/bin/install -c -m 644 ./bashbug.1 /usr/share/man/man1/bashbug.1
+/usr/bin/install -c -m 644 ./FAQ ./INTRO /usr/share/doc/bash
+if test -f bash.info; then d=.; else d=.; fi; \
+  /usr/bin/install -c -m 644 $d/bash.info /usr/share/info/bash.info
+if /bin/sh -c 'install-info --version' >/dev/null 2>&1; then \
+	install-info --dir-file=/usr/share/info/dir /usr/share/info/bash.info; \
+else true; fi
+if test -n "/usr/share/doc/bash" ; then \
+	/usr/bin/install -c -m 644 ./bash.html /usr/share/doc/bash ; \
+	/usr/bin/install -c -m 644 ./bashref.html /usr/share/doc/bash ; \
+fi
+make[1]: Leaving directory '/usr/src/bash-4.3/doc'
+( cd ./builtins ; make  DESTDIR= install )
+make[1]: Entering directory '/usr/src/bash-4.3/builtins'
+make[1]: Nothing to be done for 'install'.
+make[1]: Leaving directory '/usr/src/bash-4.3/builtins'
+( cd ./po/ ; make  DESTDIR= install )
+make[1]: Entering directory '/usr/src/bash-4.3/po'
+if test "bash" = "gettext-tools"; then \
+  /bin/sh /usr/src/bash-4.3/./support/mkinstalldirs /usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory '/usr/src/bash-4.3/po'
+ ---> 1457174e4b24
+Removing intermediate container 2712cfe86560
+Successfully built 1457174e4b24

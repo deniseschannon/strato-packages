@@ -1,0 +1,1252 @@
+Sending build context to Docker daemon 7.168 kB
+Step 1/9 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/9 : RUN strato add xz-dev acl-dev popt-dev lvm2-dev json-c-dev libestr-dev
+ ---> Running in faa1a7861b2c
+Installing package http://172.17.0.2:2015//amd64/json-c-dev.tar.gz:0.0.3
+/usr/include
+/usr/include/json-c
+/usr/include/json-c/arraylist.h
+/usr/include/json-c/bits.h
+/usr/include/json-c/debug.h
+/usr/include/json-c/json.h
+/usr/include/json-c/json_c_version.h
+/usr/include/json-c/json_config.h
+/usr/include/json-c/json_inttypes.h
+/usr/include/json-c/json_object.h
+/usr/include/json-c/json_object_iterator.h
+/usr/include/json-c/json_object_private.h
+/usr/include/json-c/json_tokener.h
+/usr/include/json-c/json_util.h
+/usr/include/json-c/linkhash.h
+/usr/include/json-c/printbuf.h
+/usr/include/json-c/random_seed.h
+Installing package http://172.17.0.2:2015//amd64/popt-dev.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/json-c.tar.gz:0.0.3
+/usr
+/usr/lib
+/usr/lib/libjson-c.la
+/usr/lib/libjson-c.so
+/usr/lib/libjson-c.so.2
+/usr/lib/libjson-c.so.2.0.2
+/usr/include
+Installing package http://172.17.0.2:2015//amd64/lvm2-libs.tar.gz:0.0.3
+/usr/include/popt.h
+/lib
+/lib/device-mapper
+/lib/device-mapper/libdevmapper-event-lvm2mirror.so
+/lib/device-mapper/libdevmapper-event-lvm2raid.so
+/lib/device-mapper/libdevmapper-event-lvm2snapshot.so
+Installing package http://172.17.0.2:2015//amd64/acl-dev.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/xz-libs.tar.gz:0.0.3
+/usr/lib
+/usr/lib/liblzma.la
+/usr/lib/liblzma.so
+/usr/lib/liblzma.so.5
+/usr/lib/liblzma.so.5.2.2
+/lib/device-mapper/libdevmapper-event-lvm2thin.so
+/lib/libdevmapper-event-lvm2.so.2.02
+/lib/libdevmapper-event-lvm2mirror.so
+/lib/libdevmapper-event-lvm2raid.so
+/lib/libdevmapper-event-lvm2snapshot.so
+/lib/libdevmapper-event-lvm2thin.so
+/lib/libdevmapper-event.so.1.02
+/lib/libdevmapper.so.1.02
+Installing package http://172.17.0.2:2015//amd64/libestr-dev.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/xz-dev.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/lvm2-dev.tar.gz:0.0.3
+/usr/include
+/usr/include
+/usr/include/lzma
+/usr/include/lzma/base.h
+/usr/include/lzma/bcj.h
+/usr/include/libdevmapper-event.h
+/usr/include/libdevmapper.h
+/usr/include/lzma/block.h
+/usr/include/lvm2app.h
+/usr/include/lzma/check.h
+/usr/include/lzma/container.h
+/usr/include/lzma/delta.h
+/usr/include/lzma/filter.h
+/usr/include/lzma/hardware.h
+Installing package http://172.17.0.2:2015//amd64/popt.tar.gz:0.0.3
+Installing package http://172.17.0.2:2015//amd64/libacl.tar.gz:0.0.3
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/json-c.pc
+Installing package http://172.17.0.2:2015//amd64/libestr.tar.gz:0.0.3
+/usr/include
+/usr/include/libestr.h
+/usr/include/lzma/index.h
+/usr/include/lzma/index_hash.h
+/usr/include
+/usr/include/acl
+/usr/include/acl/libacl.h
+/usr/include/sys
+/usr/include/sys/acl.h
+/usr/include/lvm2cmd.h
+/lib
+/lib/libacl.la
+/lib/libacl.so
+/lib
+/lib/libpopt.la
+/lib/libacl.so.1
+/lib/libacl.so.1.1.0
+/lib/libpopt.so
+/lib/libpopt.so.0
+/lib/libpopt.so.0.0.0
+/usr
+/usr/lib
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/popt.pc
+/usr/share
+/usr/share/locale
+/usr/share/locale/cs
+/usr/share/locale/cs/LC_MESSAGES
+/usr/share/locale/cs/LC_MESSAGES/popt.mo
+/usr/share/locale/da
+/usr
+/usr/lib
+/usr/lib/libestr.la
+/usr/share/locale/da/LC_MESSAGES
+/usr/share/locale/da/LC_MESSAGES/popt.mo
+/usr/share/locale/de
+/usr/share/locale/de/LC_MESSAGES
+/usr/share/locale/de/LC_MESSAGES/popt.mo
+/usr/share/locale/eo
+/usr/share/locale/eo/LC_MESSAGES
+/usr/share/locale/eo/LC_MESSAGES/popt.mo
+/usr/share/locale/es
+/usr/share/locale/es/LC_MESSAGES
+/usr/lib/libestr.so
+/usr/lib/libestr.so.0
+/usr/share/locale/es/LC_MESSAGES/popt.mo
+/usr/lib/libestr.so.0.0.0
+/usr/share/locale/fi
+/usr/share/locale/fi/LC_MESSAGES
+/usr/share/locale/fi/LC_MESSAGES/popt.mo
+/usr/include/lzma/lzma12.h
+/usr/share/locale/fr
+/usr/share/locale/fr/LC_MESSAGES
+/usr/include/lzma/stream_flags.h
+/usr/include/lzma/version.h
+/usr/share/locale/fr/LC_MESSAGES/popt.mo
+/usr/share/locale/ga
+/usr/share/locale/ga/LC_MESSAGES
+/usr/share/locale/ga/LC_MESSAGES/popt.mo
+/usr/share/locale/gl
+/usr/share/locale/gl/LC_MESSAGES
+/usr/share/locale/gl/LC_MESSAGES/popt.mo
+/usr/share/locale/hu
+/usr/share/locale/hu/LC_MESSAGES
+/usr/share/locale/hu/LC_MESSAGES/popt.mo
+/usr/include/acl/libacl.h
+/usr/share/locale/id
+/usr/share/locale/id/LC_MESSAGES
+/usr/share/locale/id/LC_MESSAGES/popt.mo
+/usr/lib
+/usr/lib/libacl.la
+/usr/share/locale/is
+/usr/share/locale/is/LC_MESSAGES
+/usr/share/locale/is/LC_MESSAGES/popt.mo
+/usr/share/locale/it
+/usr/share/locale/it/LC_MESSAGES
+/usr/share/locale/it/LC_MESSAGES/popt.mo
+/usr/lib/libacl.so
+/usr/share/locale/ja
+/usr/share/locale/ja/LC_MESSAGES
+/usr/share/locale/ja/LC_MESSAGES/popt.mo
+/usr/share/locale/ko
+/usr/share/locale/ko/LC_MESSAGES
+/usr/share/locale/ko/LC_MESSAGES/popt.mo
+/usr/share/locale/lv
+/usr/share/locale/lv/LC_MESSAGES
+/usr/share/locale/lv/LC_MESSAGES/popt.mo
+/usr/share/locale/nb
+/usr/share/locale/nb/LC_MESSAGES
+/usr/share/locale/nb/LC_MESSAGES/popt.mo
+/usr/share/locale/nl
+/usr/share/locale/nl/LC_MESSAGES
+/usr/share/locale/nl/LC_MESSAGES/popt.mo
+/usr/share/locale/pl
+/usr/share/locale/pl/LC_MESSAGES
+/usr/share/locale/pl/LC_MESSAGES/popt.mo
+/usr/share/locale/pt
+/usr/share/locale/pt/LC_MESSAGES
+/usr/share/locale/pt/LC_MESSAGES/popt.mo
+/usr/share/locale/ro
+/usr/share/locale/ro/LC_MESSAGES
+/usr/share/locale/ro/LC_MESSAGES/popt.mo
+/usr/share/locale/ru
+/usr/share/locale/ru/LC_MESSAGES
+/usr/share/locale/ru/LC_MESSAGES/popt.mo
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/liblzma.pc
+/usr/share/locale/sk
+/usr/share/locale/sk/LC_MESSAGES
+/usr/share/locale/sk/LC_MESSAGES/popt.mo
+/usr/share/locale/sl
+/usr/share/locale/sl/LC_MESSAGES
+/usr/share/locale/sl/LC_MESSAGES/popt.mo
+/usr/share/locale/sv
+/usr/share/locale/sv/LC_MESSAGES
+/usr/share/locale/sv/LC_MESSAGES/popt.mo
+/usr/share/locale/th
+/usr/share/locale/th/LC_MESSAGES
+/usr/share/locale/th/LC_MESSAGES/popt.mo
+/usr/share/locale/tr
+/usr/share/locale/tr/LC_MESSAGES
+/usr/share/locale/tr/LC_MESSAGES/popt.mo
+/usr/share/locale/uk
+/usr/share/locale/uk/LC_MESSAGES
+/usr/share/locale/uk/LC_MESSAGES/popt.mo
+/usr/share/locale/vi
+/usr/share/locale/vi/LC_MESSAGES
+/usr/share/locale/vi/LC_MESSAGES/popt.mo
+/usr/share/locale/wa
+/usr/share/locale/wa/LC_MESSAGES
+/usr/share/locale/wa/LC_MESSAGES/popt.mo
+/usr/share/locale/zh_CN
+/usr/share/locale/zh_CN/LC_MESSAGES
+/usr/share/locale/zh_CN/LC_MESSAGES/popt.mo
+/usr/share/locale/zh_TW
+/usr/share/locale/zh_TW/LC_MESSAGES
+/usr/share/locale/zh_TW/LC_MESSAGES/popt.mo
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/libestr.pc
+/usr/include/lzma/vli.h
+/usr/include/lzma.h
+/lib/liblvm2app.so.2.2
+/lib/liblvm2cmd.so.2.02
+/usr/include/libdevmapper-event.h
+/usr/include/libdevmapper.h
+/usr/lib
+/usr/lib/libdevmapper-event-lvm2.so
+/usr/lib/libdevmapper-event.so
+/usr/lib/libdevmapper.so
+/usr/lib/liblvm2app.so
+/usr/lib/liblvm2cmd.so
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/devmapper-event.pc
+/usr/lib/pkgconfig/devmapper.pc
+/usr/lib/pkgconfig/lvm2app.pc
+5.658071 mb
+ ---> 45e41fb99c0c
+Removing intermediate container faa1a7861b2c
+Step 3/9 : ENV VERSION 8.16.0
+ ---> Running in 8e68d012401c
+ ---> f97670afa8e5
+Removing intermediate container 8e68d012401c
+Step 4/9 : ENV LDFLAGS -s
+ ---> Running in 9145541d6b9c
+ ---> f75519b5c69d
+Removing intermediate container 9145541d6b9c
+Step 5/9 : RUN wget -P /usr/src/ http://www.rsyslog.com/files/download/rsyslog/rsyslog-${VERSION}.tar.gz
+ ---> Running in 5b9503804ecd
+[91m--2018-01-16 05:45:37--  http://www.rsyslog.com/files/download/rsyslog/rsyslog-8.16.0.tar.gz
+[0m[91mResolving www.rsyslog.com (www.rsyslog.com)... [0m[91m138.201.116.127[0m[91m, 2a01:4f8:c17:44a6::2
+[0m[91mConnecting to www.rsyslog.com (www.rsyslog.com)|138.201.116.127|:80... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 2132012 (2.0M) [application/x-gzip]
+[0m[91mSaving to: '/usr/src/rsyslog-8.16.0.tar.gz'
+[0m[91m
+     0K ........[0m[91m.. ...[0m[91m......[0m[91m. ..[0m[91m.......[0m[91m. .......... .[0m[91m.[0m[91m....[0m[91m....  2%  140K[0m[91m 15s[0m[91m
+    50K .......[0m[91m.[0m[91m.. .[0m[91m........[0m[91m. ....[0m[91m......[0m[91m .......[0m[91m... ........[0m[91m.[0m[91m.  4%  277K[0m[91m 11s[0m[91m
+   100K[0m[91m ..[0m[91m........ ..[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m....[0m[91m ....[0m[91m.[0m[91m.[0m[91m..[0m[91m.. ..[0m[91m.......[0m[91m.[0m[91m ..........[0m[91m  7% 11.5M 7s
+   150K ...[0m[91m....... .[0m[91m.....[0m[91m.... ....[0m[91m...... ..[0m[91m........[0m[91m ..........  9% 19.2M 5s
+   200K .[0m[91m......[0m[91m... .[0m[91m......... .......... .......... .......... 12%  290K 5s
+   250K .......... .......... .......... .......... .......... 14%  237M 4s
+   300K .......... .......... .......[0m[91m... .......... .......... 16%  279K 4s
+   350K .......... .......... .......... .......... .......... 19%  151M 4s
+   400K .......... .......... .......... .......... .......... 21%  282M 3s
+   450K .......... .......... .......... .......... .......... 24%  412M 3s
+   500K .......... .......... .......... .........[0m[91m. .......... 26%  279K 3s
+   550K .......... .......... .......... .......... .......... 28%  194M 3s
+   600K .......... .......... .......... .......... .......... 31%  163M 2s
+   650K .......... .......... .......... .......... .......... 33% 93.4M 2s
+   700K .......... .......... .......... .......... .......... 36%  130M 2s
+   750K .......... .......... .......... .......... .......... 38%  169M 2s
+   800K .......... .......... .......... .......... .......... 40%  414M 2s
+   850K .......... .......... .......... .......... .......... 43%  374M 1s
+   900K .......... .......... .......... .......... .......... 45%  452M 1s
+   950K .......... .......... .......... .......... .......... 48%  456M 1s
+  1000K .......... .......... .......... .......... .......... 50%  412M 1s
+  1050K .......[0m[91m...[0m[91m ........[0m[91m.. .[0m[91m..[0m[91m.[0m[91m...[0m[91m... .[0m[91m......... .......... 52%  276K 1s
+  1100K .....[0m[91m..... .......... .......... .......... .......... 55%  130M 1s
+  1150K .......... .......... .......... .......... ...[0m[91m....... 57%  219M 1s
+  1200K .......... .......... .......... .......... .......... 60%  119M 1s
+  1250K .......[0m[91m... .........[0m[91m. .......... .[0m[91m......... .......... 62% 53.1M 1s
+  1300K .......... .......... .........[0m[91m. .......[0m[91m... .......... 64% 72.1M 1s
+  1350K .......... .[0m[91m..[0m[91m....... .......[0m[91m... .......... [0m[91m.......... 67% 47.1M 1s
+  1400K .[0m[91m......... .......... .....[0m[91m..... ...[0m[91m....... .......... 69% 79.3M 1s
+  1450K .......... .......... .......... .......... .......... 72%  152M 0s
+  1500K .......... ...[0m[91m....... .......... .......... .......... 74%  131M 0s
+  1550K ...[0m[91m....... .......... .......... .......... .......... 76%  106M 0s
+  1600K .[0m[91m......... .......... .......... .......... .......... 79%  144M 0s
+  1650K .......... .......... .......... .......... .......... 81%  310M 0s
+  1700K .......... .......... .......... .......... .....[0m[91m..... 84%  251M 0s[0m[91m
+  1750K ........[0m[91m.. .......... .......... .......... .......... 86%  292K 0s
+  1800K .......... .......... .......... .......... ......[0m[91m.... 88%  218M 0s
+  1850K .......... .......... ........[0m[91m.. .......... .......... 91%  228M 0s
+  1900K ..[0m[91m........ .......... .......... ....[0m[91m...... .......... 93%  197M 0s
+  1950K ........[0m[91m.. .......... .......... .......... ........[0m[91m.. 96%  198M 0s
+  2000K .......... .......... ..........[0m[91m .......... .......... 98%  240M 0s
+  2050K ....[0m[91m...... .......... .......... ..                   100%  207M=1.4s
+
+[0m[91m2018-01-16 05:45:40 (1.41 MB/s) - '/usr/src/rsyslog-8.16.0.tar.gz' saved [2132012/2132012]
+
+[0m ---> 18ead867fa40
+Removing intermediate container 5b9503804ecd
+Step 6/9 : COPY rsyslog.conf /usr/src/
+ ---> 0415e9152e03
+Removing intermediate container 19d16755d190
+Step 7/9 : RUN cd /usr/src/ && tar xf rsyslog*.tar.gz
+ ---> Running in 3ba5589d0eaf
+ ---> 069c5af7d6e8
+Removing intermediate container 3ba5589d0eaf
+Step 8/9 : RUN cd /usr/src/rsyslog*     && ./configure     --prefix=/usr     --disable-rfc3195     --enable-largefile     --disable-imdiag     --disable-imfile     --disable-mail     --disable-omprog     --disable-omstdout     --disable-omudpspoof     --disable-imptcp     --disable-impstats     --disable-mysql     --disable-pgsql     --disable-gnutls     --disable-snmp     --disable-omhiredis     --disable-libgcrypt     --disable-liblogging-stdlog     && make
+ ---> Running in f3933549a3b6
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for bison... bison -y
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking for gcc option to accept ISO C99... none needed
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBESTR... yes
+checking for JSON_C... no
+checking for JSON_C... no
+checking for JSON_C... yes
+checking for json_object_new_object in -ljson-c... yes
+checking for json_object_new_int64... yes
+checking for json_tokener_error_desc... yes
+checking for json_object_object_get_ex... yes
+checking for json_object_to_json_string_ext... yes
+checking for json_bool... yes
+[91m./configure: line 14335: lsb_release: command not found
+[0mchecking for library containing clock_gettime... none required
+checking for library containing mq_getattr... -lrt
+checking for library containing dlopen... -ldl
+checking for sys/types.h... (cached) yes
+checking for netinet/in.h... yes
+checking for arpa/nameser.h... yes
+checking for netdb.h... yes
+checking for resolv.h... yes
+checking for ANSI C header files... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking libgen.h usability... yes
+checking libgen.h presence... yes
+checking for libgen.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for netdb.h... (cached) yes
+checking for netinet/in.h... (cached) yes
+checking paths.h usability... yes
+checking paths.h presence... yes
+checking for paths.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/inotify.h usability... yes
+checking sys/inotify.h presence... yes
+checking for sys/inotify.h... yes
+checking for unistd.h... (cached) yes
+checking utmp.h usability... yes
+checking utmp.h presence... yes
+checking for utmp.h... yes
+checking utmpx.h usability... yes
+checking utmpx.h presence... yes
+checking for utmpx.h... yes
+checking sys/epoll.h usability... yes
+checking sys/epoll.h presence... yes
+checking for sys/epoll.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for mode_t... yes
+checking for uid_t in sys/types.h... yes
+checking for uint8_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for working volatile... yes
+checking for struct sockaddr.sa_len... no
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether gcc needs -traditional... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking return type of signal handlers... void
+checking whether lstat correctly handles trailing slash... yes
+checking whether stat accepts an empty string... no
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for flock... yes
+checking for inotify_init... yes
+checking for recvmmsg... yes
+checking for basename... yes
+checking for alarm... yes
+checking for clock_gettime... yes
+checking for gethostbyname... yes
+checking for gethostname... yes
+checking for gettimeofday... yes
+checking for localtime_r... yes
+checking for memset... yes
+checking for mkdir... yes
+checking for regcomp... yes
+checking for select... yes
+checking for setsid... yes
+checking for socket... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strndup... yes
+checking for strnlen... yes
+checking for strrchr... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for uname... yes
+checking for ttyname_r... yes
+checking for getline... yes
+checking for malloc_trim... yes
+checking for prctl... yes
+checking for epoll_create... yes
+checking for epoll_create1... yes
+checking for fdatasync... yes
+checking for syscall... yes
+checking for lseek64... yes
+checking for off64_t... yes
+checking for library containing getifaddrs... none required
+checking whether SCM_CREDENTIALS is declared... yes
+checking whether SO_TIMESTAMP is declared... yes
+checking whether SYS_gettid is declared... yes
+checking for struct sysinfo.uptime... yes
+checking whether GLOB_NOMAGIC is declared... yes
+checking for MAXHOSTNAMELEN... yes
+checking for __builtin_expect()... yes
+checking whether the compiler provides atomic builtins... yes
+checking whether the compiler provides atomic builtins for 64 bit data types... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking sys/syscall.h usability... yes
+checking sys/syscall.h presence... yes
+checking for sys/syscall.h... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for ZLIB... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_create in -lpthread... yes
+checking for pthread_setschedparam... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for library containing sched_get_priority_max... none required
+checking for sched_get_priority_max... yes
+checking for LIBUUID... yes
+checking for valgrind... no
+configure: testbench will use valgrind
+checking hdfs.h usability... no
+checking hdfs.h presence... no
+checking for hdfs.h... no
+checking hadoop/hdfs.h usability... no
+checking hadoop/hdfs.h presence... no
+checking for hadoop/hdfs.h... no
+configure: checking if required man pages already exist...
+configure: Not running from git source
+checking for rst2man... no
+checking for rst2man.py... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating runtime/Makefile
+config.status: creating compat/Makefile
+config.status: creating grammar/Makefile
+config.status: creating tools/Makefile
+config.status: creating plugins/imudp/Makefile
+config.status: creating plugins/imtcp/Makefile
+config.status: creating plugins/im3195/Makefile
+config.status: creating plugins/imgssapi/Makefile
+config.status: creating plugins/imuxsock/Makefile
+config.status: creating plugins/imjournal/Makefile
+config.status: creating plugins/immark/Makefile
+config.status: creating plugins/imklog/Makefile
+config.status: creating plugins/omhdfs/Makefile
+config.status: creating plugins/omkafka/Makefile
+config.status: creating plugins/omprog/Makefile
+config.status: creating plugins/mmexternal/Makefile
+config.status: creating plugins/omstdout/Makefile
+config.status: creating plugins/omjournal/Makefile
+config.status: creating plugins/pmciscoios/Makefile
+config.status: creating plugins/omruleset/Makefile
+config.status: creating plugins/omuxsock/Makefile
+config.status: creating plugins/imfile/Makefile
+config.status: creating plugins/imsolaris/Makefile
+config.status: creating plugins/imptcp/Makefile
+config.status: creating plugins/impstats/Makefile
+config.status: creating plugins/imrelp/Makefile
+config.status: creating plugins/imdiag/Makefile
+config.status: creating plugins/omtesting/Makefile
+config.status: creating plugins/omgssapi/Makefile
+config.status: creating plugins/ommysql/Makefile
+config.status: creating plugins/ompgsql/Makefile
+config.status: creating plugins/omrelp/Makefile
+config.status: creating plugins/omlibdbi/Makefile
+config.status: creating plugins/ommail/Makefile
+config.status: creating plugins/omsnmp/Makefile
+config.status: creating plugins/omudpspoof/Makefile
+config.status: creating plugins/ommongodb/Makefile
+config.status: creating plugins/mmnormalize/Makefile
+config.status: creating plugins/mmjsonparse/Makefile
+config.status: creating plugins/mmaudit/Makefile
+config.status: creating plugins/mmanon/Makefile
+config.status: creating plugins/mmutf8fix/Makefile
+config.status: creating plugins/mmfields/Makefile
+config.status: creating plugins/mmpstrucdata/Makefile
+config.status: creating plugins/omelasticsearch/Makefile
+config.status: creating plugins/mmsnmptrapd/Makefile
+config.status: creating plugins/pmlastmsg/Makefile
+config.status: creating contrib/pmsnare/Makefile
+config.status: creating contrib/pmpanngfw/Makefile
+config.status: creating contrib/pmaixforwardedfrom/Makefile
+config.status: creating contrib/omhiredis/Makefile
+config.status: creating contrib/omrabbitmq/Makefile
+config.status: creating contrib/imkmsg/Makefile
+config.status: creating contrib/mmgrok/Makefile
+config.status: creating contrib/mmcount/Makefile
+config.status: creating contrib/omzmq3/Makefile
+config.status: creating contrib/omczmq/Makefile
+config.status: creating contrib/imzmq3/Makefile
+config.status: creating contrib/imczmq/Makefile
+config.status: creating contrib/mmsequence/Makefile
+config.status: creating contrib/mmrfc5424addhmac/Makefile
+config.status: creating contrib/pmcisconames/Makefile
+config.status: creating contrib/omhttpfs/Makefile
+config.status: creating tests/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+****************************************************
+rsyslog will be compiled with the following settings:
+
+    Large file support enabled:               yes
+    Networking support enabled:               yes
+    Regular expressions support enabled:      yes
+    rsyslog runtime will be built:            yes
+    rsyslogd will be built:                   yes
+    have to generate man pages:               no
+    Unlimited select() support enabled:       no
+    uuid support enabled:                     yes
+    Log file signing support:                 no
+    Log file signing support via KSI:         no
+    Log file encryption support:              no
+    anonymization support enabled:            no
+    message counting support enabled:         no
+    mmfields enabled:                         no
+    liblogging-stdlog support enabled:        no
+
+---{ input plugins }---
+    Klog functionality enabled:               yes (linux)
+    /dev/kmsg functionality enabled:          no
+    plain tcp input module enabled:           no
+    imdiag enabled:                           no
+    file input module enabled:                no
+    Solaris input module enabled:             no
+    periodic statistics module enabled:       no
+    imzmq3 input module enabled:              no
+    imczmq input module enabled:              no
+    imjournal input module enabled:           no
+
+---{ output plugins }---
+    Mail support enabled:                     no
+    omkafka module will be compiled:          no
+    omprog module will be compiled:           no
+    omstdout module will be compiled:         no
+    omjournal module will be compiled:        no
+    omhdfs module will be compiled:           no
+    omelasticsearch module will be compiled:  no
+    omruleset module will be compiled:        no
+    omudpspoof module will be compiled:       no
+    omuxsock module will be compiled:         no
+    omzmq3 module will be compiled:           no
+    omczmq module will be compiled:           no
+    omrabbitmq module will be compiled:       no
+    omhttpfs module will be compiled:         no
+
+---{ parser modules }---
+    pmlastmsg module will be compiled:        no
+    pmcisconames module will be compiled:     no
+    pmciscoios module will be compiled:       no
+    pmaixforwardedfrom module w.be compiled:  no
+    pmsnare module will be compiled:          no
+    pmpanngfw module will be compiled:        no
+
+---{ message modification modules }---
+    mmnormalize module will be compiled:      no
+    mmjsonparse module will be compiled:      no
+    mmgrok module will be compiled:           no
+    mmjaduit module will be compiled:         no
+    mmsnmptrapd module will be compiled:      no
+    mmutf8fix enabled:                        no
+    mmrfc5424addhmac enabled:                 no
+    mmpstrucdata enabled:                     no
+    mmsequence enabled:                       no
+
+---{ database support }---
+    MySql support enabled:                    no
+    libdbi support enabled:                   no
+    PostgreSQL support enabled:               no
+    mongodb support enabled:                  no
+    hiredis support enabled:                  no
+
+---{ protocol support }---
+    GnuTLS network stream driver enabled:     no
+    GSSAPI Kerberos 5 support enabled:        no
+    RELP support enabled:                     no
+    SNMP support enabled:                     no
+
+---{ debugging support }---
+    Testbench enabled:                        no
+    Extended Testbench enabled:               no
+    MySQL Tests enabled:                      no
+    Debug mode enabled:                       no
+    Runtime Instrumentation enabled:          no
+    (total) debugless mode enabled:           no
+    Diagnostic tools enabled:                 no
+    End-User tools enabled:                   no
+    Enhanced memory checking enabled:         no
+    Valgrind support settings enabled:        no
+
+make  all-recursive
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0'
+Making all in compat
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/compat'
+  CC       compat_la-getifaddrs.lo
+  CC       compat_la-strndup.lo
+  CCLD     compat.la
+[91mar: `u' modifier ignored since `D' is the default (see `U')
+[0mmake[2]: Leaving directory '/usr/src/rsyslog-8.16.0/compat'
+Making all in runtime
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/runtime'
+  CC       librsyslog_la-rsyslog.lo
+  CC       librsyslog_la-dnscache.lo
+  CC       librsyslog_la-glbl.lo
+  CC       librsyslog_la-conf.lo
+  CC       librsyslog_la-janitor.lo
+  CC       librsyslog_la-rsconf.lo
+  CC       librsyslog_la-parser.lo
+  CC       librsyslog_la-strgen.lo
+  CC       librsyslog_la-msg.lo
+  CC       librsyslog_la-linkedlist.lo
+  CC       librsyslog_la-objomsr.lo
+  CC       librsyslog_la-stringbuf.lo
+  CC       librsyslog_la-datetime.lo
+  CC       librsyslog_la-srutils.lo
+  CC       librsyslog_la-errmsg.lo
+  CC       librsyslog_la-debug.lo
+  CC       librsyslog_la-obj.lo
+  CC       librsyslog_la-modules.lo
+  CC       librsyslog_la-statsobj.lo
+  CC       librsyslog_la-stream.lo
+  CC       librsyslog_la-var.lo
+  CC       librsyslog_la-wtp.lo
+  CC       librsyslog_la-wti.lo
+  CC       librsyslog_la-queue.lo
+  CC       librsyslog_la-ruleset.lo
+  CC       librsyslog_la-prop.lo
+  CC       librsyslog_la-ratelimit.lo
+  CC       librsyslog_la-lookup.lo
+[91mlookup.c: In function 'lookupBuildTable':
+[0m[91mlookup.c:138:2: warning: 'json_object_object_get' is deprecated [-Wdeprecated-declarations]
+  jtab = json_object_object_get(jroot, "table");
+  ^
+[0m[91mIn file included from /usr/include/json-c/linkhash.h:16:0,
+                 from /usr/include/json-c/json.h:22,
+                 from lookup.c:29:
+/usr/include/json-c/json_object.h:290:56: note: declared here
+ THIS_FUNCTION_IS_DEPRECATED(extern struct json_object* json_object_object_get(struct json_object* obj,
+                                                        ^
+/usr/include/json-c/json_object.h:17:43: note: in definition of macro 'THIS_FUNCTION_IS_DEPRECATED'
+ #define THIS_FUNCTION_IS_DEPRECATED(func) func __attribute__ ((deprecated))
+                                           ^
+[0m[91mlookup.c:145:3: warning: 'json_object_object_get' is deprecated [-Wdeprecated-declarations]
+   jindex = json_object_object_get(jrow, "index");
+   ^
+[0m[91mIn file included from /usr/include/json-c/linkhash.h:16:0,
+                 from /usr/include/json-c/json.h:22,
+                 from lookup.c:29:
+/usr/include/json-c/json_object.h:290:56: note: declared here
+ THIS_FUNCTION_IS_DEPRECATED(extern struct json_object* json_object_object_get(struct json_object* obj,
+                                                        ^
+/usr/include/json-c/json_object.h:17:43: note: in definition of macro 'THIS_FUNCTION_IS_DEPRECATED'
+ #define THIS_FUNCTION_IS_DEPRECATED(func) func __attribute__ ((deprecated))
+                                           ^
+lookup.c:146:3: warning: 'json_object_object_get' is deprecated [-Wdeprecated-declarations]
+   jvalue = json_object_object_get(jrow, "value");
+   ^
+In file included from /usr/include/json-c/linkhash.h:16:0,
+                 from /usr/include/json-c/json.h:22,
+                 from lookup.c:29:
+/usr/include/json-c/json_object.h:290:56: note: declared here
+ THIS_FUNCTION_IS_DEPRECATED(extern struct json_object* json_object_object_get(struct json_object* obj,
+                                                        ^
+/usr/include/json-c/json_object.h:17:43: note: in definition of macro 'THIS_FUNCTION_IS_DEPRECATED'
+ #define THIS_FUNCTION_IS_DEPRECATED(func) func __attribute__ ((deprecated))
+                                           ^
+[0m  CC       librsyslog_la-cfsysline.lo
+  CC       librsyslog_la-sd-daemon.lo
+  CC       ../librsyslog_la-action.lo
+  CC       ../librsyslog_la-threads.lo
+  CC       ../librsyslog_la-parse.lo
+  CC       librsyslog_la-hashtable.lo
+  CC       librsyslog_la-hashtable_itr.lo
+  CC       ../librsyslog_la-outchannel.lo
+  CC       ../librsyslog_la-template.lo
+  CCLD     librsyslog.la
+[91mar: `u' modifier ignored since `D' is the default (see `U')
+[0m  CC       lmregexp_la-regexp.lo
+  CCLD     lmregexp.la
+  CC       lmzlibw_la-zlibw.lo
+  CCLD     lmzlibw.la
+  CC       lmnet_la-net.lo
+[91mIn file included from net.c:62:0:
+net.c: In function 'AddAllowedSender':
+[0m[91mnet.h:36:46: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+ #define F_ISSET(where, flag) ((where)&(flag))==(flag)
+                                              ^
+net.c:618:7: note: in expansion of macro 'F_ISSET'
+  if (!F_ISSET(iAllow->flags, ADDR_NAME)) {
+       ^
+[0m  CCLD     lmnet.la
+  CC       lmnetstrms_la-netstrms.lo
+  CC       lmnetstrms_la-netstrm.lo
+  CC       lmnetstrms_la-nssel.lo
+  CC       lmnetstrms_la-nspoll.lo
+  CCLD     lmnetstrms.la
+  CC       lmstrmsrv_la-strmsrv.lo
+  CC       lmstrmsrv_la-strms_sess.lo
+  CCLD     lmstrmsrv.la
+  CC       lmnsd_ptcp_la-nsd_ptcp.lo
+  CC       lmnsd_ptcp_la-nsdsel_ptcp.lo
+  CC       lmnsd_ptcp_la-nsdpoll_ptcp.lo
+  CCLD     lmnsd_ptcp.la
+  CC       lmtcpsrv_la-tcps_sess.lo
+  CC       lmtcpsrv_la-tcpsrv.lo
+  CCLD     lmtcpsrv.la
+  CC       lmtcpclt_la-tcpclt.lo
+  CCLD     lmtcpclt.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/runtime'
+Making all in grammar
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/grammar'
+make  all-am
+make[3]: Entering directory '/usr/src/rsyslog-8.16.0/grammar'
+  CC       libgrammar_la-grammar.lo
+  CC       libgrammar_la-lexer.lo
+  CC       libgrammar_la-rainerscript.lo
+  CCLD     libgrammar.la
+[91mar: `u' modifier ignored since `D' is the default (see `U')
+[0mmake[3]: Leaving directory '/usr/src/rsyslog-8.16.0/grammar'
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/grammar'
+Making all in .
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0'
+  GEN      rsyslog.service
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0'
+Making all in plugins/immark
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+  CC       immark_la-immark.lo
+  CCLD     immark.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+Making all in plugins/imuxsock
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+  CC       imuxsock_la-imuxsock.lo
+  CCLD     imuxsock.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+Making all in plugins/imtcp
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+  CC       imtcp_la-imtcp.lo
+  CCLD     imtcp.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+Making all in plugins/imudp
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+  CC       imudp_la-imudp.lo
+  CCLD     imudp.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+Making all in plugins/omtesting
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+  CC       omtesting_la-omtesting.lo
+  CCLD     omtesting.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+Making all in plugins/mmexternal
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+  CC       mmexternal_la-mmexternal.lo
+  CCLD     mmexternal.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+Making all in tools
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/tools'
+  CC       rsyslogd-syslogd.o
+  CC       rsyslogd-rsyslogd.o
+  CC       rsyslogd-omshell.o
+  CC       rsyslogd-omusrmsg.o
+  CC       rsyslogd-omfwd.o
+  CC       rsyslogd-omfile.o
+  CC       rsyslogd-ompipe.o
+  CC       rsyslogd-omdiscard.o
+  CC       rsyslogd-pmrfc5424.o
+  CC       rsyslogd-pmrfc3164.o
+  CC       rsyslogd-smtradfile.o
+  CC       rsyslogd-smfile.o
+  CC       rsyslogd-smfwd.o
+  CC       rsyslogd-smtradfwd.o
+  CC       rsyslogd-iminternal.o
+  CCLD     rsyslogd
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/tools'
+Making all in plugins/imklog
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+  CC       imklog_la-imklog.lo
+  CC       imklog_la-bsd.lo
+  CCLD     imklog.la
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+Making all in tests
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/tests'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0'
+ ---> 740e2644262f
+Removing intermediate container f3933549a3b6
+Step 9/9 : RUN cd /usr/src/rsyslog*     && make install     && install -m644 -D /usr/src/rsyslog.conf /etc/rsyslog.conf
+ ---> Running in 96501bc6c195
+Making install in compat
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/compat'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/compat'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/compat'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/compat'
+Making install in runtime
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/runtime'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/runtime'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   lmregexp.la lmzlibw.la lmnet.la lmnetstrms.la lmstrmsrv.la lmnsd_ptcp.la lmtcpsrv.la lmtcpclt.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/lmregexp.so /usr/lib/rsyslog/lmregexp.so
+libtool: install: /usr/bin/install -c .libs/lmregexp.lai /usr/lib/rsyslog/lmregexp.la
+libtool: install: /usr/bin/install -c .libs/lmzlibw.so /usr/lib/rsyslog/lmzlibw.so
+libtool: install: /usr/bin/install -c .libs/lmzlibw.lai /usr/lib/rsyslog/lmzlibw.la
+libtool: install: /usr/bin/install -c .libs/lmnet.so /usr/lib/rsyslog/lmnet.so
+libtool: install: /usr/bin/install -c .libs/lmnet.lai /usr/lib/rsyslog/lmnet.la
+libtool: install: /usr/bin/install -c .libs/lmnetstrms.so /usr/lib/rsyslog/lmnetstrms.so
+libtool: install: /usr/bin/install -c .libs/lmnetstrms.lai /usr/lib/rsyslog/lmnetstrms.la
+libtool: install: /usr/bin/install -c .libs/lmstrmsrv.so /usr/lib/rsyslog/lmstrmsrv.so
+libtool: install: /usr/bin/install -c .libs/lmstrmsrv.lai /usr/lib/rsyslog/lmstrmsrv.la
+libtool: install: /usr/bin/install -c .libs/lmnsd_ptcp.so /usr/lib/rsyslog/lmnsd_ptcp.so
+libtool: install: /usr/bin/install -c .libs/lmnsd_ptcp.lai /usr/lib/rsyslog/lmnsd_ptcp.la
+libtool: install: /usr/bin/install -c .libs/lmtcpsrv.so /usr/lib/rsyslog/lmtcpsrv.so
+libtool: install: /usr/bin/install -c .libs/lmtcpsrv.lai /usr/lib/rsyslog/lmtcpsrv.la
+libtool: install: /usr/bin/install -c .libs/lmtcpclt.so /usr/lib/rsyslog/lmtcpclt.so
+libtool: install: /usr/bin/install -c .libs/lmtcpclt.lai /usr/lib/rsyslog/lmtcpclt.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/runtime'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/runtime'
+Making install in grammar
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/grammar'
+make  install-am
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/grammar'
+make[3]: Entering directory '/usr/src/rsyslog-8.16.0/grammar'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/usr/src/rsyslog-8.16.0/grammar'
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/grammar'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/grammar'
+Making install in .
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0'
+ /bin/mkdir -p '/lib/systemd/system'
+ /usr/bin/install -c -m 644 rsyslog.service '/lib/systemd/system'
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0'
+Making install in plugins/immark
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   immark.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/immark.so /usr/lib/rsyslog/immark.so
+libtool: install: /usr/bin/install -c .libs/immark.lai /usr/lib/rsyslog/immark.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/immark'
+Making install in plugins/imuxsock
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   imuxsock.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/imuxsock.so /usr/lib/rsyslog/imuxsock.so
+libtool: install: /usr/bin/install -c .libs/imuxsock.lai /usr/lib/rsyslog/imuxsock.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imuxsock'
+Making install in plugins/imtcp
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   imtcp.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/imtcp.so /usr/lib/rsyslog/imtcp.so
+libtool: install: /usr/bin/install -c .libs/imtcp.lai /usr/lib/rsyslog/imtcp.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imtcp'
+Making install in plugins/imudp
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   imudp.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/imudp.so /usr/lib/rsyslog/imudp.so
+libtool: install: /usr/bin/install -c .libs/imudp.lai /usr/lib/rsyslog/imudp.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imudp'
+Making install in plugins/omtesting
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   omtesting.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/omtesting.so /usr/lib/rsyslog/omtesting.so
+libtool: install: /usr/bin/install -c .libs/omtesting.lai /usr/lib/rsyslog/omtesting.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/omtesting'
+Making install in plugins/mmexternal
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   mmexternal.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/mmexternal.so /usr/lib/rsyslog/mmexternal.so
+libtool: install: /usr/bin/install -c .libs/mmexternal.lai /usr/lib/rsyslog/mmexternal.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/mmexternal'
+Making install in tools
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/tools'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/tools'
+ /bin/mkdir -p '/usr/bin'
+ /bin/mkdir -p '/usr/sbin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c rsyslogd '/usr/sbin'
+libtool: install: /usr/bin/install -c rsyslogd /usr/sbin/rsyslogd
+ /bin/mkdir -p '/usr/share/man/man1'
+ /bin/mkdir -p '/usr/share/man/man5'
+ /usr/bin/install -c -m 644 rsyslog.conf.5 '/usr/share/man/man5'
+ /bin/mkdir -p '/usr/share/man/man8'
+ /usr/bin/install -c -m 644 rsyslogd.8 '/usr/share/man/man8'
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/tools'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/tools'
+Making install in plugins/imklog
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+ /bin/mkdir -p '/usr/lib/rsyslog'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   imklog.la '/usr/lib/rsyslog'
+libtool: install: /usr/bin/install -c .libs/imklog.so /usr/lib/rsyslog/imklog.so
+libtool: install: /usr/bin/install -c .libs/imklog.lai /usr/lib/rsyslog/imklog.la
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/rsyslog
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/rsyslog
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/plugins/imklog'
+Making install in tests
+make[1]: Entering directory '/usr/src/rsyslog-8.16.0/tests'
+make[2]: Entering directory '/usr/src/rsyslog-8.16.0/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/usr/src/rsyslog-8.16.0/tests'
+make[1]: Leaving directory '/usr/src/rsyslog-8.16.0/tests'
+ ---> 4cc3eaca6ec2
+Removing intermediate container 96501bc6c195
+Successfully built 4cc3eaca6ec2

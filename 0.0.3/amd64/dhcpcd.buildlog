@@ -1,0 +1,181 @@
+Sending build context to Docker daemon 3.072 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV VERSION 6.11.5
+ ---> Running in 998c85119c9e
+ ---> 68cba1c4659d
+Removing intermediate container 998c85119c9e
+Step 3/7 : ENV LDFLAGS -s
+ ---> Running in 4559011a2068
+ ---> 0e1ae40b2e84
+Removing intermediate container 4559011a2068
+Step 4/7 : RUN wget -P /usr/src/ http://roy.marples.name/downloads/dhcpcd/dhcpcd-${VERSION}.tar.xz
+ ---> Running in 2aa342df5ed8
+[91m--2018-01-16 05:40:51--  http://roy.marples.name/downloads/dhcpcd/dhcpcd-6.11.5.tar.xz
+Resolving roy.marples.name (roy.marples.name)... [0m[91m81.108.15.115
+Connecting to roy.marples.name (roy.marples.name)|81.108.15.115|:80... [0m[91mconnected.
+HTTP request sent, awaiting response... [0m[91m301 Moved Permanently
+Location: https://roy.marples.name/downloads/dhcpcd/dhcpcd-6.11.5.tar.xz [following]
+[0m[91m--2018-01-16 05:40:51--  https://roy.marples.name/downloads/dhcpcd/dhcpcd-6.11.5.tar.xz
+[0m[91mConnecting to roy.marples.name (roy.marples.name)|81.108.15.115|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: 198080 (193K) [application/x-xz]
+[0m[91mSaving to: '/usr/src/dhcpcd-6.11.5.tar.xz'
+[0m[91m
+     0K .......... ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. 25% 92.3K 2s
+    50K ......[0m[91m.... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 51%  278K 1s
+   100K .......... ..[0m[91m........[0m[91m ........[0m[91m.. .......... ....[0m[91m...... 77% 3.71M 0s
+   150K ..[0m[91m........[0m[91m .......... ......[0m[91m.... ....[0m[91m...... ..[0m[91m.       100% 2.43M=0.8s
+
+[0m[91m2018-01-16 05:40:53 (257 KB/s) - '/usr/src/dhcpcd-6.11.5.tar.xz' saved [198080/198080]
+
+[0m ---> d35dce7d627f
+Removing intermediate container 2aa342df5ed8
+Step 5/7 : RUN cd /usr/src/ && tar xf dhcpcd*
+ ---> Running in eff6a70eb528
+ ---> 451e95a46668
+Removing intermediate container eff6a70eb528
+Step 6/7 : RUN cd /usr/src/dhcpcd*     && ./configure     --sysconfdir=/etc     --mandir=/usr/share/man     --localstatedir=/var     --libexecdir=/usr/lib/dhcpcd     --dbdir=/var/lib/dhcpcd     && make
+ ---> Running in 5f42f50bab45
+configure args: --sysconfdir=/etc --mandir=/usr/share/man --localstatedir=/var --libexecdir=/usr/lib/dhcpcd --dbdir=/var/lib/dhcpcd
+Deriving operating system from ... x86_64-unknown-linux
+Configuring dhcpcd for ... linux
+Enabling INET support
+Enabling IPv4LL support
+Enabling INET6 support
+Enabling DHCPv6 support
+Enabling Authentication
+Using compiler .. cc
+cc (Ubuntu 5.4.0-6ubuntu1~16.04.5) 5.4.0 20160609
+dhcpcd-definitions.conf will be embedded in dhcpcd itself
+Testing for nl80211 ... yes
+Testing for IN6_ADDR_GEN_MODE_NONE ... yes
+Testing for getifaddrs ... yes
+Testing for ifaddrs.ifa_addrflags ... no
+Testing for clock_gettime ... yes
+Testing for inet_ntoa ... yes
+Testing for arc4random ... no
+Testing for arc4random_uniform ... no
+Testing for getline ... yes
+Testing for strlcpy ... no
+Testing for pidfile_lock ... no
+Testing for strtoi ... no
+Testing for dprintf ... yes
+Testing for printf %m support ...yes
+Testing for TAILQ_FOREACH_SAFE ... no
+Testing for TAILQ_CONCAT ...yes
+Testing for posix_spawn ... yes
+Testing for reallocarray ... no
+Testing for kqueue1 ... no
+Testing for kqueue ... no
+Testing for epoll ... yes
+Testing for be64enc ... no
+Testing for fls64 ... no
+Testing for MD5Init ... no
+Testing for sha2.h ... no
+Testing for SHA256_Init ... no
+Testing for SHA256Init ... no
+Checking for libudev ... no
+Checking for ntpd ... not found
+Checking for chronyd ... not found
+Checking for ypbind ... not found
+
+   SYSCONFDIR =		/etc
+   SBINDIR =		/sbin
+   LIBDIR =		/lib
+   LIBEXECDIR =		/usr/lib/dhcpcd
+   DBDIR =		/var/lib/dhcpcd
+   RUNDIR =		/var/run
+   MANDIR =		/usr/share/man
+   DATADIR =		/usr/share
+   HOOKSCRIPTS =	
+   EGHOOKSCRIPTS =	
+   STATUSARG = 		
+
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c common.c -o common.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c control.c -o control.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c dhcpcd.c -o dhcpcd.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c duid.c -o duid.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c eloop.c -o eloop.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c if.c -o if.o
+/bin/sh  genembedh dhcpcd-definitions.conf dhcpcd-embedded.h.in > dhcpcd-embedded.h
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c if-options.c -o if-options.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c script.c -o script.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c dhcp-common.c -o dhcp-common.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c auth.c -o auth.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c if-linux.c -o if-linux.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c arp.c -o arp.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c dhcp.c -o dhcp.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c ipv4.c -o ipv4.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c ipv4ll.c -o ipv4ll.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c ipv6.c -o ipv6.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c ipv6nd.c -o ipv6nd.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c dhcp6.c -o dhcp6.o
+/bin/sh  genembedc dhcpcd-definitions.conf dhcpcd-embedded.c.in > dhcpcd-embedded.c
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c dhcpcd-embedded.c -o dhcpcd-embedded.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c if-linux-wext.c -o if-linux-wext.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c crypt/hmac_md5.c -o crypt/hmac_md5.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c crypt/md5.c -o crypt/md5.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c crypt/sha256.c -o crypt/sha256.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/arc4random.c -o compat/arc4random.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/arc4random_uniform.c -o compat/arc4random_uniform.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/strlcpy.c -o compat/strlcpy.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/pidfile.c -o compat/pidfile.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/strtoi.c -o compat/strtoi.o
+cc -O2 -std=c99 -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DINET -DIPV4LL -DINET6 -DDHCP6 -DAUTH -I./crypt -c compat/reallocarray.c -o compat/reallocarray.o
+cc  -s -o dhcpcd common.o control.o dhcpcd.o duid.o eloop.o if.o if-options.o script.o dhcp-common.o auth.o if-linux.o arp.o dhcp.o ipv4.o ipv4ll.o ipv6.o ipv6nd.o dhcp6.o dhcpcd-embedded.o if-linux-wext.o crypt/hmac_md5.o crypt/md5.o crypt/sha256.o compat/arc4random.o compat/arc4random_uniform.o compat/strlcpy.o compat/pidfile.o compat/strtoi.o compat/reallocarray.o 
+sed -e 's:@RUNDIR@:/var/run:g' -e 's:@DBDIR@:/var/lib/dhcpcd:g' -e 's:@LIBDIR@:/lib:g' -e 's:@HOOKDIR@:/usr/lib/dhcpcd/dhcpcd-hooks:g' \
+	-e 's:@SYSCONFDIR@:/etc:g' -e 's:@SCRIPT@:/usr/lib/dhcpcd/dhcpcd-run-hooks:g' -e 's:@DATADIR@:/usr/share:g' \
+	-e 's:@SERVICEEXISTS@::g' -e 's:@SERVICECMD@::g' -e 's:@SERVICESTATUS@::g' \
+	-e 's:@STATUSARG@::g' \
+	dhcpcd-run-hooks.in > dhcpcd-run-hooks
+sed -e 's:@RUNDIR@:/var/run:g' -e 's:@DBDIR@:/var/lib/dhcpcd:g' -e 's:@LIBDIR@:/lib:g' -e 's:@HOOKDIR@:/usr/lib/dhcpcd/dhcpcd-hooks:g' \
+	-e 's:@SYSCONFDIR@:/etc:g' -e 's:@SCRIPT@:/usr/lib/dhcpcd/dhcpcd-run-hooks:g' -e 's:@DATADIR@:/usr/share:g' \
+	-e 's:@SERVICEEXISTS@::g' -e 's:@SERVICECMD@::g' -e 's:@SERVICESTATUS@::g' \
+	-e 's:@STATUSARG@::g' \
+	dhcpcd.conf.5.in > dhcpcd.conf.5
+sed -e 's:@RUNDIR@:/var/run:g' -e 's:@DBDIR@:/var/lib/dhcpcd:g' -e 's:@LIBDIR@:/lib:g' -e 's:@HOOKDIR@:/usr/lib/dhcpcd/dhcpcd-hooks:g' \
+	-e 's:@SYSCONFDIR@:/etc:g' -e 's:@SCRIPT@:/usr/lib/dhcpcd/dhcpcd-run-hooks:g' -e 's:@DATADIR@:/usr/share:g' \
+	-e 's:@SERVICEEXISTS@::g' -e 's:@SERVICECMD@::g' -e 's:@SERVICESTATUS@::g' \
+	-e 's:@STATUSARG@::g' \
+	dhcpcd.8.in > dhcpcd.8
+sed -e 's:@RUNDIR@:/var/run:g' -e 's:@DBDIR@:/var/lib/dhcpcd:g' -e 's:@LIBDIR@:/lib:g' -e 's:@HOOKDIR@:/usr/lib/dhcpcd/dhcpcd-hooks:g' \
+	-e 's:@SYSCONFDIR@:/etc:g' -e 's:@SCRIPT@:/usr/lib/dhcpcd/dhcpcd-run-hooks:g' -e 's:@DATADIR@:/usr/share:g' \
+	-e 's:@SERVICEEXISTS@::g' -e 's:@SERVICECMD@::g' -e 's:@SERVICESTATUS@::g' \
+	-e 's:@STATUSARG@::g' \
+	dhcpcd-run-hooks.8.in > dhcpcd-run-hooks.8
+for x in dhcpcd-hooks ; do cd $x; make all; cd ..; done
+make[1]: Entering directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+ ---> 361793157ab7
+Removing intermediate container 5f42f50bab45
+Step 7/7 : RUN cd /usr/src/dhcpcd*     && make install
+ ---> Running in ee1ddc8862e0
+install -d /sbin
+install -m 0555 dhcpcd /sbin
+install -d /var/lib/dhcpcd
+install -d /usr/lib/dhcpcd
+install -m 0555 dhcpcd-run-hooks /usr/lib/dhcpcd
+for x in dhcpcd-hooks ; do cd $x; make proginstall; cd ..; done
+make[1]: Entering directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+install -d /usr/lib/dhcpcd/dhcpcd-hooks
+install -m 0444 01-test 02-dump 20-resolv.conf 30-hostname  /usr/lib/dhcpcd/dhcpcd-hooks
+# We need to remove the old MTU change script if we at all can.
+rm -f /usr/lib/dhcpcd/dhcpcd-hooks/10-mtu
+make[1]: Leaving directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+install -d /usr/share/man/man5
+install -m 0444 dhcpcd.conf.5 /usr/share/man/man5
+install -d /usr/share/man/man8
+install -m 0444 dhcpcd.8 dhcpcd-run-hooks.8 /usr/share/man/man8
+install -d /etc
+test -e /etc/dhcpcd.conf || \
+	install -m 0644 dhcpcd.conf /etc
+for x in dhcpcd-hooks ; do cd $x; make eginstall; cd ..; done
+make[1]: Entering directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+install -d /usr/share/dhcpcd/hooks
+install -m 0444 10-wpa_supplicant 15-timezone 29-lookup-hostname  /usr/share/dhcpcd/hooks
+make[1]: Leaving directory '/usr/src/dhcpcd-6.11.5/dhcpcd-hooks'
+ ---> 9e2cd501dfb5
+Removing intermediate container ee1ddc8862e0
+Successfully built 9e2cd501dfb5

@@ -1,0 +1,117 @@
+Sending build context to Docker daemon 3.072 kB
+Step 1/6 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/6 : ENV LDFLAGS -s
+ ---> Using cache
+ ---> 556170946f7c
+Step 3/6 : RUN wget -P /usr/src/ http://zlib.net/zlib-1.2.11.tar.gz
+ ---> Running in 645d5192e1bb
+[91m--2018-01-16 05:39:00--  http://zlib.net/zlib-1.2.11.tar.gz
+Resolving zlib.net (zlib.net)... [0m[91m68.66.224.164
+Connecting to zlib.net (zlib.net)|68.66.224.164|:80... [0m[91mconnected.
+HTTP request sent, awaiting response... [0m[91m200 OK
+Length: 607698 (593K) [application/x-gzip]
+[0m[91mSaving to: '/usr/src/zlib-1.2.11.tar.gz'
+
+     0K .......... ...[0m[91m....... .......... .......... ..[0m[91m........  8% 1013K 1s
+    50K ....[0m[91m...... ..[0m[91m........[0m[91m ........[0m[91m.. .......... ....[0m[91m.[0m[91m..... 16% 1.97M 0s
+   100K .......... .......... .[0m[91m......... .......[0m[91m... ..[0m[91m........ 25%[0m[91m 85.6M 0s[0m[91m
+   150K .......... .......... .......... ..[0m[91m........ ....[0m[91m.....[0m[91m. 33% 2.01M 0s
+   200K .......... .......... ...[0m[91m....... .........[0m[91m. .......... 42% 33.2M 0s[0m[91m
+   250K .......... .......... .[0m[91m........[0m[91m. .......[0m[91m... .......... 50% 43.3M 0s
+   300K [0m[91m.......... .......... .......... .......... ...[0m[91m....... 58%  119M 0s
+   350K .[0m[91m......... .......... .[0m[91m......... ....[0m[91m...... .......... 67% 51.7M 0s
+   400K .[0m[91m......... .......... .......... .........[0m[91m. .......[0m[91m... 75% 2.30M 0s
+   450K ..[0m[91m........[0m[91m .......... .......... .......... .......... 84% 38.4M 0s
+   500K .......... .......... .......... .......... .......... 92%  236M 0s
+   550K .......... .......... .......... .......... ...       100%  327M=0.1s
+
+2018-01-16 05:39:00 (4.61 MB/s) - '/usr/src/zlib-1.2.11.tar.gz' saved [607698/607698]
+
+[0m ---> fef95d1b1963
+Removing intermediate container 645d5192e1bb
+Step 4/6 : RUN cd /usr/src/ && tar xf zlib*
+ ---> Running in 273923bc47fc
+ ---> d9ec08cdd44e
+Removing intermediate container 273923bc47fc
+Step 5/6 : RUN cd /usr/src/zlib*     && ./configure     --prefix=/usr     --libdir=/lib     --shared     && make
+ ---> Running in 7ef61dd0957c
+Checking for gcc...
+Checking for shared library support...
+Building shared library libz.so.1.2.11 with gcc.
+Checking for size_t... Yes.
+Checking for off64_t... Yes.
+Checking for fseeko... Yes.
+Checking for strerror... Yes.
+Checking for unistd.h... Yes.
+Checking for stdarg.h... Yes.
+Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+Checking for vsnprintf() in stdio.h... Yes.
+Checking for return value of vsnprintf()... Yes.
+Checking for attribute(visibility) support... Yes.
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o example.o test/example.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o adler32.o adler32.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o crc32.o crc32.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o deflate.o deflate.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o infback.o infback.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inffast.o inffast.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inflate.o inflate.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inftrees.o inftrees.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o trees.o trees.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o zutil.o zutil.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o compress.o compress.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o uncompr.o uncompr.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzclose.o gzclose.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzlib.o gzlib.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzread.o gzread.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzwrite.o gzwrite.c
+ar rc libz.a adler32.o crc32.o deflate.o infback.o inffast.o inflate.o inftrees.o trees.o zutil.o compress.o uncompr.o gzclose.o gzlib.o gzread.o gzwrite.o 
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o example example.o -L. libz.a
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o minigzip.o test/minigzip.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzip minigzip.o -L. libz.a
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/adler32.o adler32.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/crc32.o crc32.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/deflate.o deflate.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/infback.o infback.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inffast.o inffast.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inflate.o inflate.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inftrees.o inftrees.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/trees.o trees.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/zutil.o zutil.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/compress.o compress.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/uncompr.o uncompr.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzclose.o gzclose.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzlib.o gzlib.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzread.o gzread.c
+gcc -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzwrite.o gzwrite.c
+gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map -O3 -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o libz.so.1.2.11 adler32.lo crc32.lo deflate.lo infback.lo inffast.lo inflate.lo inftrees.lo trees.lo zutil.lo compress.lo uncompr.lo gzclose.lo gzlib.lo gzread.lo gzwrite.lo  -lc -s
+rm -f libz.so libz.so.1
+ln -s libz.so.1.2.11 libz.so
+ln -s libz.so.1.2.11 libz.so.1
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o examplesh example.o -L. libz.so.1.2.11
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzipsh minigzip.o -L. libz.so.1.2.11
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -D_FILE_OFFSET_BITS=64 -c -o example64.o test/example.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o example64 example64.o -L. libz.a
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -D_FILE_OFFSET_BITS=64 -c -o minigzip64.o test/minigzip.c
+gcc -O3 -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzip64 minigzip64.o -L. libz.a
+ ---> 6af6d068590b
+Removing intermediate container 7ef61dd0957c
+Step 6/6 : RUN cd /usr/src/zlib*     && make install
+ ---> Running in ee0027a2e1be
+rm -f /lib/libz.a
+cp libz.a /lib
+chmod 644 /lib/libz.a
+cp libz.so.1.2.11 /lib
+chmod 755 /lib/libz.so.1.2.11
+rm -f /usr/share/man/man3/zlib.3
+cp zlib.3 /usr/share/man/man3
+chmod 644 /usr/share/man/man3/zlib.3
+rm -f /lib/pkgconfig/zlib.pc
+cp zlib.pc /lib/pkgconfig
+chmod 644 /lib/pkgconfig/zlib.pc
+rm -f /usr/include/zlib.h /usr/include/zconf.h
+cp zlib.h zconf.h /usr/include
+chmod 644 /usr/include/zlib.h /usr/include/zconf.h
+ ---> af38774a4682
+Removing intermediate container ee0027a2e1be
+Successfully built af38774a4682

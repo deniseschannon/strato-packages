@@ -1,0 +1,3134 @@
+Sending build context to Docker daemon 31.23 kB
+Step 1/7 : FROM strato-build
+ ---> f3d3f1fa3c62
+Step 2/7 : ENV LDFLAGS -s
+ ---> Using cache
+ ---> 556170946f7c
+Step 3/7 : RUN wget -P /usr/src/ https://busybox.net/downloads/busybox-1.25.1.tar.bz2
+ ---> Running in 74867d0d9dc0
+[91m--2018-01-16 05:34:43--  https://busybox.net/downloads/busybox-1.25.1.tar.bz2
+[0m[91mResolving busybox.net (busybox.net)... [0m[91m140.211.167.122[0m[91m
+Connecting to busybox.net (busybox.net)|140.211.167.122|:443... [0m[91mconnected.
+[0m[91mHTTP request sent, awaiting response... [0m[91m200 OK
+[0m[91mLength: [0m[91m2103070 (2.0M) [application/x-bzip2]
+[0m[91mSaving to: '/usr/src/busybox-1.25.1.tar.bz2'
+[0m[91m
+     0K[0m[91m [0m[91m.[0m[91m.[0m[91m....[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m...[0m[91m .......[0m[91m... ....[0m[91m......[0m[91m ...[0m[91m..[0m[91m.[0m[91m..[0m[91m.[0m[91m.  2%  901K[0m[91m 2s
+    50K ....[0m[91m..[0m[91m.[0m[91m... [0m[91m....[0m[91m.[0m[91m..... ..[0m[91m.....[0m[91m...[0m[91m .[0m[91m.....[0m[91m...[0m[91m. ......[0m[91m.[0m[91m...  4% 1.29M 2s
+   100K .....[0m[91m..... .[0m[91m.[0m[91m.[0m[91m.......[0m[91m ..[0m[91m..[0m[91m...[0m[91m.[0m[91m.[0m[91m. ...[0m[91m..[0m[91m.[0m[91m...[0m[91m. ..[0m[91m..[0m[91m.[0m[91m....[0m[91m.  7% 2.43M 1s
+   150K .....[0m[91m..[0m[91m... .[0m[91m....[0m[91m..[0m[91m.[0m[91m.[0m[91m. .[0m[91m.....[0m[91m.[0m[91m... [0m[91m....[0m[91m.[0m[91m.....[0m[91m ....[0m[91m.[0m[91m....[0m[91m.  9% 2.48M[0m[91m 1s[0m[91m
+   200K ........[0m[91m..[0m[91m .[0m[91m.........[0m[91m ....[0m[91m...... .......... .......... 12% 2.57M 1s
+   250K ......[0m[91m.... .......... ..[0m[91m........ ........[0m[91m.. .......... 14% 2.59M 1s
+   300K .......... ..........[0m[91m .......... .......... .......... 17% 2.85M 1s
+   350K ..[0m[91m...[0m[91m..[0m[91m...[0m[91m ..[0m[91m......[0m[91m.. ......[0m[91m.... ....[0m[91m...[0m[91m... [0m[91m..[0m[91m.[0m[91m..[0m[91m.....[0m[91m 19%[0m[91m 2.54M[0m[91m 1s[0m[91m
+   400K[0m[91m [0m[91m...[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.. .[0m[91m.[0m[91m.[0m[91m...[0m[91m.[0m[91m.[0m[91m..[0m[91m [0m[91m.[0m[91m..[0m[91m.[0m[91m.[0m[91m..[0m[91m.[0m[91m.[0m[91m.[0m[91m [0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m..[0m[91m.[0m[91m...[0m[91m ....[0m[91m.[0m[91m..[0m[91m.[0m[91m..[0m[91m 21% 2.66M 1s[0m[91m
+   450K[0m[91m [0m[91m.[0m[91m.[0m[91m...[0m[91m.[0m[91m.[0m[91m.[0m[91m.. [0m[91m.[0m[91m..[0m[91m.[0m[91m.....[0m[91m. ..[0m[91m.[0m[91m.......[0m[91m [0m[91m..[0m[91m..[0m[91m.[0m[91m...[0m[91m.. [0m[91m..[0m[91m....[0m[91m.[0m[91m.[0m[91m..[0m[91m 24%[0m[91m 18.6M[0m[91m 1s[0m[91m
+   500K[0m[91m ....[0m[91m.[0m[91m.[0m[91m.[0m[91m.[0m[91m.. .[0m[91m.[0m[91m..[0m[91m...[0m[91m... .....[0m[91m.[0m[91m..[0m[91m.[0m[91m. ....[0m[91m...... .......... 26% 2.73M 1s
+   550K .......... .......... .......... .......... .......... 29% 43.2M 1s
+   600K .......... .......... .......... .......... ......[0m[91m..[0m[91m.. 31% 2.63M 1s
+   650K ....[0m[91m.[0m[91m..... ......[0m[91m.[0m[91m...[0m[91m [0m[91m....[0m[91m.[0m[91m.[0m[91m.[0m[91m... .....[0m[91m..... ......[0m[91m...[0m[91m. 34% 28.4M 1s[0m[91m
+   700K[0m[91m .[0m[91m...[0m[91m.....[0m[91m. ..[0m[91m....[0m[91m....[0m[91m .......... ......[0m[91m.... .......... 36% 2.87M 0s
+   750K ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... [0m[91m.......... 38% 37.4M 0s[0m[91m
+   800K .......... ......[0m[91m.... .......... ..[0m[91m.....[0m[91m...[0m[91m ........[0m[91m.. 41% 2.74M[0m[91m 0s
+   850K .....[0m[91m.[0m[91m.... ....[0m[91m...[0m[91m...[0m[91m ..........[0m[91m .[0m[91m.........[0m[91m ...[0m[91m..[0m[91m.[0m[91m..[0m[91m.[0m[91m.[0m[91m 43%[0m[91m 26.4M 0s[0m[91m
+   900K ......[0m[91m....[0m[91m .[0m[91m.[0m[91m.......[0m[91m.[0m[91m ...[0m[91m.....[0m[91m..[0m[91m ..[0m[91m........[0m[91m ...[0m[91m.[0m[91m...... 46% 28.1M 0s
+   950K ..[0m[91m....[0m[91m....[0m[91m ......[0m[91m.... [0m[91m....[0m[91m..[0m[91m.... .......... ..[0m[91m..[0m[91m......[0m[91m 48% 3.09M 0s
+  1000K .......... .......... .......... .......... .......... 51% 43.8M 0s
+  1050K .......... .......... .......... .......... .......... 53% 2.58M 0s
+  1100K ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m...[0m[91m. ....[0m[91m...... 55% 30.8M 0s[0m[91m
+  1150K[0m[91m .....[0m[91m..... [0m[91m.......... [0m[91m......[0m[91m.... ....[0m[91m...... ....[0m[91m...... 58% 29.4M 0s
+  1200K .[0m[91m......... .[0m[91m.[0m[91m....[0m[91m.... .......... .......... .......... 60% 3.02M 0s
+  1250K .......... ....[0m[91m...... .......[0m[91m... ..[0m[91m........ .[0m[91m.........[0m[91m 63% 26.9M 0s
+  1300K ....[0m[91m...... ..[0m[91m.[0m[91m....... ..[0m[91m.[0m[91m.[0m[91m.[0m[91m..... [0m[91m.[0m[91m.[0m[91m........ [0m[91m.[0m[91m..[0m[91m.[0m[91m.[0m[91m...[0m[91m.. 65%[0m[91m 2.96M 0s[0m[91m
+  1350K ..........[0m[91m .......... ..[0m[91m..[0m[91m..[0m[91m.[0m[91m..[0m[91m. [0m[91m....[0m[91m......[0m[91m ..[0m[91m........ 68% 20.7M 0s[0m[91m
+  1400K ..[0m[91m......[0m[91m.. .......... ....[0m[91m...... ..[0m[91m.[0m[91m.....[0m[91m..[0m[91m .......... 70%[0m[91m 27.0M 0s
+  1450K .......... .......... ..[0m[91m........ .......... .......... 73% 3.23M 0s
+  1500K .......... .......... .......... .......... .......... 75% 72.9M 0s
+  1550K [0m[91m.[0m[91m......... ........[0m[91m.. .......... ......[0m[91m.... ..[0m[91m........ 77% 50.5M 0s[0m[91m
+  1600K .......... .......... ....[0m[91m...... .........[0m[91m. ........[0m[91m.. 80% 2.91M 0s
+  1650K .......... ....[0m[91m...... ..........[0m[91m .......... ......[0m[91m.... 82% 51.2M 0s
+  1700K .......... ..[0m[91m........ ........[0m[91m.. .......... ....[0m[91m...... 85% 75.3M 0s
+  1750K .......... .......... ......[0m[91m.... .......... ..[0m[91m........ 87%  138M 0s
+  1800K ........[0m[91m.. .......... [0m[91m.......... ..........[0m[91m .........[0m[91m. 90% 2.74M 0s
+  1850K ......[0m[91m.... ....[0m[91m...... .......... ........[0m[91m.. ......[0m[91m.... 92%[0m[91m 32.6M 0s
+  1900K ....[0m[91m.[0m[91m..... ..[0m[91m........[0m[91m ........[0m[91m.[0m[91m. .......... .......... 94% 36.2M 0s
+  1950K ..[0m[91m........[0m[91m ...[0m[91m.[0m[91m....[0m[91m.. .......... ....[0m[91m...... .......... 97% 2.96M 0s[0m[91m
+  2000K ........[0m[91m.. ....[0m[91m..[0m[91m.... ....[0m[91m...... ..[0m[91m........[0m[91m ........[0m[91m.. 99% 30.0M 0s
+  2050K ...                                [0m[91m                   100% 7208G=0.5s
+
+[0m[91m2018-01-16 05:34:44 (4.37 MB/s) - '/usr/src/busybox-1.25.1.tar.bz2' saved [2103070/2103070]
+
+[0m ---> 637f0bd673dd
+Removing intermediate container 74867d0d9dc0
+Step 4/7 : COPY .config /usr/src/
+ ---> 67b86b32f481
+Removing intermediate container 23e13fbbeb8c
+Step 5/7 : RUN cd /usr/src/ && tar xf busybox*
+ ---> Running in 6101a3db97e4
+ ---> d8479792b35d
+Removing intermediate container 6101a3db97e4
+Step 6/7 : RUN cd /usr/src/busybox*     && mv ../.config ./     && make silentoldconfig     && make
+ ---> Running in 62b178cafafa
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/split-include
+[91mscripts/basic/split-include.c: In function 'main':
+[0m[91mscripts/basic/split-include.c:134:6: warning: ignoring return value of 'fgets', declared with attribute warn_unused_result [-Wunused-result]
+      fgets(old_line, buffer_size, fp_target);
+      ^
+[0m  HOSTCC  scripts/basic/docproc
+  GEN     include/applets.h
+  GEN     include/usage.h
+  GEN     archival/Kbuild
+  GEN     archival/Config.in
+  GEN     archival/libarchive/Kbuild
+  GEN     debianutils/Kbuild
+  GEN     debianutils/Config.in
+  GEN     shell/Kbuild
+  GEN     shell/Config.in
+  GEN     e2fsprogs/Kbuild
+  GEN     e2fsprogs/Config.in
+  GEN     loginutils/Kbuild
+  GEN     loginutils/Config.in
+  GEN     sysklogd/Kbuild
+  GEN     sysklogd/Config.in
+  GEN     networking/Kbuild
+  GEN     networking/Config.in
+  GEN     networking/udhcp/Kbuild
+  GEN     networking/udhcp/Config.in
+  GEN     networking/libiproute/Kbuild
+  GEN     printutils/Kbuild
+  GEN     printutils/Config.in
+  GEN     miscutils/Kbuild
+  GEN     miscutils/Config.in
+  GEN     runit/Kbuild
+  GEN     runit/Config.in
+  GEN     procps/Kbuild
+  GEN     procps/Config.in
+  GEN     libbb/Kbuild
+  GEN     libbb/Config.in
+  GEN     mailutils/Kbuild
+  GEN     mailutils/Config.in
+  GEN     libpwdgrp/Kbuild
+  GEN     coreutils/Kbuild
+  GEN     coreutils/Config.in
+  GEN     coreutils/libcoreutils/Kbuild
+  GEN     console-tools/Kbuild
+  GEN     console-tools/Config.in
+  GEN     util-linux/Kbuild
+  GEN     util-linux/Config.in
+  GEN     util-linux/volume_id/Kbuild
+  GEN     util-linux/volume_id/Config.in
+  GEN     findutils/Kbuild
+  GEN     findutils/Config.in
+  GEN     editors/Kbuild
+  GEN     editors/Config.in
+  GEN     selinux/Kbuild
+  GEN     selinux/Config.in
+  GEN     modutils/Kbuild
+  GEN     modutils/Config.in
+  GEN     applets/Kbuild
+  GEN     init/Kbuild
+  GEN     init/Config.in
+  GEN     scripts/Kbuild
+  HOSTCC  scripts/kconfig/conf.o
+[91mscripts/kconfig/conf.c: In function 'conf_askvalue':
+[0m[91mscripts/kconfig/conf.c:106:3: warning: ignoring return value of 'fgets', declared with attribute warn_unused_result [-Wunused-result]
+   fgets(line, 128, stdin);
+   ^
+[0m[91mscripts/kconfig/conf.c: In function 'conf_choice':
+[0m[91mscripts/kconfig/conf.c:354:4: warning: ignoring return value of 'fgets', declared with attribute warn_unused_result [-Wunused-result]
+    fgets(line, 128, stdin);
+    ^
+[0m  HOSTCC  scripts/kconfig/kxgettext.o
+  HOSTCC  scripts/kconfig/mconf.o
+[91mscripts/kconfig/mconf.c: In function 'show_textbox':
+[0m[91mscripts/kconfig/mconf.c:847:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  write(fd, text, strlen(text));
+  ^
+[0m[91mscripts/kconfig/mconf.c: In function 'exec_conf':
+[0m[91mscripts/kconfig/mconf.c:481:2: warning: ignoring return value of 'pipe', declared with attribute warn_unused_result [-Wunused-result]
+  pipe(pipefd);
+  ^
+[0m  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/lex.zconf.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+scripts/kconfig/conf -s Config.in
+[91m.config:62:warning: trying to reassign symbol STATIC
+[0m[91m.config:509:warning: trying to assign nonexistent symbol NOLOGIN[0m[91m
+.config:515:warning: trying to assign nonexistent symbol FEATURE_SU_NULLOK_SECURE
+[0m[91m.config:554:warning: [0m[91mtrying to assign nonexistent symbol FEATURE_MODUTILS_BIN
+[0m#
+# using defaults found in .config
+#
+  SPLIT   include/autoconf.h -> include/config/*
+  GEN     include/bbconfigopts.h
+  GEN     include/common_bufsiz.h
+  HOSTCC  applets/usage
+[91mapplets/usage.c: In function 'main':
+[0m[91mapplets/usage.c:52:3: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+   write(STDOUT_FILENO, usage_array[i].usage, strlen(usage_array[i].usage) + 1);
+   ^
+[0m  GEN     include/usage_compressed.h
+  HOSTCC  applets/applet_tables
+[91mapplets/applet_tables.c: In function 'main':
+[0m[91mapplets/applet_tables.c:204:4: warning: ignoring return value of 'fgets', declared with attribute warn_unused_result [-Wunused-result]
+    fgets(line_old, sizeof(line_old), fp);
+    ^
+[0m  GEN     include/applet_tables.h
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  HOSTCC  applets/usage_pod
+[91mapplets/usage_pod.c: In function 'main':
+[0m[91mapplets/usage_pod.c:74:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   printf(usage_array[i].aname);
+   ^
+[0m  LD      archival/built-in.o
+  CC      archival/bbunzip.o
+  CC      archival/bzip2.o
+  CC      archival/cpio.o
+  CC      archival/gzip.o
+  CC      archival/lzop.o
+  CC      archival/tar.o
+  CC      archival/unzip.o
+  AR      archival/lib.a
+  LD      archival/libarchive/built-in.o
+  CC      archival/libarchive/common.o
+  CC      archival/libarchive/data_align.o
+  CC      archival/libarchive/data_extract_all.o
+[91marchival/libarchive/data_extract_all.c: In function 'data_extract_all':
+[0m[91marchival/libarchive/data_extract_all.c:223:4: warning: ignoring return value of 'chown', declared with attribute warn_unused_result [-Wunused-result]
+    chown(dst_name, uid, gid);
+    ^
+[0m  CC      archival/libarchive/data_extract_to_stdout.o
+  CC      archival/libarchive/data_skip.o
+  CC      archival/libarchive/decompress_bunzip2.o
+  CC      archival/libarchive/decompress_gunzip.o
+  CC      archival/libarchive/decompress_uncompress.o
+  CC      archival/libarchive/decompress_unlzma.o
+  CC      archival/libarchive/decompress_unxz.o
+  CC      archival/libarchive/filter_accept_all.o
+  CC      archival/libarchive/filter_accept_list.o
+  CC      archival/libarchive/filter_accept_reject_list.o
+  CC      archival/libarchive/find_list_entry.o
+  CC      archival/libarchive/get_header_cpio.o
+  CC      archival/libarchive/get_header_tar.o
+  CC      archival/libarchive/header_list.o
+  CC      archival/libarchive/header_skip.o
+  CC      archival/libarchive/header_verbose_list.o
+  CC      archival/libarchive/init_handle.o
+  CC      archival/libarchive/lzo1x_1.o
+  CC      archival/libarchive/lzo1x_1o.o
+  CC      archival/libarchive/lzo1x_d.o
+  CC      archival/libarchive/open_transformer.o
+  CC      archival/libarchive/seek_by_jump.o
+  CC      archival/libarchive/seek_by_read.o
+  CC      archival/libarchive/unsafe_prefix.o
+  AR      archival/libarchive/lib.a
+  LD      console-tools/built-in.o
+  CC      console-tools/chvt.o
+  CC      console-tools/clear.o
+  CC      console-tools/deallocvt.o
+  CC      console-tools/dumpkmap.o
+[91mconsole-tools/dumpkmap.c: In function 'dumpkmap_main':
+[0m[91mconsole-tools/dumpkmap.c:71:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  write(STDOUT_FILENO, flags, 7 + MAX_NR_KEYMAPS);
+  ^
+console-tools/dumpkmap.c:84:6: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+      write(STDOUT_FILENO, &ke.kb_value, 2);
+      ^
+[0m  CC      console-tools/kbd_mode.o
+  CC      console-tools/loadfont.o
+[91mconsole-tools/loadfont.c: In function 'setfont_main':
+[0m[91mconsole-tools/loadfont.c:404:4: warning: ignoring return value of 'chdir', declared with attribute warn_unused_result [-Wunused-result]
+    chdir(CONFIG_DEFAULT_SETFONT_DIR "/consolefonts");
+    ^
+console-tools/loadfont.c:422:5: warning: ignoring return value of 'chdir', declared with attribute warn_unused_result [-Wunused-result]
+     chdir(CONFIG_DEFAULT_SETFONT_DIR "/consoletrans");
+     ^
+[0m  CC      console-tools/loadkmap.o
+  CC      console-tools/openvt.o
+  CC      console-tools/reset.o
+  CC      console-tools/resize.o
+[91mconsole-tools/resize.c: In function 'resize_main':
+console-tools/resize.c:67:2: warning: ignoring return value of 'scanf', declared with attribute warn_unused_result [-Wunused-result]
+  scanf(ESC"[%hu;%huR", &w.ws_row, &w.ws_col);
+  ^
+[0m  CC      console-tools/setconsole.o
+  CC      console-tools/setkeycodes.o
+  CC      console-tools/setlogcons.o
+  CC      console-tools/showkey.o
+  AR      console-tools/lib.a
+  LD      coreutils/built-in.o
+  CC      coreutils/basename.o
+  CC      coreutils/cal.o
+  CC      coreutils/cat.o
+  CC      coreutils/catv.o
+  CC      coreutils/chgrp.o
+  CC      coreutils/chmod.o
+  CC      coreutils/chown.o
+  CC      coreutils/chroot.o
+  CC      coreutils/cksum.o
+  CC      coreutils/comm.o
+  CC      coreutils/cp.o
+  CC      coreutils/cut.o
+  CC      coreutils/date.o
+  CC      coreutils/dd.o
+  CC      coreutils/df.o
+  CC      coreutils/dirname.o
+  CC      coreutils/dos2unix.o
+[91mcoreutils/dos2unix.c: In function 'convert':
+coreutils/dos2unix.c:64:3: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+   fchown(fd, st.st_uid, st.st_gid);
+   ^
+[0m  CC      coreutils/du.o
+  CC      coreutils/echo.o
+  CC      coreutils/env.o
+  CC      coreutils/expand.o
+  CC      coreutils/expr.o
+  CC      coreutils/false.o
+  CC      coreutils/fold.o
+  CC      coreutils/fsync.o
+  CC      coreutils/head.o
+  CC      coreutils/hostid.o
+  CC      coreutils/id.o
+  CC      coreutils/install.o
+  CC      coreutils/ln.o
+  CC      coreutils/ls.o
+  CC      coreutils/md5_sha1_sum.o
+  CC      coreutils/mkdir.o
+  CC      coreutils/mkfifo.o
+  CC      coreutils/mknod.o
+  CC      coreutils/mv.o
+  CC      coreutils/nice.o
+  CC      coreutils/nohup.o
+  CC      coreutils/od.o
+  CC      coreutils/printenv.o
+  CC      coreutils/printf.o
+  CC      coreutils/pwd.o
+  CC      coreutils/readlink.o
+  CC      coreutils/realpath.o
+  CC      coreutils/rm.o
+  CC      coreutils/rmdir.o
+  CC      coreutils/seq.o
+  CC      coreutils/shuf.o
+  CC      coreutils/sleep.o
+  CC      coreutils/sort.o
+  CC      coreutils/split.o
+  CC      coreutils/stat.o
+  CC      coreutils/stty.o
+  CC      coreutils/sum.o
+  CC      coreutils/sync.o
+  CC      coreutils/tac.o
+  CC      coreutils/tail.o
+  CC      coreutils/tee.o
+  CC      coreutils/test.o
+  CC      coreutils/test_ptr_hack.o
+  CC      coreutils/touch.o
+  CC      coreutils/tr.o
+  CC      coreutils/true.o
+  CC      coreutils/truncate.o
+  CC      coreutils/tty.o
+  CC      coreutils/uname.o
+  CC      coreutils/uniq.o
+  CC      coreutils/unlink.o
+  CC      coreutils/usleep.o
+  CC      coreutils/uudecode.o
+  CC      coreutils/uuencode.o
+  CC      coreutils/wc.o
+  CC      coreutils/whoami.o
+  CC      coreutils/yes.o
+  AR      coreutils/lib.a
+  LD      coreutils/libcoreutils/built-in.o
+  CC      coreutils/libcoreutils/cp_mv_stat.o
+  CC      coreutils/libcoreutils/getopt_mk_fifo_nod.o
+  AR      coreutils/libcoreutils/lib.a
+  LD      debianutils/built-in.o
+  CC      debianutils/mktemp.o
+  CC      debianutils/pipe_progress.o
+  CC      debianutils/run_parts.o
+  CC      debianutils/which.o
+  AR      debianutils/lib.a
+  LD      e2fsprogs/built-in.o
+  CC      e2fsprogs/fsck.o
+  AR      e2fsprogs/lib.a
+  LD      editors/built-in.o
+  CC      editors/awk.o
+  CC      editors/cmp.o
+  CC      editors/diff.o
+  CC      editors/ed.o
+[91meditors/ed.c: In function 'printLines':
+[0m[91meditors/ed.c:835:4: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+    write(STDOUT_FILENO, lp->data, lp->len);
+    ^
+[0m  CC      editors/patch.o
+  CC      editors/sed.o
+[91meditors/sed.c: In function 'sed_main':
+[0m[91meditors/sed.c:1594:4: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+    fchown(nonstdoutfd, statbuf.st_uid, statbuf.st_gid);
+    ^
+[0m  CC      editors/vi.o
+[91meditors/vi.c: In function 'file_write':
+[0m[91meditors/vi.c:2979:2: warning: ignoring return value of 'ftruncate', declared with attribute warn_unused_result [-Wunused-result]
+  ftruncate(fd, charcnt);
+  ^
+[0m  AR      editors/lib.a
+  LD      findutils/built-in.o
+  CC      findutils/find.o
+  CC      findutils/grep.o
+  CC      findutils/xargs.o
+  AR      findutils/lib.a
+  LD      init/built-in.o
+  CC      init/halt.o
+  CC      init/init.o
+  CC      init/mesg.o
+  AR      init/lib.a
+  LD      libbb/built-in.o
+  CC      libbb/appletlib.o
+  CC      libbb/ask_confirmation.o
+  CC      libbb/auto_string.o
+  CC      libbb/bb_askpass.o
+  CC      libbb/bb_bswap_64.o
+  CC      libbb/bb_do_delay.o
+  CC      libbb/bb_pwd.o
+  CC      libbb/bb_qsort.o
+  CC      libbb/bb_strtonum.o
+  CC      libbb/change_identity.o
+  CC      libbb/chomp.o
+  CC      libbb/common_bufsiz.o
+  CC      libbb/compare_string_array.o
+  CC      libbb/concat_path_file.o
+  CC      libbb/concat_subpath_file.o
+  CC      libbb/copy_file.o
+  CC      libbb/copyfd.o
+  CC      libbb/correct_password.o
+  CC      libbb/crc32.o
+  CC      libbb/default_error_retval.o
+  CC      libbb/device_open.o
+  CC      libbb/die_if_bad_username.o
+  CC      libbb/dump.o
+  CC      libbb/endofname.o
+  CC      libbb/executable.o
+  CC      libbb/fclose_nonstdin.o
+  CC      libbb/fflush_stdout_and_exit.o
+  CC      libbb/fgets_str.o
+  CC      libbb/find_mount_point.o
+  CC      libbb/find_pid_by_name.o
+  CC      libbb/find_root_device.o
+  CC      libbb/full_write.o
+  CC      libbb/get_console.o
+  CC      libbb/get_cpu_count.o
+  CC      libbb/get_last_path_component.o
+  CC      libbb/get_line_from_file.o
+  CC      libbb/get_shell_name.o
+  CC      libbb/get_volsize.o
+  CC      libbb/getopt32.o
+  CC      libbb/getpty.o
+  CC      libbb/hash_md5_sha.o
+  CC      libbb/herror_msg.o
+  CC      libbb/human_readable.o
+  CC      libbb/in_ether.o
+  CC      libbb/inet_cksum.o
+  CC      libbb/inet_common.o
+  CC      libbb/inode_hash.o
+  CC      libbb/isdirectory.o
+  CC      libbb/kernel_version.o
+  CC      libbb/last_char_is.o
+  CC      libbb/lineedit.o
+  CC      libbb/lineedit_ptr_hack.o
+  CC      libbb/llist.o
+  CC      libbb/login.o
+  CC      libbb/loop.o
+  CC      libbb/make_directory.o
+  CC      libbb/makedev.o
+  CC      libbb/match_fstype.o
+  CC      libbb/messages.o
+  CC      libbb/missing_syscalls.o
+  CC      libbb/mode_string.o
+  CC      libbb/nuke_str.o
+  CC      libbb/obscure.o
+  CC      libbb/parse_config.o
+  CC      libbb/parse_mode.o
+  CC      libbb/percent_decode.o
+  CC      libbb/perror_msg.o
+  CC      libbb/perror_nomsg.o
+  CC      libbb/perror_nomsg_and_die.o
+  CC      libbb/pidfile.o
+  CC      libbb/platform.o
+  CC      libbb/print_flags.o
+  CC      libbb/printable.o
+  CC      libbb/printable_string.o
+  CC      libbb/process_escape_sequence.o
+  CC      libbb/procps.o
+  CC      libbb/progress.o
+  CC      libbb/ptr_to_globals.o
+  CC      libbb/pw_encrypt.o
+  CC      libbb/read.o
+  CC      libbb/read_key.o
+  CC      libbb/read_printf.o
+  CC      libbb/recursive_action.o
+  CC      libbb/remove_file.o
+  CC      libbb/replace.o
+  CC      libbb/rtc.o
+  CC      libbb/run_shell.o
+  CC      libbb/safe_gethostname.o
+  CC      libbb/safe_poll.o
+  CC      libbb/safe_strncpy.o
+  CC      libbb/safe_write.o
+  CC      libbb/setup_environment.o
+  CC      libbb/signals.o
+  CC      libbb/simplify_path.o
+  CC      libbb/single_argv.o
+  CC      libbb/skip_whitespace.o
+  CC      libbb/speed_table.o
+  CC      libbb/str_tolower.o
+  CC      libbb/strrstr.o
+  CC      libbb/sysconf.o
+  CC      libbb/time.o
+  CC      libbb/trim.o
+  CC      libbb/u_signal_names.o
+  CC      libbb/ubi.o
+  CC      libbb/udp_io.o
+  CC      libbb/unicode.o
+  CC      libbb/update_passwd.o
+[91mlibbb/update_passwd.c: In function 'update_passwd':
+[0m[91mlibbb/update_passwd.c:139:3: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+   fchown(new_fd, sb.st_uid, sb.st_gid);
+   ^
+[0m  CC      libbb/uuencode.o
+  CC      libbb/vdprintf.o
+  CC      libbb/verror_msg.o
+  CC      libbb/vfork_daemon_rexec.o
+  CC      libbb/warn_ignoring_args.o
+  CC      libbb/wfopen.o
+  CC      libbb/wfopen_input.o
+  CC      libbb/write.o
+  CC      libbb/xatonum.o
+  CC      libbb/xconnect.o
+  CC      libbb/xfunc_die.o
+  CC      libbb/xfuncs.o
+  CC      libbb/xfuncs_printf.o
+[91mlibbb/xfuncs_printf.c: In function 'generate_uuid':
+[0m[91mlibbb/xfuncs_printf.c:629:3: warning: ignoring return value of 'read', declared with attribute warn_unused_result [-Wunused-result]
+   read(i, buf, 16);
+   ^
+[0m  CC      libbb/xgetcwd.o
+  CC      libbb/xgethostbyname.o
+  CC      libbb/xreadlink.o
+  CC      libbb/xrealloc_vector.o
+  CC      libbb/xregcomp.o
+  AR      libbb/lib.a
+  LD      libpwdgrp/built-in.o
+  CC      libpwdgrp/uidgid_get.o
+  AR      libpwdgrp/lib.a
+  LD      loginutils/built-in.o
+  CC      loginutils/add-remove-shell.o
+  CC      loginutils/addgroup.o
+  CC      loginutils/adduser.o
+  CC      loginutils/chpasswd.o
+  CC      loginutils/cryptpw.o
+  CC      loginutils/deluser.o
+  CC      loginutils/getty.o
+[91mloginutils/getty.c: In function 'open_tty':
+[0m[91mloginutils/getty.c:225:3: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+   fchown(0, 0, 0);        /* 0:0 */
+   ^
+[0m  CC      loginutils/login.o
+[91mloginutils/login.c: In function 'login_main':
+[0m[91mloginutils/login.c:562:2: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+  fchown(0, pw->pw_uid, pw->pw_gid);
+  ^
+[0m  CC      loginutils/passwd.o
+  CC      loginutils/su.o
+  CC      loginutils/vlock.o
+  AR      loginutils/lib.a
+  LD      mailutils/built-in.o
+  CC      mailutils/mail.o
+  CC      mailutils/makemime.o
+[91mmailutils/makemime.c: In function 'makemime_main':
+[0m[91mmailutils/makemime.c:197:3: warning: ignoring return value of 'freopen', declared with attribute warn_unused_result [-Wunused-result]
+   freopen(opt_output, "w", stdout);
+   ^
+[0m  CC      mailutils/reformime.o
+  CC      mailutils/sendmail.o
+  AR      mailutils/lib.a
+  LD      miscutils/built-in.o
+  CC      miscutils/adjtimex.o
+  CC      miscutils/bbconfig.o
+  CC      miscutils/beep.o
+  CC      miscutils/conspy.o
+  CC      miscutils/crond.o
+  CC      miscutils/crontab.o
+[91mmiscutils/crontab.c: In function 'crontab_main':
+[0m[91mmiscutils/crontab.c:147:3: warning: ignoring return value of 'fchown', declared with attribute warn_unused_result [-Wunused-result]
+   fchown(src_fd, pas->pw_uid, pas->pw_gid);
+   ^
+[0m  CC      miscutils/dc.o
+  CC      miscutils/eject.o
+  CC      miscutils/fbsplash.o
+  CC      miscutils/hdparm.o
+  CC      miscutils/inotifyd.o
+  CC      miscutils/ionice.o
+  CC      miscutils/less.o
+  CC      miscutils/microcom.o
+[91mmiscutils/microcom.c: In function 'microcom_main':
+[0m[91mmiscutils/microcom.c:153:4: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+    write(sfd, &c, 1);
+    ^
+[0m  CC      miscutils/mountpoint.o
+  CC      miscutils/nandwrite.o
+  CC      miscutils/raidautorun.o
+  CC      miscutils/readahead.o
+  CC      miscutils/rfkill.o
+  CC      miscutils/setserial.o
+  CC      miscutils/setsid.o
+  CC      miscutils/strings.o
+  CC      miscutils/time.o
+  CC      miscutils/timeout.o
+  CC      miscutils/ttysize.o
+  CC      miscutils/volname.o
+  CC      miscutils/watchdog.o
+[91mmiscutils/watchdog.c: In function 'watchdog_main':
+[0m[91mmiscutils/watchdog.c:106:3: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+   write(3, "", 1); /* write zero byte */
+   ^
+[0m[91mmiscutils/watchdog.c: In function 'watchdog_shutdown':
+[0m[91mmiscutils/watchdog.c:35:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  write(3, &V, 1);  /* Magic, see watchdog-api.txt in kernel */
+  ^
+[0m  AR      miscutils/lib.a
+  LD      modutils/built-in.o
+  CC      modutils/depmod.o
+  CC      modutils/insmod.o
+  CC      modutils/lsmod.o
+  CC      modutils/modinfo.o
+  CC      modutils/modprobe.o
+  CC      modutils/modutils.o
+  CC      modutils/rmmod.o
+  AR      modutils/lib.a
+  LD      networking/built-in.o
+  CC      networking/arp.o
+[91mIn file included from networking/arp.c:34:0:
+networking/arp.c: In function 'arp_show':
+[0m[91minclude/libbb.h:203:30: warning: ignoring return value of 'fgets_unlocked', declared with attribute warn_unused_result [-Wunused-result]
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                              ^
+networking/arp.c:421:2: note: in expansion of macro 'fgets'
+  fgets(line, sizeof(line), fp);
+  ^
+[0m  CC      networking/arping.o
+  CC      networking/brctl.o
+  CC      networking/dnsd.o
+  CC      networking/ether-wake.o
+  CC      networking/ftpd.o
+[91mnetworking/ftpd.c: In function 'popen_ls':
+[0m[91mnetworking/ftpd.c:661:3: warning: ignoring return value of 'dup', declared with attribute warn_unused_result [-Wunused-result]
+   dup(STDOUT_FILENO); /* copy will become STDIN_FILENO */
+   ^
+[0m  CC      networking/ftpgetput.o
+  CC      networking/hostname.o
+  CC      networking/httpd.o
+[91mnetworking/httpd.c: In function 'handle_incoming_and_exit':
+[0m[91mnetworking/httpd.c:2279:3: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+   write(proxy_fd, header_buf, header_ptr - header_buf);
+   ^
+[0m  CC      networking/ifconfig.o
+  CC      networking/ifenslave.o
+  CC      networking/ifupdown.o
+  CC      networking/inetd.o
+  CC      networking/interface.o
+[91mIn file included from networking/interface.c:34:0:
+networking/interface.c: In function 'if_readlist_proc':
+[0m[91minclude/libbb.h:203:30: warning: ignoring return value of 'fgets_unlocked', declared with attribute warn_unused_result [-Wunused-result]
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                              ^
+networking/interface.c:562:2: note: in expansion of macro 'fgets'
+  fgets(buf, sizeof buf, fh); /* eat line */
+  ^
+[0m[91minclude/libbb.h:203:30: warning: ignoring return value of 'fgets_unlocked', declared with attribute warn_unused_result [-Wunused-result]
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                              ^
+networking/interface.c:563:2: note: in expansion of macro 'fgets'
+  fgets(buf, sizeof buf, fh);
+  ^
+[0m  CC      networking/ip.o
+  CC      networking/ipcalc.o
+  CC      networking/isrv.o
+  CC      networking/isrv_identd.o
+  CC      networking/nameif.o
+  CC      networking/nbd-client.o
+[91mnetworking/nbd-client.c: In function 'nbdclient_main':
+[0m[91mnetworking/nbd-client.c:132:4: warning: ignoring return value of 'daemon', declared with attribute warn_unused_result [-Wunused-result]
+    daemon(0, 0);
+    ^
+[0m  CC      networking/nc.o
+  CC      networking/netstat.o
+  CC      networking/nslookup.o
+  CC      networking/ntpd.o
+  CC      networking/ping.o
+  CC      networking/pscan.o
+  CC      networking/route.o
+  CC      networking/slattach.o
+[91mnetworking/slattach.c: In function 'slattach_main':
+[0m[91mnetworking/slattach.c:255:3: warning: ignoring return value of 'system', declared with attribute warn_unused_result [-Wunused-result]
+   system(extcmd);
+   ^
+[0m  CC      networking/telnet.o
+  CC      networking/tftp.o
+  CC      networking/traceroute.o
+  CC      networking/tunctl.o
+  CC      networking/vconfig.o
+  CC      networking/wget.o
+[91mnetworking/wget.c: In function 'retrieve_file_data':
+[0m[91mnetworking/wget.c:867:4: warning: ignoring return value of 'ftruncate', declared with attribute warn_unused_result [-Wunused-result]
+    ftruncate(G.output_fd, pos);
+    ^
+[0m  CC      networking/whois.o
+  AR      networking/lib.a
+  LD      networking/libiproute/built-in.o
+  CC      networking/libiproute/ip_parse_common_args.o
+  CC      networking/libiproute/ipaddress.o
+  CC      networking/libiproute/iplink.o
+  CC      networking/libiproute/ipneigh.o
+  CC      networking/libiproute/iproute.o
+  CC      networking/libiproute/iprule.o
+  CC      networking/libiproute/iptunnel.o
+[91mIn file included from networking/libiproute/ip_common.h:5:0,
+                 from networking/libiproute/iptunnel.c:65:
+networking/libiproute/iptunnel.c: In function 'do_tunnels_list':
+[0m[91minclude/libbb.h:203:30: warning: ignoring return value of 'fgets_unlocked', declared with attribute warn_unused_result [-Wunused-result]
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                              ^
+networking/libiproute/iptunnel.c:478:2: note: in expansion of macro 'fgets'
+  fgets(buf, sizeof(buf), fp);
+  ^
+include/libbb.h:203:30: warning: ignoring return value of 'fgets_unlocked', declared with attribute warn_unused_result [-Wunused-result]
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                              ^
+networking/libiproute/iptunnel.c:479:2: note: in expansion of macro 'fgets'
+  fgets(buf, sizeof(buf), fp);
+  ^
+[0m  CC      networking/libiproute/libnetlink.o
+  CC      networking/libiproute/ll_addr.o
+  CC      networking/libiproute/ll_map.o
+  CC      networking/libiproute/ll_proto.o
+  CC      networking/libiproute/ll_types.o
+  CC      networking/libiproute/rt_names.o
+  CC      networking/libiproute/rtm_map.o
+  CC      networking/libiproute/utils.o
+  AR      networking/libiproute/lib.a
+  LD      networking/udhcp/built-in.o
+  CC      networking/udhcp/arpping.o
+  CC      networking/udhcp/common.o
+  CC      networking/udhcp/d6_dhcpc.o
+[91mIn file included from networking/udhcp/d6_dhcpc.c:32:0:
+networking/udhcp/d6_dhcpc.c: In function 'new_env':
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:135:2: note: in expansion of macro 'client6_data'
+  client6_data.env_ptr = xrealloc_vector(client6_data.env_ptr, 3, client6_data.env_idx);
+  ^
+[0m[91mIn file included from networking/udhcp/common.h:11:0,
+                 from networking/udhcp/d6_dhcpc.c:29:
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+include/libbb.h:763:26: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                          ^
+networking/udhcp/d6_dhcpc.c:135:41: note: in expansion of macro 'client6_data'
+  client6_data.env_ptr = xrealloc_vector(client6_data.env_ptr, 3, client6_data.env_idx);
+                                         ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+include/libbb.h:763:44: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                            ^
+networking/udhcp/d6_dhcpc.c:135:41: note: in expansion of macro 'client6_data'
+  client6_data.env_ptr = xrealloc_vector(client6_data.env_ptr, 3, client6_data.env_idx);
+                                         ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+include/libbb.h:763:74: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                                                          ^
+networking/udhcp/d6_dhcpc.c:135:66: note: in expansion of macro 'client6_data'
+  client6_data.env_ptr = xrealloc_vector(client6_data.env_ptr, 3, client6_data.env_idx);
+                                                                  ^
+In file included from networking/udhcp/d6_dhcpc.c:32:0:
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:136:10: note: in expansion of macro 'client6_data'
+  return &client6_data.env_ptr[client6_data.env_idx++];
+          ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:136:31: note: in expansion of macro 'client6_data'
+  return &client6_data.env_ptr[client6_data.env_idx++];
+                               ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'fill_envp':
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:230:2: note: in expansion of macro 'client6_data'
+  client6_data.env_ptr = NULL;
+  ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:231:2: note: in expansion of macro 'client6_data'
+  client6_data.env_idx = 0;
+  ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:238:16: note: in expansion of macro 'client6_data'
+  envp = curr = client6_data.env_ptr;
+                ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'send_d6_discover':
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:412:7: note: in expansion of macro 'client6_data'
+  free(client6_data.ia_na);
+       ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:414:2: note: in expansion of macro 'client6_data'
+  client6_data.ia_na = xzalloc(len);
+  ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:415:2: note: in expansion of macro 'client6_data'
+  client6_data.ia_na->code = D6_OPT_IA_NA;
+  ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:416:2: note: in expansion of macro 'client6_data'
+  client6_data.ia_na->len = len - 4;
+  ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:417:14: note: in expansion of macro 'client6_data'
+  *(uint32_t*)client6_data.ia_na->data = rand(); /* IAID */
+              ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:417:14: note: in expansion of macro 'client6_data'
+  *(uint32_t*)client6_data.ia_na->data = rand(); /* IAID */
+              ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:419:38: note: in expansion of macro 'client6_data'
+   struct d6_option *iaaddr = (void*)(client6_data.ia_na->data + 4+4+4);
+                                      ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:424:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, len);
+                                   ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'send_d6_select':
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:475:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                   ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:475:59: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                                           ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:477:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                   ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:477:55: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                                       ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'send_d6_renew':
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:544:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                   ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:544:59: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                                           ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:546:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                   ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:546:55: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                                       ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'send_d6_release':
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:572:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                   ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:572:59: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.server_id, client6_data.server_id->len + 2+2);
+                                                           ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:574:35: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                   ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:574:55: note: in expansion of macro 'client6_data'
+  opt_ptr = d6_store_blob(opt_ptr, client6_data.ia_na, client6_data.ia_na->len + 2+2);
+                                                       ^
+[0m[91mnetworking/udhcp/d6_dhcpc.c: In function 'udhcpc6_main':
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1326:10: note: in expansion of macro 'client6_data'
+     free(client6_data.server_id);
+          ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1327:5: note: in expansion of macro 'client6_data'
+     client6_data.server_id = option;
+     ^
+[0m[91mnetworking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1422:10: note: in expansion of macro 'client6_data'
+     free(client6_data.ia_na);
+          ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1423:5: note: in expansion of macro 'client6_data'
+     client6_data.ia_na = d6_copy_option(packet.d6_options, packet_end, D6_OPT_IA_NA);
+     ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1424:10: note: in expansion of macro 'client6_data'
+     if (!client6_data.ia_na) {
+          ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1428:9: note: in expansion of macro 'client6_data'
+     if (client6_data.ia_na->len < (4 + 4 + 4) + (2 + 2 + 16 + 4 + 4)) {
+         ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1429:57: note: in expansion of macro 'client6_data'
+      bb_error_msg("IA_NA option is too short:%d bytes", client6_data.ia_na->len);
+                                                         ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1432:29: note: in expansion of macro 'client6_data'
+     iaaddr = d6_find_option(client6_data.ia_na->data + 4 + 4 + 4,
+                             ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1433:7: note: in expansion of macro 'client6_data'
+       client6_data.ia_na->data + client6_data.ia_na->len,
+       ^
+networking/udhcp/d6_common.h:96:99: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define client6_data (*(struct client6_data_t*)(&bb_common_bufsiz1[COMMON_BUFSIZE - sizeof(struct client6_data_t)]))
+                                                                                                   ^
+networking/udhcp/d6_dhcpc.c:1433:34: note: in expansion of macro 'client6_data'
+       client6_data.ia_na->data + client6_data.ia_na->len,
+                                  ^
+[0m  CC      networking/udhcp/d6_packet.o
+  CC      networking/udhcp/d6_socket.o
+  CC      networking/udhcp/dhcpc.o
+  CC      networking/udhcp/dhcpd.o
+  CC      networking/udhcp/domain_codec.o
+  CC      networking/udhcp/dumpleases.o
+  CC      networking/udhcp/files.o
+  CC      networking/udhcp/leases.o
+  CC      networking/udhcp/packet.o
+  CC      networking/udhcp/signalpipe.o
+  CC      networking/udhcp/socket.o
+  CC      networking/udhcp/static_leases.o
+  AR      networking/udhcp/lib.a
+  LD      printutils/built-in.o
+  AR      printutils/lib.a
+  LD      procps/built-in.o
+  CC      procps/free.o
+  CC      procps/fuser.o
+  CC      procps/iostat.o
+  CC      procps/kill.o
+  CC      procps/lsof.o
+  CC      procps/mpstat.o
+  CC      procps/nmeter.o
+  CC      procps/pgrep.o
+  CC      procps/pidof.o
+  CC      procps/pmap.o
+  CC      procps/powertop.o
+  CC      procps/ps.o
+[91mprocps/ps.c: In function 'ps_main':
+[0m[91mprocps/ps.c:566:6: warning: variable 'opt' set but not used [-Wunused-but-set-variable]
+  int opt;
+      ^
+[0m  CC      procps/pstree.o
+[91mprocps/pstree.c: In function 'mread_proc':
+[0m[91mprocps/pstree.c:360:8: warning: variable 'parent' set but not used [-Wunused-but-set-variable]
+  pid_t parent = 0;
+        ^
+[0m  CC      procps/pwdx.o
+  CC      procps/renice.o
+  CC      procps/smemcap.o
+  CC      procps/sysctl.o
+  CC      procps/top.o
+[91mprocps/top.c: In function 'mult_lvl_cmp':
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:258:15: note: in expansion of macro 'sort_function'
+   cmp_val = (*sort_function[i])(a, b);
+               ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:191:27: note: in expansion of macro 'G'
+ #define inverted         (G.inverted          )
+                           ^
+procps/top.c:262:9: note: in expansion of macro 'inverted'
+  return inverted ? -cmp_val : cmp_val;
+         ^
+In file included from procps/top.c:107:0:
+procps/top.c: In function 'read_cpu_jiffy':
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:203:45: note: in definition of macro 'fgets'
+ # define fgets(s, n, stream) fgets_unlocked(s, n, stream)
+                                             ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:274:13: note: in expansion of macro 'line_buf'
+  if (!fgets(line_buf, LINE_BUF_SIZE, fp) || line_buf[0] != 'c' /* not "cpu" */)
+             ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:274:45: note: in expansion of macro 'line_buf'
+  if (!fgets(line_buf, LINE_BUF_SIZE, fp) || line_buf[0] != 'c' /* not "cpu" */)
+                                             ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:276:15: note: in expansion of macro 'line_buf'
+  ret = sscanf(line_buf, fmt,
+               ^
+procps/top.c: In function 'get_jiffy_counts':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:198:27: note: in expansion of macro 'G'
+ #define prev_jif         (G.prev_jif          )
+                           ^
+procps/top.c:296:2: note: in expansion of macro 'prev_jif'
+  prev_jif = cur_jif;
+  ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:296:13: note: in expansion of macro 'cur_jif'
+  prev_jif = cur_jif;
+             ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:297:26: note: in expansion of macro 'cur_jif'
+  if (read_cpu_jiffy(fp, &cur_jif) < 4)
+                          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:304:7: note: in expansion of macro 'smp_cpu_info'
+  if (!smp_cpu_info) {
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:309:7: note: in expansion of macro 'num_cpus'
+  if (!num_cpus) {
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:314:4: note: in expansion of macro 'cpu_jif'
+    cpu_jif = xrealloc_vector(cpu_jif, 1, num_cpus);
+    ^
+In file included from procps/top.c:107:0:
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:26: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                          ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:314:30: note: in expansion of macro 'cpu_jif'
+    cpu_jif = xrealloc_vector(cpu_jif, 1, num_cpus);
+                              ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:44: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                            ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:314:30: note: in expansion of macro 'cpu_jif'
+    cpu_jif = xrealloc_vector(cpu_jif, 1, num_cpus);
+                              ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:74: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                                                          ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:314:42: note: in expansion of macro 'num_cpus'
+    cpu_jif = xrealloc_vector(cpu_jif, 1, num_cpus);
+                                          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:315:28: note: in expansion of macro 'cpu_jif'
+    if (read_cpu_jiffy(fp, &cpu_jif[num_cpus]) <= 4)
+                            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:315:36: note: in expansion of macro 'num_cpus'
+    if (read_cpu_jiffy(fp, &cpu_jif[num_cpus]) <= 4)
+                                    ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:317:4: note: in expansion of macro 'num_cpus'
+    num_cpus++;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:319:7: note: in expansion of macro 'num_cpus'
+   if (num_cpus == 0) /* /proc/stat with only "cpu ..." line?! */
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:320:4: note: in expansion of macro 'smp_cpu_info'
+    smp_cpu_info = 0;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:322:3: note: in expansion of macro 'cpu_prev_jif'
+   cpu_prev_jif = xzalloc(sizeof(cpu_prev_jif[0]) * num_cpus);
+   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:322:33: note: in expansion of macro 'cpu_prev_jif'
+   cpu_prev_jif = xzalloc(sizeof(cpu_prev_jif[0]) * num_cpus);
+                                 ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:322:52: note: in expansion of macro 'num_cpus'
+   cpu_prev_jif = xzalloc(sizeof(cpu_prev_jif[0]) * num_cpus);
+                                                    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:331:9: note: in expansion of macro 'cpu_prev_jif'
+   tmp = cpu_prev_jif;
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:332:3: note: in expansion of macro 'cpu_prev_jif'
+   cpu_prev_jif = cpu_jif;
+   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:332:18: note: in expansion of macro 'cpu_jif'
+   cpu_prev_jif = cpu_jif;
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:333:3: note: in expansion of macro 'cpu_jif'
+   cpu_jif = tmp;
+   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:336:19: note: in expansion of macro 'num_cpus'
+   for (i = 0; i < num_cpus; i++)
+                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:337:24: note: in expansion of macro 'cpu_jif'
+    read_cpu_jiffy(fp, &cpu_jif[i]);
+                        ^
+procps/top.c: In function 'do_stats':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:202:27: note: in expansion of macro 'G'
+ #define total_pcpu       (G.total_pcpu        )
+                           ^
+procps/top.c:351:2: note: in expansion of macro 'total_pcpu'
+  total_pcpu = 0;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:353:43: note: in expansion of macro 'ntop'
+  new_hist = xmalloc(sizeof(new_hist[0]) * ntop);
+                                           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:359:18: note: in expansion of macro 'ntop'
+  for (n = 0; n < ntop; n++) {
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:360:9: note: in expansion of macro 'top'
+   cur = top + n;
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:196:27: note: in expansion of macro 'G'
+ #define prev_hist_count  (G.prev_hist_count   )
+                           ^
+procps/top.c:375:7: note: in expansion of macro 'prev_hist_count'
+   if (prev_hist_count) do {
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:376:8: note: in expansion of macro 'prev_hist'
+    if (prev_hist[i].pid == pid) {
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:377:30: note: in expansion of macro 'prev_hist'
+     cur->pcpu = cur->ticks - prev_hist[i].ticks;
+                              ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:202:27: note: in expansion of macro 'G'
+ #define total_pcpu       (G.total_pcpu        )
+                           ^
+procps/top.c:378:5: note: in expansion of macro 'total_pcpu'
+     total_pcpu += cur->pcpu;
+     ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:196:27: note: in expansion of macro 'G'
+ #define prev_hist_count  (G.prev_hist_count   )
+                           ^
+procps/top.c:381:16: note: in expansion of macro 'prev_hist_count'
+    i = (i+1) % prev_hist_count;
+                ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:390:7: note: in expansion of macro 'prev_hist'
+  free(prev_hist);
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:391:2: note: in expansion of macro 'prev_hist'
+  prev_hist = new_hist;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:196:27: note: in expansion of macro 'G'
+ #define prev_hist_count  (G.prev_hist_count   )
+                           ^
+procps/top.c:392:2: note: in expansion of macro 'prev_hist_count'
+  prev_hist_count = ntop;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:392:20: note: in expansion of macro 'ntop'
+  prev_hist_count = ntop;
+                    ^
+procps/top.c: In function 'display_cpus':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:458:16: note: in expansion of macro 'smp_cpu_info'
+  n_cpu_lines = smp_cpu_info ? num_cpus : 1;
+                ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:458:31: note: in expansion of macro 'num_cpus'
+  n_cpu_lines = smp_cpu_info ? num_cpus : 1;
+                               ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:463:12: note: in expansion of macro 'cpu_jif'
+   p_jif = &cpu_jif[i];
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:464:17: note: in expansion of macro 'cpu_prev_jif'
+   p_prev_jif = &cpu_prev_jif[i];
+                 ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:482:6: note: in expansion of macro 'smp_cpu_info'
+     (smp_cpu_info ? utoa(i) : ""),
+      ^
+[0m[91mprocps/top.c: In function 'display_process_list':
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:641:14: note: in expansion of macro 'cur_jif'
+  busy_jifs = cur_jif.busy - prev_jif.busy;
+              ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:198:27: note: in expansion of macro 'G'
+ #define prev_jif         (G.prev_jif          )
+                           ^
+procps/top.c:641:29: note: in expansion of macro 'prev_jif'
+  busy_jifs = cur_jif.busy - prev_jif.busy;
+                             ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:202:27: note: in expansion of macro 'G'
+ #define total_pcpu       (G.total_pcpu        )
+                           ^
+procps/top.c:644:6: note: in expansion of macro 'total_pcpu'
+  if (total_pcpu < busy_jifs) total_pcpu = busy_jifs;
+      ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:202:27: note: in expansion of macro 'G'
+ #define total_pcpu       (G.total_pcpu        )
+                           ^
+procps/top.c:644:30: note: in expansion of macro 'total_pcpu'
+  if (total_pcpu < busy_jifs) total_pcpu = busy_jifs;
+                              ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:662:28: note: in expansion of macro 'cur_jif'
+  tmp_unsigned = (uint16_t)(cur_jif.total - prev_jif.total) * total_pcpu;
+                            ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:198:27: note: in expansion of macro 'G'
+ #define prev_jif         (G.prev_jif          )
+                           ^
+procps/top.c:662:44: note: in expansion of macro 'prev_jif'
+  tmp_unsigned = (uint16_t)(cur_jif.total - prev_jif.total) * total_pcpu;
+                                            ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:202:27: note: in expansion of macro 'G'
+ #define total_pcpu       (G.total_pcpu        )
+                           ^
+procps/top.c:662:62: note: in expansion of macro 'total_pcpu'
+  tmp_unsigned = (uint16_t)(cur_jif.total - prev_jif.total) * total_pcpu;
+                                                              ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:676:18: note: in expansion of macro 'ntop'
+  if (lines_rem > ntop - G_scroll_ofs)
+                  ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:676:25: note: in expansion of macro 'G_scroll_ofs'
+  if (lines_rem > ntop - G_scroll_ofs)
+                         ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:677:15: note: in expansion of macro 'ntop'
+   lines_rem = ntop - G_scroll_ofs;
+               ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:677:22: note: in expansion of macro 'G_scroll_ofs'
+   lines_rem = ntop - G_scroll_ofs;
+                      ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:678:6: note: in expansion of macro 'top'
+  s = top + G_scroll_ofs;
+      ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:678:12: note: in expansion of macro 'G_scroll_ofs'
+  s = top + G_scroll_ofs;
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:691:18: note: in expansion of macro 'line_buf'
+   col = snprintf(line_buf, scr_width,
+                  ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:703:17: note: in expansion of macro 'line_buf'
+    read_cmdline(line_buf + col, scr_width - col, s->pid, s->comm);
+                 ^
+In file included from procps/top.c:107:0:
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:205:42: note: in definition of macro 'fputs'
+ # define fputs(s, stream) fputs_unlocked(s, stream)
+                                          ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:704:9: note: in expansion of macro 'line_buf'
+   fputs(line_buf, stdout);
+         ^
+[0m[91mprocps/top.c: In function 'clearmems':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:721:7: note: in expansion of macro 'top'
+  free(top);
+       ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:722:2: note: in expansion of macro 'top'
+  top = NULL;
+  ^
+procps/top.c: In function 'reset_term':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:193:27: note: in expansion of macro 'G'
+ #define initial_settings (G.initial_settings  )
+                           ^
+procps/top.c:730:28: note: in expansion of macro 'initial_settings'
+   tcsetattr_stdin_TCSANOW(&initial_settings);
+                            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:734:8: note: in expansion of macro 'prev_hist'
+   free(prev_hist);
+        ^
+[0m[91mprocps/top.c: In function 'topmem_sort':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:190:27: note: in expansion of macro 'G'
+ #define sort_field       (G.sort_field        )
+                           ^
+procps/top.c:777:40: note: in expansion of macro 'sort_field'
+  n = offsetof(topmem_status_t, vsz) + (sort_field * sizeof(mem_t));
+                                        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:191:27: note: in expansion of macro 'G'
+ #define inverted         (G.inverted          )
+                           ^
+procps/top.c:787:9: note: in expansion of macro 'inverted'
+  return inverted ? -n : n;
+         ^
+[0m[91mprocps/top.c: In function 'display_topmem_header':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:797:11: note: in expansion of macro 'line_buf'
+  snprintf(line_buf, LINE_BUF_SIZE,
+           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:803:70: note: in expansion of macro 'line_buf'
+  printf(OPT_BATCH_MODE ? "%.*s\n" : "\033[H\033[J%.*s\n", scr_width, line_buf);
+                                                                      ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:805:11: note: in expansion of macro 'line_buf'
+  snprintf(line_buf, LINE_BUF_SIZE,
+           ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:812:30: note: in expansion of macro 'line_buf'
+  printf("%.*s\n", scr_width, line_buf);
+                              ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:814:11: note: in expansion of macro 'line_buf'
+  snprintf(line_buf, LINE_BUF_SIZE,
+           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:818:30: note: in expansion of macro 'line_buf'
+  printf("%.*s\n", scr_width, line_buf);
+                              ^
+procps/top.c: In function 'display_topmem_process_list':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:833:29: note: in expansion of macro 'topmem'
+  const topmem_status_t *s = topmem + G_scroll_ofs;
+                             ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:833:38: note: in expansion of macro 'G_scroll_ofs'
+  const topmem_status_t *s = topmem + G_scroll_ofs;
+                                      ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:838:9: note: in expansion of macro 'line_buf'
+  strcpy(line_buf, HDR_STR " COMMAND");
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:840:8: note: in expansion of macro 'line_buf'
+  cp = &line_buf[5 + sort_field * 6];
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:190:27: note: in expansion of macro 'G'
+ #define sort_field       (G.sort_field        )
+                           ^
+procps/top.c:840:21: note: in expansion of macro 'sort_field'
+  cp = &line_buf[5 + sort_field * 6];
+                     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:191:27: note: in expansion of macro 'G'
+ #define inverted         (G.inverted          )
+                           ^
+procps/top.c:841:12: note: in expansion of macro 'inverted'
+  ch = "^_"[inverted];
+            ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:845:64: note: in expansion of macro 'line_buf'
+  printf(OPT_BATCH_MODE ? "%.*s" : "\e[7m%.*s\e[0m", scr_width, line_buf);
+                                                                ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:848:18: note: in expansion of macro 'ntop'
+  if (lines_rem > ntop - G_scroll_ofs)
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:848:25: note: in expansion of macro 'G_scroll_ofs'
+  if (lines_rem > ntop - G_scroll_ofs)
+                         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:849:15: note: in expansion of macro 'ntop'
+   lines_rem = ntop - G_scroll_ofs;
+               ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:849:22: note: in expansion of macro 'G_scroll_ofs'
+   lines_rem = ntop - G_scroll_ofs;
+                      ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:852:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->pid     , &line_buf[0*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:853:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->vsz     , &line_buf[1*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:854:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->vszrw   , &line_buf[2*6]);
+                                   ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:855:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->rss     , &line_buf[3*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:856:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->rss_sh  , &line_buf[4*6]);
+                                   ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:857:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->dirty   , &line_buf[5*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:858:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->dirty_sh, &line_buf[6*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:859:35: note: in expansion of macro 'line_buf'
+   ulltoa6_and_space(s->stack   , &line_buf[7*6]);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:860:3: note: in expansion of macro 'line_buf'
+   line_buf[8*6] = '\0';
+   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:862:18: note: in expansion of macro 'line_buf'
+    read_cmdline(&line_buf[8*6], scr_width - MIN_WIDTH, s->pid, s->comm);
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:203:27: note: in expansion of macro 'G'
+ #define line_buf         (G.line_buf          )
+                           ^
+procps/top.c:864:33: note: in expansion of macro 'line_buf'
+   printf("\n""%.*s", scr_width, line_buf);
+                                 ^
+[0m[91mprocps/top.c: In function 'handle_input':
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:912:30: note: in expansion of macro 'G'
+   c = read_key(STDIN_FILENO, G.kbd_input, interval * 1000);
+                              ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:193:27: note: in expansion of macro 'G'
+ #define initial_settings (G.initial_settings  )
+                           ^
+procps/top.c:920:12: note: in expansion of macro 'initial_settings'
+   if (c == initial_settings.c_cc[VINTR])
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:193:27: note: in expansion of macro 'G'
+ #define initial_settings (G.initial_settings  )
+                           ^
+procps/top.c:922:12: note: in expansion of macro 'initial_settings'
+   if (c == initial_settings.c_cc[VEOF])
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:926:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs--;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:930:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs++;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:934:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs = 0;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:938:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs = ntop - G.lines / 2;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:938:19: note: in expansion of macro 'ntop'
+    G_scroll_ofs = ntop - G.lines / 2;
+                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:938:26: note: in expansion of macro 'G'
+    G_scroll_ofs = ntop - G.lines / 2;
+                          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:942:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs -= G.lines / 2;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:942:20: note: in expansion of macro 'G'
+    G_scroll_ofs -= G.lines / 2;
+                    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:946:4: note: in expansion of macro 'G_scroll_ofs'
+    G_scroll_ofs += G.lines / 2;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:946:20: note: in expansion of macro 'G'
+    G_scroll_ofs += G.lines / 2;
+                    ^
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:948:8: note: in expansion of macro 'G_scroll_ofs'
+    if (G_scroll_ofs >= ntop)
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:948:24: note: in expansion of macro 'ntop'
+    if (G_scroll_ofs >= ntop)
+                        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:949:5: note: in expansion of macro 'G_scroll_ofs'
+     G_scroll_ofs = ntop - 1;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:949:20: note: in expansion of macro 'ntop'
+     G_scroll_ofs = ntop - 1;
+                    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:950:8: note: in expansion of macro 'G_scroll_ofs'
+    if (G_scroll_ofs < 0)
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:161:22: note: in expansion of macro 'G'
+ #define G_scroll_ofs G.scroll_ofs
+                      ^
+procps/top.c:951:5: note: in expansion of macro 'G_scroll_ofs'
+     G_scroll_ofs = 0;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:961:4: note: in expansion of macro 'sort_function'
+    sort_function[0] = pid_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:966:4: note: in expansion of macro 'sort_function'
+    sort_function[0] = mem_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:968:4: note: in expansion of macro 'sort_function'
+    sort_function[1] = pcpu_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:969:4: note: in expansion of macro 'sort_function'
+    sort_function[2] = time_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:984:4: note: in expansion of macro 'sort_function'
+    sort_function[0] = pcpu_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:985:4: note: in expansion of macro 'sort_function'
+    sort_function[1] = mem_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:986:4: note: in expansion of macro 'sort_function'
+    sort_function[2] = time_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:991:4: note: in expansion of macro 'sort_function'
+    sort_function[0] = time_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:992:4: note: in expansion of macro 'sort_function'
+    sort_function[1] = mem_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:993:4: note: in expansion of macro 'sort_function'
+    sort_function[2] = pcpu_sort;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:999:9: note: in expansion of macro 'prev_hist'
+    free(prev_hist);
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:195:27: note: in expansion of macro 'G'
+ #define prev_hist        (G.prev_hist         )
+                           ^
+procps/top.c:1000:4: note: in expansion of macro 'prev_hist'
+    prev_hist = NULL;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:196:27: note: in expansion of macro 'G'
+ #define prev_hist_count  (G.prev_hist_count   )
+                           ^
+procps/top.c:1001:4: note: in expansion of macro 'prev_hist_count'
+    prev_hist_count = 0;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:190:27: note: in expansion of macro 'G'
+ #define sort_field       (G.sort_field        )
+                           ^
+procps/top.c:1002:4: note: in expansion of macro 'sort_field'
+    sort_field = (sort_field + 1) % NUM_SORT_FIELD;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:190:27: note: in expansion of macro 'G'
+ #define sort_field       (G.sort_field        )
+                           ^
+procps/top.c:1002:18: note: in expansion of macro 'sort_field'
+    sort_field = (sort_field + 1) % NUM_SORT_FIELD;
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:191:27: note: in expansion of macro 'G'
+ #define inverted         (G.inverted          )
+                           ^
+procps/top.c:1007:4: note: in expansion of macro 'inverted'
+    inverted ^= 1;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:1014:8: note: in expansion of macro 'smp_cpu_info'
+    if (smp_cpu_info) {
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:1015:10: note: in expansion of macro 'cpu_prev_jif'
+     free(cpu_prev_jif);
+          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:1016:10: note: in expansion of macro 'cpu_jif'
+     free(cpu_jif);
+          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:1017:5: note: in expansion of macro 'cpu_jif'
+     cpu_jif = &cur_jif;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:1017:16: note: in expansion of macro 'cur_jif'
+     cpu_jif = &cur_jif;
+                ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:1018:5: note: in expansion of macro 'cpu_prev_jif'
+     cpu_prev_jif = &prev_jif;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:198:27: note: in expansion of macro 'G'
+ #define prev_jif         (G.prev_jif          )
+                           ^
+procps/top.c:1018:21: note: in expansion of macro 'prev_jif'
+     cpu_prev_jif = &prev_jif;
+                     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:1021:5: note: in expansion of macro 'cpu_jif'
+     cpu_jif = cpu_prev_jif = NULL;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:1021:15: note: in expansion of macro 'cpu_prev_jif'
+     cpu_jif = cpu_prev_jif = NULL;
+               ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:201:27: note: in expansion of macro 'G'
+ #define num_cpus         (G.num_cpus          )
+                           ^
+procps/top.c:1023:4: note: in expansion of macro 'num_cpus'
+    num_cpus = 0;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:1024:4: note: in expansion of macro 'smp_cpu_info'
+    smp_cpu_info = !smp_cpu_info;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:192:27: note: in expansion of macro 'G'
+ #define smp_cpu_info     (G.smp_cpu_info      )
+                           ^
+procps/top.c:1024:20: note: in expansion of macro 'smp_cpu_info'
+    smp_cpu_info = !smp_cpu_info;
+                    ^
+In file included from procps/top.c:107:0:
+procps/top.c: In function 'top_main':
+[0m[91mprocps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:1918:61: note: in definition of macro 'BUILD_BUG_ON'
+ #define BUILD_BUG_ON(condition) ((void)sizeof(char[1 - 2*!!(condition)]))
+                                                             ^
+procps/top.c:206:22: note: in expansion of macro 'G'
+  BUILD_BUG_ON(sizeof(G) > COMMON_BUFSIZE); \
+                      ^
+procps/top.c:1098:2: note: in expansion of macro 'INIT_G'
+  INIT_G();
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:199:27: note: in expansion of macro 'G'
+ #define cpu_jif          (G.cpu_jif           )
+                           ^
+procps/top.c:1105:2: note: in expansion of macro 'cpu_jif'
+  cpu_jif = &cur_jif;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:197:27: note: in expansion of macro 'G'
+ #define cur_jif          (G.cur_jif           )
+                           ^
+procps/top.c:1105:13: note: in expansion of macro 'cur_jif'
+  cpu_jif = &cur_jif;
+             ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:200:27: note: in expansion of macro 'G'
+ #define cpu_prev_jif     (G.cpu_prev_jif      )
+                           ^
+procps/top.c:1106:2: note: in expansion of macro 'cpu_prev_jif'
+  cpu_prev_jif = &prev_jif;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:198:27: note: in expansion of macro 'G'
+ #define prev_jif         (G.prev_jif          )
+                           ^
+procps/top.c:1106:18: note: in expansion of macro 'prev_jif'
+  cpu_prev_jif = &prev_jif;
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:1134:2: note: in expansion of macro 'sort_function'
+  sort_function[0] = pcpu_sort;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:1135:2: note: in expansion of macro 'sort_function'
+  sort_function[1] = mem_sort;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:194:27: note: in expansion of macro 'G'
+ #define sort_function    (G.sort_function     )
+                           ^
+procps/top.c:1136:2: note: in expansion of macro 'sort_function'
+  sort_function[2] = time_sort;
+  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:193:27: note: in expansion of macro 'G'
+ #define initial_settings (G.initial_settings  )
+                           ^
+procps/top.c:1146:26: note: in expansion of macro 'initial_settings'
+   tcgetattr(0, (void *) &initial_settings);
+                          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:193:27: note: in expansion of macro 'G'
+ #define initial_settings (G.initial_settings  )
+                           ^
+procps/top.c:1147:26: note: in expansion of macro 'initial_settings'
+   memcpy(&new_settings, &initial_settings, sizeof(new_settings));
+                          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1163:4: note: in expansion of macro 'G'
+    G.lines = INT_MAX;
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1166:4: note: in expansion of macro 'G'
+    G.lines = 24; /* default */
+    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1170:52: note: in expansion of macro 'G'
+    get_terminal_width_height(STDOUT_FILENO, &col, &G.lines);
+                                                    ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1171:8: note: in expansion of macro 'G'
+    if (G.lines < 5 || col < 10) {
+        ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1181:3: note: in expansion of macro 'ntop'
+   ntop = 0;
+   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1186:9: note: in expansion of macro 'ntop'
+     n = ntop;
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1187:5: note: in expansion of macro 'top'
+     top = xrealloc_vector(top, 6, ntop++);
+     ^
+In file included from procps/top.c:107:0:
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:26: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                          ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1187:27: note: in expansion of macro 'top'
+     top = xrealloc_vector(top, 6, ntop++);
+                           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:44: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                            ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1187:27: note: in expansion of macro 'top'
+     top = xrealloc_vector(top, 6, ntop++);
+                           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:74: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                                                          ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1187:35: note: in expansion of macro 'ntop'
+     top = xrealloc_vector(top, 6, ntop++);
+                                   ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1188:5: note: in expansion of macro 'top'
+     top[n].pid = p->pid;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1189:5: note: in expansion of macro 'top'
+     top[n].ppid = p->ppid;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1190:5: note: in expansion of macro 'top'
+     top[n].vsz = p->vsz;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1192:5: note: in expansion of macro 'top'
+     top[n].ticks = p->stime + p->utime;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1194:5: note: in expansion of macro 'top'
+     top[n].uid = p->uid;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1195:12: note: in expansion of macro 'top'
+     strcpy(top[n].state, p->state);
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1196:12: note: in expansion of macro 'top'
+     strcpy(top[n].comm, p->comm);
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1198:5: note: in expansion of macro 'top'
+     top[n].last_seen_on_cpu = p->last_seen_on_cpu;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1205:9: note: in expansion of macro 'ntop'
+     n = ntop;
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1207:5: note: in expansion of macro 'top'
+     top = xrealloc_vector(topmem, 6, ntop++);
+     ^
+In file included from procps/top.c:107:0:
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:26: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                          ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1207:27: note: in expansion of macro 'topmem'
+     top = xrealloc_vector(topmem, 6, ntop++);
+                           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:44: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                            ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1207:27: note: in expansion of macro 'topmem'
+     top = xrealloc_vector(topmem, 6, ntop++);
+                           ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+include/libbb.h:763:74: note: in definition of macro 'xrealloc_vector'
+  xrealloc_vector_helper((vector), (sizeof((vector)[0]) << 8) + (shift), (idx))
+                                                                          ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1207:38: note: in expansion of macro 'ntop'
+     top = xrealloc_vector(topmem, 6, ntop++);
+                                      ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1208:12: note: in expansion of macro 'topmem'
+     strcpy(topmem[n].comm, p->comm);
+            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1209:5: note: in expansion of macro 'topmem'
+     topmem[n].pid      = p->pid;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1210:5: note: in expansion of macro 'topmem'
+     topmem[n].vsz      = p->smaps.mapped_rw + p->smaps.mapped_ro;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1211:5: note: in expansion of macro 'topmem'
+     topmem[n].vszrw    = p->smaps.mapped_rw;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1212:5: note: in expansion of macro 'topmem'
+     topmem[n].rss_sh   = p->smaps.shared_clean + p->smaps.shared_dirty;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1213:5: note: in expansion of macro 'topmem'
+     topmem[n].rss      = p->smaps.private_clean + p->smaps.private_dirty + topmem[n].rss_sh;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1213:76: note: in expansion of macro 'topmem'
+     topmem[n].rss      = p->smaps.private_clean + p->smaps.private_dirty + topmem[n].rss_sh;
+                                                                            ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1214:5: note: in expansion of macro 'topmem'
+     topmem[n].dirty    = p->smaps.private_dirty + p->smaps.shared_dirty;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1215:5: note: in expansion of macro 'topmem'
+     topmem[n].dirty_sh = p->smaps.shared_dirty;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1216:5: note: in expansion of macro 'topmem'
+     topmem[n].stack    = p->smaps.stack;
+     ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1220:7: note: in expansion of macro 'ntop'
+   if (ntop == 0) {
+       ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:196:27: note: in expansion of macro 'G'
+ #define prev_hist_count  (G.prev_hist_count   )
+                           ^
+procps/top.c:1227:9: note: in expansion of macro 'prev_hist_count'
+    if (!prev_hist_count) {
+         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:1235:10: note: in expansion of macro 'top'
+    qsort(top, ntop, sizeof(top_status_t), (void*)mult_lvl_cmp);
+          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1235:15: note: in expansion of macro 'ntop'
+    qsort(top, ntop, sizeof(top_status_t), (void*)mult_lvl_cmp);
+               ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1239:25: note: in expansion of macro 'G'
+    display_process_list(G.lines, col);
+                         ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:188:27: note: in expansion of macro 'G'
+ #define top              (G.top               )
+                           ^
+procps/top.c:768:35: note: in expansion of macro 'top'
+ #define topmem ((topmem_status_t*)top)
+                                   ^
+procps/top.c:1243:10: note: in expansion of macro 'topmem'
+    qsort(topmem, ntop, sizeof(topmem_status_t), (void*)topmem_sort);
+          ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:189:27: note: in expansion of macro 'G'
+ #define ntop             (G.ntop              )
+                           ^
+procps/top.c:1243:18: note: in expansion of macro 'ntop'
+    qsort(topmem, ntop, sizeof(topmem_status_t), (void*)topmem_sort);
+                  ^
+procps/top.c:187:21: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ #define G (*(struct globals*)bb_common_bufsiz1)
+                     ^
+procps/top.c:1244:32: note: in expansion of macro 'G'
+    display_topmem_process_list(G.lines, col);
+                                ^
+[0m  CC      procps/uptime.o
+  CC      procps/watch.o
+[91mprocps/watch.c: In function 'watch_main':
+procps/watch.c:96:3: warning: ignoring return value of 'system', declared with attribute warn_unused_result [-Wunused-result]
+   system(cmd);
+   ^
+[0m  AR      procps/lib.a
+  LD      runit/built-in.o
+  AR      runit/lib.a
+  LD      selinux/built-in.o
+  AR      selinux/lib.a
+  LD      shell/built-in.o
+  CC      shell/ash.o
+  CC      shell/ash_ptr_hack.o
+  CC      shell/math.o
+  CC      shell/random.o
+  CC      shell/shell_common.o
+  AR      shell/lib.a
+  LD      sysklogd/built-in.o
+  CC      sysklogd/klogd.o
+  CC      sysklogd/logread.o
+  CC      sysklogd/syslogd_and_logger.o
+  AR      sysklogd/lib.a
+  LD      util-linux/built-in.o
+  CC      util-linux/acpid.o
+  CC      util-linux/blkdiscard.o
+  CC      util-linux/blkid.o
+  CC      util-linux/blockdev.o
+  CC      util-linux/dmesg.o
+  CC      util-linux/fatattr.o
+  CC      util-linux/fbset.o
+  CC      util-linux/fdformat.o
+  CC      util-linux/fdisk.o
+[91mIn file included from util-linux/fdisk.c:651:0:
+util-linux/fdisk_aix.c: In function 'check_aix_label':
+util-linux/fdisk_aix.c:57:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  if (aixlabel->magic != AIX_LABEL_MAGIC
+  ^
+[0m[91mutil-linux/fdisk_aix.c:58:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   && aixlabel->magic != AIX_LABEL_MAGIC_SWAPPED
+   ^
+[0m[91mutil-linux/fdisk_aix.c:64:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  aix_other_endian = (aixlabel->magic == AIX_LABEL_MAGIC_SWAPPED);
+  ^
+[0m[91mIn file included from util-linux/fdisk.c:723:0:
+util-linux/fdisk_sgi.c: In function 'sgi_get_nsect':
+util-linux/fdisk_sgi.c:203:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP16(sgilabel->devparam.nsect);
+  ^
+util-linux/fdisk_sgi.c:203:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_get_ntrks':
+util-linux/fdisk_sgi.c:209:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP16(sgilabel->devparam.ntrks);
+  ^
+util-linux/fdisk_sgi.c:209:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'check_sgi_label':
+util-linux/fdisk_sgi.c:235:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  if (sgilabel->magic != SGI_LABEL_MAGIC
+  ^
+util-linux/fdisk_sgi.c:236:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   && sgilabel->magic != SGI_LABEL_MAGIC_SWAPPED
+   ^
+[0m[91mutil-linux/fdisk_sgi.c:242:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgi_other_endian = (sgilabel->magic == SGI_LABEL_MAGIC_SWAPPED);
+  ^
+[0m[91mutil-linux/fdisk_sgi.c:247:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     sizeof(*sgilabel))) {
+     ^
+util-linux/fdisk_sgi.c: In function 'sgi_get_start_sector':
+util-linux/fdisk_sgi.c:260:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP32(sgilabel->partitions[i].start_sector);
+  ^
+util-linux/fdisk_sgi.c:260:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_get_num_sectors':
+util-linux/fdisk_sgi.c:266:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP32(sgilabel->partitions[i].num_sectors);
+  ^
+util-linux/fdisk_sgi.c:266:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_get_sysid':
+util-linux/fdisk_sgi.c:272:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP32(sgilabel->partitions[i].id);
+  ^
+util-linux/fdisk_sgi.c:272:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_get_bootpartition':
+util-linux/fdisk_sgi.c:278:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP16(sgilabel->boot_part);
+  ^
+util-linux/fdisk_sgi.c:278:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_get_swappartition':
+util-linux/fdisk_sgi.c:284:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return SGI_SSWAP16(sgilabel->swap_part);
+  ^
+util-linux/fdisk_sgi.c:284:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c: In function 'sgi_list_table':
+util-linux/fdisk_sgi.c:300:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    SGI_SSWAP16(sgiparam.pcylcount),
+    ^
+util-linux/fdisk_sgi.c:300:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:301:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    SGI_SSWAP16(sgiparam.sparecyl),
+    ^
+util-linux/fdisk_sgi.c:301:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:302:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    SGI_SSWAP16(sgiparam.ilfact),
+    ^
+util-linux/fdisk_sgi.c:302:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+[0m[91mutil-linux/fdisk_sgi.c:341:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   sgilabel->boot_file);
+   ^
+util-linux/fdisk_sgi.c:343:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   if (sgilabel->directory[i].vol_file_size) {
+   ^
+util-linux/fdisk_sgi.c:344:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    uint32_t start = SGI_SSWAP32(sgilabel->directory[i].vol_file_start);
+    ^
+util-linux/fdisk_sgi.c:344:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:345:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    uint32_t len = SGI_SSWAP32(sgilabel->directory[i].vol_file_size);
+    ^
+[0m[91mutil-linux/fdisk_sgi.c:345:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:346:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    unsigned char *name = sgilabel->directory[i].vol_file_name;
+    ^
+util-linux/fdisk_sgi.c: In function 'sgi_set_bootpartition':
+util-linux/fdisk_sgi.c:357:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->boot_part = SGI_SSWAP16(((short)i));
+  ^
+[0m[91mutil-linux/fdisk_sgi.c: In function 'sgi_set_swappartition':
+util-linux/fdisk_sgi.c:369:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->swap_part = SGI_SSWAP16(((short)i));
+  ^
+[0m[91mutil-linux/fdisk_sgi.c: In function 'sgi_check_bootfile':
+util-linux/fdisk_sgi.c:389:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  if (strncmp(aFile, (char*)sgilabel->boot_file, 16)) {
+  ^
+[0m[91mutil-linux/fdisk_sgi.c: In function 'sgi_get_bootfile':
+util-linux/fdisk_sgi.c:401:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  return (char*)sgilabel->boot_file;
+  ^
+util-linux/fdisk_sgi.c: In function 'sgi_set_bootfile':
+util-linux/fdisk_sgi.c:413:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     sgilabel->boot_file[i] = aFile[i];
+     ^
+[0m[91mutil-linux/fdisk_sgi.c:415:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     sgilabel->boot_file[i] = 0;
+     ^
+util-linux/fdisk_sgi.c:418:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   printf("\n\tBootfile is changed to \"%s\"\n", sgilabel->boot_file);
+   ^
+util-linux/fdisk_sgi.c: In function 'create_sgiinfo':
+util-linux/fdisk_sgi.c:426:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->directory[0].vol_file_start = SGI_SSWAP32(2);
+  ^
+util-linux/fdisk_sgi.c:427:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->directory[0].vol_file_size = SGI_SSWAP32(sizeof(sgiinfo));
+  ^
+util-linux/fdisk_sgi.c:428:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  strncpy((char*)sgilabel->directory[0].vol_file_name, "sgilabel", 8);
+  ^
+util-linux/fdisk_sgi.c: In function 'sgi_write_table':
+util-linux/fdisk_sgi.c:436:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->csum = 0;
+  ^
+[0m[91mutil-linux/fdisk_sgi.c:437:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->csum = SGI_SSWAP32(two_s_complement_32bit_sum(
+  ^
+util-linux/fdisk_sgi.c:437:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:437:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+util-linux/fdisk_sgi.c:443:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  if (is_prefixed_with((char*)sgilabel->directory[0].vol_file_name, "sgilabel")) {
+  ^
+util-linux/fdisk_sgi.c:449:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   int infostartblock = SGI_SSWAP32(sgilabel->directory[0].vol_file_start);
+   ^
+util-linux/fdisk_sgi.c:449:3: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+[0m[91mutil-linux/fdisk_sgi.c: In function 'sgi_change_sysid':
+util-linux/fdisk_sgi.c:629:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->partitions[i].id = SGI_SSWAP32(sys);
+  ^
+util-linux/fdisk_sgi.c: In function 'sgi_set_partition':
+util-linux/fdisk_sgi.c:647:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->partitions[i].id = SGI_SSWAP32(sys);
+  ^
+util-linux/fdisk_sgi.c:648:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->partitions[i].num_sectors = SGI_SSWAP32(length);
+  ^
+util-linux/fdisk_sgi.c:649:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->partitions[i].start_sector = SGI_SSWAP32(start);
+  ^
+util-linux/fdisk_sgi.c: In function 'create_sgilabel':
+util-linux/fdisk_sgi.c:816:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->magic = SGI_SSWAP32(SGI_LABEL_MAGIC);
+  ^
+util-linux/fdisk_sgi.c:818:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->swap_part = SGI_SSWAP16(1);
+  ^
+util-linux/fdisk_sgi.c:821:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  strcpy((char*)sgilabel->boot_file, "/unix"); /* sizeof(sgilabel->boot_file) == 16 > 6 */
+  ^
+util-linux/fdisk_sgi.c:827:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.pcylcount                = SGI_SSWAP16(geometry.cylinders);
+  ^
+util-linux/fdisk_sgi.c:830:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.ntrks                    = SGI_SSWAP16(geometry.heads);
+  ^
+util-linux/fdisk_sgi.c:835:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.nsect                    = SGI_SSWAP16(geometry.sectors);
+  ^
+util-linux/fdisk_sgi.c:836:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.bytes                    = SGI_SSWAP16(512);
+  ^
+util-linux/fdisk_sgi.c:837:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.ilfact                   = SGI_SSWAP16(1);
+  ^
+util-linux/fdisk_sgi.c:838:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.flags                    = SGI_SSWAP32(TRACK_FWD|
+  ^
+util-linux/fdisk_sgi.c:841:2: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  sgilabel->devparam.retries_on_error         = SGI_SSWAP32(1);
+  ^
+[0m  CC      util-linux/findfs.o
+  CC      util-linux/flock.o
+  CC      util-linux/freeramdisk.o
+  CC      util-linux/fstrim.o
+  CC      util-linux/getopt.o
+  CC      util-linux/hexdump.o
+  CC      util-linux/hwclock.o
+  CC      util-linux/ipcrm.o
+  CC      util-linux/ipcs.o
+  CC      util-linux/losetup.o
+  CC      util-linux/lspci.o
+  CC      util-linux/lsusb.o
+  CC      util-linux/mdev.o
+[91mutil-linux/mdev.c: In function 'make_device':
+[0m[91mutil-linux/mdev.c:766:5: warning: ignoring return value of 'chown', declared with attribute warn_unused_result [-Wunused-result]
+     chown(node_name, rule->ugid.uid, rule->ugid.gid);
+     ^
+[0m[91mutil-linux/mdev.c:769:5: warning: ignoring return value of 'symlink', declared with attribute warn_unused_result [-Wunused-result]
+     symlink(node_name, "root");
+     ^
+util-linux/mdev.c:776:6: warning: ignoring return value of 'symlink', declared with attribute warn_unused_result [-Wunused-result]
+      symlink(node_name, device_name);
+      ^
+[0m  CC      util-linux/mkfs_vfat.o
+  CC      util-linux/mkswap.o
+  CC      util-linux/more.o
+  CC      util-linux/mount.o
+  CC      util-linux/nsenter.o
+  CC      util-linux/rdate.o
+  CC      util-linux/rdev.o
+  CC      util-linux/readprofile.o
+  CC      util-linux/rev.o
+  CC      util-linux/swaponoff.o
+  CC      util-linux/switch_root.o
+  CC      util-linux/umount.o
+  CC      util-linux/unshare.o
+[91mutil-linux/unshare.c: In function 'unshare_main':
+[0m[91mutil-linux/unshare.c:298:4: warning: ignoring return value of 'read', declared with attribute warn_unused_result [-Wunused-result]
+    read(fdp.rd, ns_ctx_list, 1); /* ...using bogus buffer */
+    ^
+[0m  AR      util-linux/lib.a
+  LD      util-linux/volume_id/built-in.o
+  CC      util-linux/volume_id/bcache.o
+  CC      util-linux/volume_id/btrfs.o
+  CC      util-linux/volume_id/cramfs.o
+  CC      util-linux/volume_id/exfat.o
+  CC      util-linux/volume_id/ext.o
+  CC      util-linux/volume_id/f2fs.o
+  CC      util-linux/volume_id/fat.o
+  CC      util-linux/volume_id/get_devname.o
+  CC      util-linux/volume_id/iso9660.o
+  CC      util-linux/volume_id/jfs.o
+  CC      util-linux/volume_id/linux_raid.o
+  CC      util-linux/volume_id/linux_swap.o
+  CC      util-linux/volume_id/luks.o
+  CC      util-linux/volume_id/nilfs.o
+  CC      util-linux/volume_id/ntfs.o
+  CC      util-linux/volume_id/ocfs2.o
+  CC      util-linux/volume_id/reiserfs.o
+  CC      util-linux/volume_id/squashfs.o
+  CC      util-linux/volume_id/udf.o
+  CC      util-linux/volume_id/util.o
+  CC      util-linux/volume_id/volume_id.o
+  CC      util-linux/volume_id/xfs.o
+  AR      util-linux/volume_id/lib.a
+  LINK    busybox_unstripped
+Trying libraries: crypt m
+ Library crypt is needed, can't exclude it (yet)
+ Library m is needed, can't exclude it (yet)
+Final link with: crypt m
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     busybox.1
+  DOC     BusyBox.html
+ ---> 3ef3ef11e475
+Removing intermediate container 62b178cafafa
+Step 7/7 : RUN cd /usr/src/busybox*     && install -m 755 busybox /bin/busybox     && cd /     && for i in $(busybox --list-full); do [ -e $i ] && busybox rm $i; busybox ln -s /bin/busybox $i; done
+ ---> Running in d68558fee1b8
+ ---> 503f2ad30744
+Removing intermediate container d68558fee1b8
+Successfully built 503f2ad30744
